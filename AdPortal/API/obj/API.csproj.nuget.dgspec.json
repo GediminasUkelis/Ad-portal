@@ -41,6 +41,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -103,6 +121,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -144,7 +180,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\YES\\Desktop\\ad-Portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\AdPortal\\Domain\\Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -155,6 +195,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -207,6 +265,24 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

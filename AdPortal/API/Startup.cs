@@ -2,10 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BLL.Services;
+using BLL.Services.Interfaces;
+using DAL.Data;
+using DAL.Repositories;
+using DAL.Repositories.Interfaces;
+using Domain.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -26,6 +33,10 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>
+                (options => options.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;"));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IGenericService<Car>, CarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
