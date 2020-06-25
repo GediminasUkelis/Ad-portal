@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class InitialCommit : Migration
+    public partial class ChangedIdToGuid : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace DAL.Migrations
                 name: "Categories",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -25,8 +24,7 @@ namespace DAL.Migrations
                 name: "Colors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -39,8 +37,7 @@ namespace DAL.Migrations
                 name: "Conditions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     VehicCondition = table.Column<string>(nullable: true)
                 },
@@ -53,8 +50,7 @@ namespace DAL.Migrations
                 name: "Coolings",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     CoolingType = table.Column<string>(nullable: true)
                 },
@@ -67,8 +63,7 @@ namespace DAL.Migrations
                 name: "Defects",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Defect = table.Column<string>(nullable: true)
                 },
@@ -81,8 +76,7 @@ namespace DAL.Migrations
                 name: "Diameters",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     TireDiameter = table.Column<decimal>(nullable: false)
                 },
@@ -95,8 +89,7 @@ namespace DAL.Migrations
                 name: "Doors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     DoorCount = table.Column<string>(nullable: true)
                 },
@@ -106,11 +99,23 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Features",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    CreatedOn = table.Column<DateTime>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Features", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "FrameTypes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Type = table.Column<string>(nullable: true)
                 },
@@ -123,8 +128,7 @@ namespace DAL.Migrations
                 name: "FuelTypes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Type = table.Column<string>(nullable: true)
                 },
@@ -137,8 +141,7 @@ namespace DAL.Migrations
                 name: "Heights",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     TireHeight = table.Column<decimal>(nullable: false)
                 },
@@ -151,8 +154,7 @@ namespace DAL.Migrations
                 name: "Manufacturers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -165,8 +167,7 @@ namespace DAL.Migrations
                 name: "Seasons",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     SeasonName = table.Column<string>(nullable: true)
                 },
@@ -179,8 +180,7 @@ namespace DAL.Migrations
                 name: "SteeringWheelPos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Position = table.Column<string>(nullable: true)
                 },
@@ -193,8 +193,7 @@ namespace DAL.Migrations
                 name: "TirePurposes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true)
                 },
@@ -207,8 +206,7 @@ namespace DAL.Migrations
                 name: "Transmissions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Type = table.Column<string>(nullable: true)
                 },
@@ -221,8 +219,7 @@ namespace DAL.Migrations
                 name: "Widths",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     TireWidth = table.Column<decimal>(nullable: false)
                 },
@@ -235,11 +232,10 @@ namespace DAL.Migrations
                 name: "VehicleTypes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Type = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: true)
+                    CategoryId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -256,11 +252,10 @@ namespace DAL.Migrations
                 name: "ManufacturerModels",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     Name = table.Column<string>(nullable: true),
-                    ManufacturerId = table.Column<int>(nullable: true)
+                    ManufacturerId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,20 +272,19 @@ namespace DAL.Migrations
                 name: "Cars",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    CategoryId = table.Column<int>(nullable: true),
-                    ManufacturerId = table.Column<int>(nullable: true),
+                    CategoryId = table.Column<Guid>(nullable: true),
+                    ManufacturerId = table.Column<Guid>(nullable: true),
                     ManufactureDate = table.Column<DateTime>(nullable: false),
                     Engine = table.Column<string>(nullable: true),
-                    FuelTypeId = table.Column<int>(nullable: true),
-                    FrameTypeId = table.Column<int>(nullable: true),
-                    ColorId = table.Column<int>(nullable: true),
-                    TransmissionId = table.Column<int>(nullable: true),
-                    DefectsId = table.Column<int>(nullable: true),
-                    SteeringWheelPosId = table.Column<int>(nullable: true),
-                    DoorsId = table.Column<int>(nullable: true),
+                    FuelTypeId = table.Column<Guid>(nullable: true),
+                    FrameTypeId = table.Column<Guid>(nullable: true),
+                    ColorId = table.Column<Guid>(nullable: true),
+                    TransmissionId = table.Column<Guid>(nullable: true),
+                    DefectsId = table.Column<Guid>(nullable: true),
+                    SteeringWheelPosId = table.Column<Guid>(nullable: true),
+                    DoorsId = table.Column<Guid>(nullable: true),
                     Seats = table.Column<int>(nullable: false),
                     VehicleInspection = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
@@ -359,18 +353,17 @@ namespace DAL.Migrations
                 name: "Tires",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ConditionId = table.Column<int>(nullable: true),
-                    DiameterId = table.Column<int>(nullable: true),
-                    WidthId = table.Column<int>(nullable: true),
-                    HeightId = table.Column<int>(nullable: true),
-                    SeasonId = table.Column<int>(nullable: true),
-                    TirePurposeId = table.Column<int>(nullable: true),
+                    ConditionId = table.Column<Guid>(nullable: true),
+                    DiameterId = table.Column<Guid>(nullable: true),
+                    WidthId = table.Column<Guid>(nullable: true),
+                    HeightId = table.Column<Guid>(nullable: true),
+                    SeasonId = table.Column<Guid>(nullable: true),
+                    TirePurposeId = table.Column<Guid>(nullable: true),
                     ManufactureDate = table.Column<DateTime>(nullable: false),
                     TireWearOut = table.Column<decimal>(nullable: false),
-                    ManufacturerId = table.Column<int>(nullable: true),
+                    ManufacturerId = table.Column<Guid>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false)
@@ -426,20 +419,19 @@ namespace DAL.Migrations
                 name: "Motorbikes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     CreatedOn = table.Column<DateTime>(nullable: false),
-                    ManufacturerId = table.Column<int>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: true),
-                    ConditionId = table.Column<int>(nullable: true),
+                    ManufacturerId = table.Column<Guid>(nullable: true),
+                    CategoryId = table.Column<Guid>(nullable: true),
+                    ConditionId = table.Column<Guid>(nullable: true),
                     ManufactureDate = table.Column<DateTime>(nullable: false),
-                    VehicleTypeId = table.Column<int>(nullable: true),
+                    VehicleTypeId = table.Column<Guid>(nullable: true),
                     EngineCapacity = table.Column<int>(nullable: false),
-                    FuelTypeId = table.Column<int>(nullable: true),
+                    FuelTypeId = table.Column<Guid>(nullable: true),
                     TireWearOut = table.Column<decimal>(nullable: false),
                     Power = table.Column<int>(nullable: false),
-                    CoolingId = table.Column<int>(nullable: true),
-                    DefectsId = table.Column<int>(nullable: true),
+                    CoolingId = table.Column<Guid>(nullable: true),
+                    DefectsId = table.Column<Guid>(nullable: true),
                     Registration = table.Column<bool>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false)
@@ -492,32 +484,57 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Features",
+                name: "CarFeatures",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CreatedOn = table.Column<DateTime>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    CarId = table.Column<int>(nullable: true),
-                    MotorbikeId = table.Column<int>(nullable: true)
+                    CarId = table.Column<Guid>(nullable: false),
+                    FeatureId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Features", x => x.Id);
+                    table.PrimaryKey("PK_CarFeatures", x => new { x.CarId, x.FeatureId });
                     table.ForeignKey(
-                        name: "FK_Features_Cars_CarId",
+                        name: "FK_CarFeatures_Cars_CarId",
                         column: x => x.CarId,
                         principalTable: "Cars",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Features_Motorbikes_MotorbikeId",
+                        name: "FK_CarFeatures_Features_FeatureId",
+                        column: x => x.FeatureId,
+                        principalTable: "Features",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MotorbikeFeatures",
+                columns: table => new
+                {
+                    MotorbikeId = table.Column<Guid>(nullable: false),
+                    FeatureId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MotorbikeFeatures", x => new { x.MotorbikeId, x.FeatureId });
+                    table.ForeignKey(
+                        name: "FK_MotorbikeFeatures_Features_FeatureId",
+                        column: x => x.FeatureId,
+                        principalTable: "Features",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_MotorbikeFeatures_Motorbikes_MotorbikeId",
                         column: x => x.MotorbikeId,
                         principalTable: "Motorbikes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CarFeatures_FeatureId",
+                table: "CarFeatures",
+                column: "FeatureId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cars_CategoryId",
@@ -565,19 +582,14 @@ namespace DAL.Migrations
                 column: "TransmissionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Features_CarId",
-                table: "Features",
-                column: "CarId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Features_MotorbikeId",
-                table: "Features",
-                column: "MotorbikeId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ManufacturerModels_ManufacturerId",
                 table: "ManufacturerModels",
                 column: "ManufacturerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_MotorbikeFeatures_FeatureId",
+                table: "MotorbikeFeatures",
+                column: "FeatureId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Motorbikes_CategoryId",
@@ -658,16 +670,22 @@ namespace DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Features");
+                name: "CarFeatures");
 
             migrationBuilder.DropTable(
                 name: "ManufacturerModels");
+
+            migrationBuilder.DropTable(
+                name: "MotorbikeFeatures");
 
             migrationBuilder.DropTable(
                 name: "Tires");
 
             migrationBuilder.DropTable(
                 name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "Features");
 
             migrationBuilder.DropTable(
                 name: "Motorbikes");

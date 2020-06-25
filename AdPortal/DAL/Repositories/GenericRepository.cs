@@ -19,7 +19,7 @@ namespace DAL.Repositories
         }
 
         public List<T> GetAll() => Query().ToList();
-        public T GetById(int id) => Query().SingleOrDefault(s => s.Id == id);
+        public T GetById(Guid id) => Query().SingleOrDefault(s => s.Id == id);
 
         public void Delete(T obj)
         {
@@ -54,10 +54,11 @@ namespace DAL.Repositories
         public IQueryable<T> Query()
         {
             var query = entities.AsQueryable();
+
             foreach (var property in context.Model.FindEntityType(typeof(T)).GetNavigations())
-            query = query.Include(property.Name);
+                 query = query.Include(property.Name);
+                        
             return query;
         }
-
     }
 }

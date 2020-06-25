@@ -6,9 +6,9 @@ namespace Domain.Models
 {
     public class MotorbikeFeatures
     {
-        public int MotorbikeId { get; set; }
+        public Guid MotorbikeId { get; set; }
         public Motorbike Motorbike { get; set; }
-        public int FeatureId { get; set; }
+        public Guid FeatureId { get; set; }
         public Features Feature { get; set; }
     }
 }

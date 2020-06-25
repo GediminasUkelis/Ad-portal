@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "C7dVza17S+Y2xmBcl2IqRaQ/U/yiY5hLpgSVnKzkULaheMhKTP+ux2V8niz9MQ8KUeMSHInP55K44yaIftaKYg==",
+  "dgSpecHash": "zHP7Djss910fNRW6wI2ONMJACisGfkjmakmRifH5V4vpsWMpCe843wTuv1RurRIeCN9yGz4M0/RepvobnnJ2ag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-Portal\\AdPortal\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\YES\\.nuget\\packages\\mediatr\\8.0.1\\mediatr.8.0.1.nupkg.sha512",
+    "C:\\Users\\YES\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\8.0.0\\mediatr.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

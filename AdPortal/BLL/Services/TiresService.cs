@@ -16,7 +16,7 @@ namespace BLL.Services
             this.TireRepository = TireRepository;
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var dbEntry = TireRepository.GetById(id);
             TireRepository.Delete(dbEntry);
@@ -28,7 +28,7 @@ namespace BLL.Services
             return TireRepository.GetAll();
         }
 
-        public Tire GetById(int id)
+        public Tire GetById(Guid id)
         {
             return TireRepository.GetById(id);
         }

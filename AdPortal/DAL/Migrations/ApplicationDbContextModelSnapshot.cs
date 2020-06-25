@@ -21,43 +21,42 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Car", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("ColorId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ColorId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DefectsId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DefectsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DoorsId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DoorsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Engine")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FrameTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("FrameTypeId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("FuelTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("FuelTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ManufacturerId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -65,11 +64,11 @@ namespace DAL.Migrations
                     b.Property<int>("Seats")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SteeringWheelPosId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("SteeringWheelPosId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("TransmissionId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("TransmissionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("VehicleInspection")
                         .HasColumnType("datetime2");
@@ -99,11 +98,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.CarFeatures", b =>
                 {
-                    b.Property<int>("CarId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CarId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("FeatureId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("FeatureId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("CarId", "FeatureId");
 
@@ -114,10 +113,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Category", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -132,10 +130,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Color", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -150,10 +147,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Condition", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -168,10 +164,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Cooling", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("CoolingType")
                         .HasColumnType("nvarchar(max)");
@@ -186,10 +181,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Defects", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -204,10 +198,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Diameter", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -222,10 +215,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Doors", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -240,10 +232,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Features", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -258,10 +249,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.FrameType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -276,10 +266,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.FuelType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -294,10 +283,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Height", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -312,10 +300,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Manufacturer", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -330,16 +317,15 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.ManufacturerModel", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ManufacturerId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -353,25 +339,24 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("ConditionId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ConditionId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CoolingId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CoolingId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DefectsId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DefectsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -379,14 +364,14 @@ namespace DAL.Migrations
                     b.Property<int>("EngineCapacity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("FuelTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("FuelTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ManufacturerId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Power")
                         .HasColumnType("int");
@@ -400,8 +385,8 @@ namespace DAL.Migrations
                     b.Property<decimal>("TireWearOut")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("VehicleTypeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("VehicleTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -424,11 +409,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.MotorbikeFeatures", b =>
                 {
-                    b.Property<int>("MotorbikeId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("MotorbikeId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("FeatureId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("FeatureId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("MotorbikeId", "FeatureId");
 
@@ -439,10 +424,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Season", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -457,10 +441,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.SteeringWheelPos", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -475,13 +458,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Tire", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("ConditionId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ConditionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -489,17 +471,17 @@ namespace DAL.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DiameterId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("DiameterId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("HeightId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("HeightId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ManufacturerId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -507,17 +489,17 @@ namespace DAL.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SeasonId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("SeasonId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("TirePurposeId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("TirePurposeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("TireWearOut")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("WidthId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("WidthId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -540,10 +522,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.TirePurpose", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -558,10 +539,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Transmission", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -576,13 +556,12 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.VehicleType", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -599,10 +578,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Width", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");

@@ -7,6 +7,12 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200623070133_InitialCommit.cs" />
     <Compile Remove="Migrations\20200623070133_InitialCommit.Designer.cs" />
+    <Compile Remove="Migrations\20200623070205_InitialCommit.cs" />
+    <Compile Remove="Migrations\20200623070205_InitialCommit.Designer.cs" />
+    <Compile Remove="Migrations\20200623122404_AddFeaturesToDb.cs" />
+    <Compile Remove="Migrations\20200623122404_AddFeaturesToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.cs" />
+    <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

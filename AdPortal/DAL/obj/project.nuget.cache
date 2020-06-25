@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0hLCO7uH1h3ovGMj76CU7blYGiRu6Lqx9zMrO+h/Kk3xV8xwiMbDbZf4CWb6l8hBFEqa2hV6BXTicq5socHr9A==",
+  "dgSpecHash": "WEZP388BDF3UAeEaKbKsUxn7Pzwys6y0WGZ4gHP0Xlteyy9RUvFaFmi0iu9U00fm26Ex2DdPiSa8Rm0kcvtIWA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-Portal\\AdPortal\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YES\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

@@ -7,9 +7,9 @@ namespace Domain.Models
     public class CarFeatures
     {
        
-        public int CarId { get; set; }
+        public Guid CarId { get; set; }
         public Car Car { get; set; }
-        public int FeatureId { get; set; }
+        public Guid FeatureId { get; set; }
         public Features Feature { get; set; }
     }
 }

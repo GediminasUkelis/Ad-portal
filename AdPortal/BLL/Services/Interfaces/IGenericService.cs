@@ -8,9 +8,9 @@ namespace BLL.Services.Interfaces
     public interface IGenericService<T> 
     {
         List<T> GetAll();
-        T GetById(int id);
+        T GetById(Guid id);
         void Insert(T obj);
         void Update(T obj);
-        void Delete(int id);
+        void Delete(Guid id);
     }
 }

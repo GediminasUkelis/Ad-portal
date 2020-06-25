@@ -19,7 +19,7 @@ namespace BLL.Services
             this.MotorbikeRepository = MotorbikeRepository;
         }
        
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
 
             var dbEntry = MotorbikeRepository.GetById(id);
@@ -32,7 +32,7 @@ namespace BLL.Services
             return MotorbikeRepository.GetAll();
         }
 
-        public Motorbike GetById(int id)
+        public Motorbike GetById(Guid id)
         {
             return MotorbikeRepository.GetById(id);
         }

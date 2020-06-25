@@ -16,7 +16,7 @@ namespace BLL.Services
             CarRepository = _CarRepository;
         }
 
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
             var dbEntry = CarRepository.GetById(id);
             CarRepository.Delete(dbEntry);
@@ -28,7 +28,7 @@ namespace BLL.Services
             return CarRepository.GetAll();
         }
 
-        public Car GetById(int id)
+        public Car GetById(Guid id)
         {
             
             var entry = CarRepository.GetById(id);
