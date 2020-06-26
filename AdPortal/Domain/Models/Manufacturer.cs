@@ -8,6 +8,7 @@ namespace Domain.Models
     public class Manufacturer : BaseModel
     {
         public string Name { get; set; }
+        
         public ICollection<ManufacturerModel> manufacturerModels { get; set; }
     }
 }

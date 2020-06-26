@@ -1,10 +1,15 @@
 ﻿using DAL.Data;
+using DAL.Extensions;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -56,9 +61,25 @@ namespace DAL.Repositories
             var query = entities.AsQueryable();
 
             foreach (var property in context.Model.FindEntityType(typeof(T)).GetNavigations())
-                 query = query.Include(property.Name);
-                        
+            {
+
+                query = query.Include(property.Name);
+            }
+
             return query;
         }
+        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate)
+        {
+            Func<IQueryable<T>, IQueryable<T>> includes = DbContextHelper.GetNavigations<T>();
+            IQueryable<T> query = context.Set<T>();
+            if (includes != null)
+            {
+                query = includes(query);
+            }
+
+            var entity = await query.FirstOrDefaultAsync(predicate);
+            return entity;
+        }
+
     }
 }

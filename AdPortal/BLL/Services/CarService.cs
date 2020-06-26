@@ -1,19 +1,24 @@
-﻿using BLL.Services.Interfaces;
+﻿using AutoMapper;
+using BLL.Infastructure;
+using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace BLL.Services
 {
-    public class CarService : IGenericService<Car>
+    public class CarService : IGenericService<CarDto>
     {
+        private readonly IMapper mapper;
         private IGenericRepository<Car> CarRepository;
 
-        public CarService(IGenericRepository<Car> _CarRepository)
+        public CarService(IGenericRepository<Car> _CarRepository, IMapper mapper)
         {
             CarRepository = _CarRepository;
+            this.mapper = mapper;
         }
 
         public void Delete(Guid id)
@@ -22,31 +27,42 @@ namespace BLL.Services
             CarRepository.Delete(dbEntry);
         }
 
-        public List<Car> GetAll()
+        public List<CarDto> GetAll()
         {
+            List<CarDto> carDtos = new List<CarDto>();
+            var DbEntry = CarRepository.GetAll();
+            foreach(var item in DbEntry)
+            {
+                carDtos.Add(mapper.Map<CarDto>(item));
+
+            }
             
-            return CarRepository.GetAll();
+            return carDtos;
         }
 
-        public Car GetById(Guid id)
+        public CarDto GetById(Guid id)
         {
-            
+
             var entry = CarRepository.GetById(id);
             if (entry == null)
             {
                 return null;
             }
-            return entry;
+            var DtoObject = mapper.Map<CarDto>(entry);
+            return DtoObject;
         }
 
-        public void Insert(Car obj)
+        public void Insert(CarDto obj)
         {
-            CarRepository.Insert(obj);
+          
+            var DtoObject = mapper.Map<Car>(obj);
+            CarRepository.Insert(DtoObject);
         }
 
-        public void Update(Car obj)
+        public void Update(CarDto obj)
         {
-            CarRepository.Update(obj);
+            var DtoObject = mapper.Map<Car>(obj);
+            CarRepository.Update(DtoObject);
         }
 
     }

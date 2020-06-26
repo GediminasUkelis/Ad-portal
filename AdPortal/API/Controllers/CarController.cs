@@ -1,4 +1,6 @@
-﻿using BLL.CarService;
+﻿using AutoMapper;
+using BLL.CarService;
+using BLL.Infastructure;
 using BLL.Services.Interfaces;
 using Domain.Models;
 using MediatR;
@@ -14,22 +16,26 @@ namespace API.Controllers
     [ApiController]
     public class CarController : Controller
     {
-        private IGenericService<Car> carService;
-        public CarController(IGenericService<Car> carService)
+        private readonly IMapper mapper;
+        private IGenericService<CarDto> carService;
+        public CarController(IGenericService<CarDto> carService, IMapper mapper)
         {
             this.carService = carService;
+            this.mapper = mapper;
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<List<Unit>> List()
+        public ActionResult<List<CarDto>> List()
         {
             var DbEntry = carService.GetAll();
+     
             if (DbEntry == null)
             {
                 return NotFound();
             }
             return Ok(DbEntry);
+        
             //return unitOfWork.mediator.Send(new List.Query());
         }
 
@@ -47,9 +53,8 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public ActionResult PostCar([FromBody] Car obj)
+        public ActionResult PostCar([FromBody] CarDto obj)
         {
-            
             carService.Insert(obj);
             return Ok();
         }
@@ -62,7 +67,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
-        public ActionResult UpdateCar(Car obj)
+        public ActionResult UpdateCar(CarDto obj)
         {
             carService.Update(obj);
             return Ok();

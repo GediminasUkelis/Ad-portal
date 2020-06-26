@@ -22,7 +22,7 @@ namespace Domain.Models
         public int Seats { get; set; }
         public DateTime VehicleInspection { get; set; }
 
-        public ICollection<CarFeatures> CarFeatures { get; set; }//????? kai tikrinsim
+        public ICollection<CarFeatures> CarFeatures { get; set; }
 
         public string Description { get; set; }
         public decimal Price { get; set; }
