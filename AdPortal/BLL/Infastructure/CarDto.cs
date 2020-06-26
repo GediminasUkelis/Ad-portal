@@ -9,6 +9,7 @@ namespace BLL.Infastructure
     {
         //public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
+
         public ICollection<CarFeatures> carFeatures { get; set; }
         public DateTime ManufactureDate { get; set; }
         public string Engine { get; set; }

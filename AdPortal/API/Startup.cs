@@ -21,6 +21,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MediatR;
+using System.Reflection;
+using BLL.Features.CarService.Queries;
 
 namespace API
 {
@@ -44,6 +47,9 @@ namespace API
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IGenericService<CarDto>, CarService>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddMediatR(typeof(Startup).Assembly);
+            services.AddMediatR(typeof(List.Handler).Assembly);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qBCW7p6+YmvyfK3/dbg56WhVczLV/9xZpQN8A+OnbeEWWlHArbZdEx3RfJJ3cmJWbQXBWmeXObnR8a5YUpZbYw==",
+  "dgSpecHash": "cG8WdZTrTfvuWsaFVSooOog4dFrYshAh57OoW8P8344PuhxW4+rlgwMibbyk+ytxTSRfQyGjnqRgu2Hj73M/+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YES\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\mediatr\\8.0.1\\mediatr.8.0.1.nupkg.sha512",

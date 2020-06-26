@@ -3,6 +3,7 @@ using BLL.Infastructure;
 using BLL.Services.Interfaces;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
@@ -14,11 +15,12 @@ namespace BLL.Services
     {
         private readonly IMapper mapper;
         private IGenericRepository<Car> CarRepository;
-
-        public CarService(IGenericRepository<Car> _CarRepository, IMapper mapper)
+        private readonly IMediator mediator;
+        public CarService(IGenericRepository<Car> CarRepository, IMapper mapper, IMediator mediator)
         {
-            CarRepository = _CarRepository;
+            this.CarRepository = CarRepository;
             this.mapper = mapper;
+            this.mediator = mediator;
         }
 
         public void Delete(Guid id)
