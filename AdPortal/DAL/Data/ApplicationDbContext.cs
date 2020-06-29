@@ -1,9 +1,6 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
 
 namespace DAL.Data
 {
@@ -66,6 +63,188 @@ namespace DAL.Data
                 .HasOne(bc => bc.Feature)
                 .WithMany(c => c.MotorbikeFeatures)
                 .HasForeignKey(bc => bc.FeatureId);
+
+            modelBuilder.Entity<Category>().HasData(
+                new Category()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Name = "Automobilis"
+                },
+            new Category()
+            {
+                Id = Guid.NewGuid(),
+                CreatedOn = DateTime.Now,
+                Name = "Motociklas"
+            }
+            );
+            modelBuilder.Entity<Color>().HasData(
+                new Color()
+                {
+                    Id = Guid.NewGuid(),
+                    CreatedOn = DateTime.Now,
+                    Name = "Balta"
+                },
+            new Color()
+            {
+                Id = Guid.NewGuid(),
+                CreatedOn = DateTime.Now,
+                Name = "Juoda"
+            }
+            );
+            modelBuilder.Entity<Condition>().HasData(
+               new Condition()
+               {
+                   Id = Guid.NewGuid(),
+                   CreatedOn = DateTime.Now,
+                   VehicCondition = "Naudota"
+               },
+           new Condition()
+           {
+               Id = Guid.NewGuid(),
+               CreatedOn = DateTime.Now,
+               VehicCondition = "Nauja"
+           }
+           );
+            modelBuilder.Entity<Cooling>().HasData(
+              new Cooling()
+              {
+                  Id = Guid.NewGuid(),
+                  CreatedOn = DateTime.Now,
+                  CoolingType = "Oru"
+
+              },
+          new Cooling()
+          {
+              Id = Guid.NewGuid(),
+              CreatedOn = DateTime.Now,
+              CoolingType = "Vandeniu"
+          }
+          );
+            modelBuilder.Entity<Defects>().HasData(
+              new Defects()
+              {
+                  Id = Guid.NewGuid(),
+                  CreatedOn = DateTime.Now,
+                  Defect = "Be defetkų"
+
+              },
+          new Defects()
+          {
+              Id = Guid.NewGuid(),
+              CreatedOn = DateTime.Now,
+              Defect = "Degęs"
+          }
+          );
+            modelBuilder.Entity<Diameter>().HasData(
+              new Diameter()
+              {
+                  Id = Guid.NewGuid(),
+                  CreatedOn = DateTime.Now,
+                  TireDiameter = 17
+
+              },
+          new Diameter()
+          {
+              Id = Guid.NewGuid(),
+              CreatedOn = DateTime.Now,
+              TireDiameter = 18
+          }
+          );
+            modelBuilder.Entity<Doors>().HasData(
+           new Doors()
+           {
+               Id = Guid.NewGuid(),
+               CreatedOn = DateTime.Now,
+               DoorCount = "4/5"
+
+           },
+       new Doors()
+       {
+           Id = Guid.NewGuid(),
+           CreatedOn = DateTime.Now,
+           DoorCount = "2/3"
+       }
+       );
+            modelBuilder.Entity<FrameType>().HasData(
+          new FrameType()
+          {
+              Id = Guid.NewGuid(),
+              CreatedOn = DateTime.Now,
+              Type = "Universalas"
+
+          },
+      new FrameType()
+      {
+          Id = Guid.NewGuid(),
+          CreatedOn = DateTime.Now,
+          Type = "Sedanas"
+      }
+      );
+            modelBuilder.Entity<FuelType>().HasData(
+        new FuelType()
+        {
+            Id = Guid.NewGuid(),
+            CreatedOn = DateTime.Now,
+            Type = "Benzinas"
+
+        },
+    new FuelType()
+    {
+        Id = Guid.NewGuid(),
+        CreatedOn = DateTime.Now,
+        Type = "Dyzelinas"
+    }
+    );
+            modelBuilder.Entity<Height>().HasData(
+  new Height()
+  {
+      Id = Guid.NewGuid(),
+      CreatedOn = DateTime.Now,
+      TireHeight = 205
+
+  },
+  new Height()
+  {
+      Id = Guid.NewGuid(),
+      CreatedOn = DateTime.Now,
+      TireHeight = 215
+  }
+  );
+          
+
+
+            modelBuilder.Entity<SteeringWheelPos>().HasData(
+         new SteeringWheelPos()
+         {
+             Id = Guid.NewGuid(),
+             CreatedOn = DateTime.Now,
+             Position = "Kairė"
+
+         },
+         new SteeringWheelPos()
+         {
+             Id = Guid.NewGuid(),
+             CreatedOn = DateTime.Now,
+             Position = "Dešinė"
+         });
+
+            modelBuilder.Entity<Transmission>().HasData(
+           new Transmission()
+           {
+               Id = Guid.NewGuid(),
+               CreatedOn = DateTime.Now,
+               Type = "Automatinė"
+
+           },
+           new Transmission()
+           {
+               Id = Guid.NewGuid(),
+               CreatedOn = DateTime.Now,
+               Type = "Mechaninė"
+           });
+
+           
             base.OnModelCreating(modelBuilder);
         }
     }

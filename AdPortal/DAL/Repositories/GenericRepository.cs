@@ -3,6 +3,7 @@ using DAL.Extensions;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,8 +18,10 @@ namespace DAL.Repositories
     {
         private ApplicationDbContext context;
         private DbSet<T> entities;
+
         public GenericRepository(ApplicationDbContext _context)
         {
+           
             context = _context;
             entities = context.Set<T>();
         }
@@ -28,34 +31,25 @@ namespace DAL.Repositories
 
         public void Delete(T obj)
         {
-            if (obj == null)
+            T entityToDelete = entities.Find(obj.Id);
+            if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
-                throw new ArgumentNullException("obj Null");
+                entities.Attach(entityToDelete);
             }
-            entities.Remove(obj);
-            context.SaveChanges();
+
+            entities.Remove(entityToDelete);
         }
         public void Insert(T obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj Null");
-            }
             entities.Add(obj);
-            context.SaveChanges();
         }
 
 
         public void Update(T obj)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException("obj Null");
-            }
-            entities.Update(obj);
-            context.SaveChanges();
+            entities.Attach(obj);
+            context.Entry(obj).State = EntityState.Modified;
         }
-
         public IQueryable<T> Query()
         {
             var query = entities.AsQueryable();
@@ -65,9 +59,35 @@ namespace DAL.Repositories
 
                 query = query.Include(property.Name);
             }
+            return query;
+
+        }
+
+
+
+        protected IQueryable<T> QueryDb(Expression<Func<T, bool>> filter,  Func<IQueryable<T>, IQueryable<T>> includes)
+        {
+            IQueryable<T> query = context.Set<T>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (includes != null)
+            {
+                query = includes(query);
+            }
+
+            
 
             return query;
         }
-       
+
+        public IEnumerable<T> GetAll(Func<IQueryable<T>, IQueryable<T>> includes = null)
+        {
+            var result = QueryDb(null, includes);
+            return result.ToList();
+        }
     }
 }
