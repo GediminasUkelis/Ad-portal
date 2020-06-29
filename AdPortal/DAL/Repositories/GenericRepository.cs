@@ -1,5 +1,5 @@
 ﻿using DAL.Data;
-using DAL.Extensions;
+
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : BaseModel
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseModel 
     {
         private ApplicationDbContext context;
         private DbSet<T> entities;
@@ -64,30 +64,6 @@ namespace DAL.Repositories
         }
 
 
-
-        protected IQueryable<T> QueryDb(Expression<Func<T, bool>> filter,  Func<IQueryable<T>, IQueryable<T>> includes)
-        {
-            IQueryable<T> query = context.Set<T>();
-
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-
-            if (includes != null)
-            {
-                query = includes(query);
-            }
-
-            
-
-            return query;
-        }
-
-        public IEnumerable<T> GetAll(Func<IQueryable<T>, IQueryable<T>> includes = null)
-        {
-            var result = QueryDb(null, includes);
-            return result.ToList();
-        }
+      
     }
 }

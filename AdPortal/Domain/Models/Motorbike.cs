@@ -19,7 +19,7 @@ namespace Domain.Models
         public Cooling Cooling { get; set; }
         public Defects Defects { get; set; }
         public bool Registration { get; set; }
-        public ICollection<MotorbikeFeatures> MotorbikeFeatures { get; set; }
+
         public string Description { get; set; }
         public decimal Price { get; set; }
     }

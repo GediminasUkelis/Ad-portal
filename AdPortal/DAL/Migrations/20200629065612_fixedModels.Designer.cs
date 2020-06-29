@@ -4,14 +4,16 @@ using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200629065612_fixedModels")]
+    partial class fixedModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,14 +122,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a2d79e32-444d-4b1c-a34b-9292695d4911"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 229, DateTimeKind.Local).AddTicks(7193),
+                            Id = new Guid("07c9f122-9ed4-4817-baf0-c96e86c00fba"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 686, DateTimeKind.Local).AddTicks(6815),
                             Name = "Automobilis"
                         },
                         new
                         {
-                            Id = new Guid("cbfdfe38-32e4-4f43-9fc4-e1b9bcd7b692"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 229, DateTimeKind.Local).AddTicks(7800),
+                            Id = new Guid("11f0d61a-389a-404c-99da-945455174517"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 686, DateTimeKind.Local).AddTicks(7428),
                             Name = "Motociklas"
                         });
                 });
@@ -151,14 +153,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("90e8506c-4302-4a38-ba8d-c71e3f4c1987"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 230, DateTimeKind.Local).AddTicks(9689),
+                            Id = new Guid("1aee93b0-52d4-4e8d-99ff-a3ef50f37786"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(643),
                             Name = "Balta"
                         },
                         new
                         {
-                            Id = new Guid("aa2af6bd-c75a-4d72-87e7-e5d84c933e77"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(215),
+                            Id = new Guid("6ee2d1c4-2644-4c0c-93bf-e987e375665e"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(1176),
                             Name = "Juoda"
                         });
                 });
@@ -182,14 +184,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c79c266e-bf9d-417f-bd72-3457278a1ad4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(893),
+                            Id = new Guid("3b2e5af9-2577-4716-ac85-45870748bb09"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(1934),
                             VehicCondition = "Naudota"
                         },
                         new
                         {
-                            Id = new Guid("23559e34-dd0b-4bb7-b6db-39ec38b6bed4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(1370),
+                            Id = new Guid("35cde63b-fd75-46b7-9166-7d886e593c61"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(2420),
                             VehicCondition = "Nauja"
                         });
                 });
@@ -213,15 +215,15 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4df05bd8-410b-4fe9-89ba-67db899701b8"),
+                            Id = new Guid("3a76f8f9-39e9-48d4-9a4d-aa12cb6d7446"),
                             CoolingType = "Oru",
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(2017)
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(3069)
                         },
                         new
                         {
-                            Id = new Guid("97bb57af-76a6-48e1-a46c-e22e4d35bf9e"),
+                            Id = new Guid("a2647fe7-0323-4909-a2b2-5f057a404368"),
                             CoolingType = "Vandeniu",
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(2478)
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(3530)
                         });
                 });
 
@@ -244,14 +246,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8020d6aa-f22d-4395-a389-bfeeac8de3f0"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(3150),
+                            Id = new Guid("3ed762df-f262-4dfc-8451-93f3c751d6b8"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(4147),
                             Defect = "Be defetkų"
                         },
                         new
                         {
-                            Id = new Guid("77df4469-b3e4-41b2-ba4e-1417a8b5b91a"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(3597),
+                            Id = new Guid("d604d43a-41cd-46a8-bba8-ee9277ac8bad"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(4598),
                             Defect = "Degęs"
                         });
                 });
@@ -275,14 +277,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4bbcfaab-8ddb-426a-92b0-65f758ec0aa3"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(4216),
+                            Id = new Guid("f6efea31-ec9b-4996-a518-3d5f0e3366cb"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(5208),
                             TireDiameter = 17m
                         },
                         new
                         {
-                            Id = new Guid("aca85c39-20a5-4149-9834-7e5bffdedaf6"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(4772),
+                            Id = new Guid("aba3cd9a-8fc2-48d6-9b11-aa64a3d3f323"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(5766),
                             TireDiameter = 18m
                         });
                 });
@@ -306,14 +308,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d33fd274-fb60-480e-8380-cb70a6d8b99b"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(5406),
+                            Id = new Guid("168071b7-2ae9-41a4-bd4e-3a01de3c8e86"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(6380),
                             DoorCount = "4/5"
                         },
                         new
                         {
-                            Id = new Guid("cd635009-af34-4c5a-9d97-8c6c7be3eeb9"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(5858),
+                            Id = new Guid("f9622ec0-d8d8-42d4-aa00-96eea4cb5b0c"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(6837),
                             DoorCount = "2/3"
                         });
                 });
@@ -337,14 +339,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("aedabf43-e391-4b66-80eb-f299bf2d8cf0"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(6471),
+                            Id = new Guid("5bbcb97c-bc96-4307-b2c4-4969baad050e"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(7441),
                             Type = "Universalas"
                         },
                         new
                         {
-                            Id = new Guid("502fb7ca-28ed-46e8-8569-3e474fe4fa46"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(6921),
+                            Id = new Guid("7e9530be-adef-47f7-a51c-b74f3c984738"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(7881),
                             Type = "Sedanas"
                         });
                 });
@@ -368,14 +370,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e88908df-9c32-44b1-bff0-46810515e69f"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(7522),
+                            Id = new Guid("b7264173-e312-4ffe-8b2f-d25b4381e28c"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(8502),
                             Type = "Benzinas"
                         },
                         new
                         {
-                            Id = new Guid("7b150833-4107-442d-aead-7208874714f4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(7960),
+                            Id = new Guid("969500b9-10a6-4aea-89ac-e9e94e952dd6"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(8942),
                             Type = "Dyzelinas"
                         });
                 });
@@ -399,14 +401,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ae8e6829-d44d-4f54-bcbd-de4d8f4e9d4f"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(8552),
+                            Id = new Guid("2a053391-fb74-40af-9c6d-e3f267f7f78c"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 688, DateTimeKind.Local).AddTicks(9526),
                             TireHeight = 205m
                         },
                         new
                         {
-                            Id = new Guid("189078ef-cf37-4844-9390-a9f692467366"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(9075),
+                            Id = new Guid("af25eaa6-59cf-4b79-907c-5888581859c2"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 689, DateTimeKind.Local).AddTicks(41),
                             TireHeight = 215m
                         });
                 });
@@ -437,26 +439,17 @@ namespace DAL.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("ManufacturerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ManufacturerModels");
+                    b.HasIndex("ManufacturerId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("2e0c2e55-473d-4292-b4fd-e1674d867ac8"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(2725),
-                            Name = "RS6"
-                        },
-                        new
-                        {
-                            Id = new Guid("7cdfe45d-578e-4b4c-8fc0-13181f5e9fc5"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(3193),
-                            Name = "E60"
-                        });
+                    b.ToTable("ManufacturerModels");
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
@@ -565,14 +558,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6f1a0f82-7e35-4411-853e-0818b35793b5"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(254),
+                            Id = new Guid("3d43717f-73ac-4b00-972d-06c54ecdba4e"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 689, DateTimeKind.Local).AddTicks(650),
                             Position = "Kairė"
                         },
                         new
                         {
-                            Id = new Guid("ed860296-a36e-445d-8c29-93ca413cd89d"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(816),
+                            Id = new Guid("ae426667-da14-4195-85dd-25d3234fb7db"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 689, DateTimeKind.Local).AddTicks(1097),
                             Position = "Dešinė"
                         });
                 });
@@ -677,14 +670,14 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("40a1d5ab-9d1a-4dc0-a28c-b3ef22a70e18"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(1572),
+                            Id = new Guid("00333bb9-afb1-42e3-a19c-ff3634474fda"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 689, DateTimeKind.Local).AddTicks(1692),
                             Type = "Automatinė"
                         },
                         new
                         {
-                            Id = new Guid("c9e90ab7-1285-46d2-8c05-2286f49dbd22"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(2069),
+                            Id = new Guid("d47d6670-2577-48d7-89e0-1dd0e92d5fe4"),
+                            CreatedOn = new DateTime(2020, 6, 29, 9, 56, 11, 689, DateTimeKind.Local).AddTicks(2289),
                             Type = "Mechaninė"
                         });
                 });
@@ -769,6 +762,13 @@ namespace DAL.Migrations
                     b.HasOne("Domain.Models.Transmission", "Transmission")
                         .WithMany()
                         .HasForeignKey("TransmissionId");
+                });
+
+            modelBuilder.Entity("Domain.Models.ManufacturerModel", b =>
+                {
+                    b.HasOne("Domain.Models.Manufacturer", "Manufacturer")
+                        .WithMany()
+                        .HasForeignKey("ManufacturerId");
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>

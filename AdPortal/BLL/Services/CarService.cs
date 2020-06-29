@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BLL.Infastructure;
 using BLL.Services.Interfaces;
-using DAL.Extensions;
+
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
@@ -38,25 +38,11 @@ namespace BLL.Services
         public List<CarDto> GetAll()
         {
             List<CarDto> carDtos = new List<CarDto>();
-            var includes = new Includes<Car>(query =>
-            {
-                return query.Include(b => b.Manufacturer)
-                                .ThenInclude(a => a.manufacturerModels)
-                            .Include(c => c.SteeringWheelPos)
-                            .Include(x => x.Transmission)
-                            .Include(a => a.Category)
-                            .Include(s => s.Color)
-                            .Include(d => d.Defects)
-                            .Include(f => f.Doors)
-                            .Include(q => q.FrameType)
-                            .Include(w => w.FuelType)
-                            .Include(e => e.CarFeatures)
-                                .ThenInclude(y => y.Feature);
-                                
-                
-            });
 
-            var DbEntry = uow.carRepository.GetAll(includes.Expression);
+
+
+
+            var DbEntry = uow.carRepository.GetAll();
             foreach(var item in DbEntry)
             {
                 carDtos.Add(mapper.Map<CarDto>(item));

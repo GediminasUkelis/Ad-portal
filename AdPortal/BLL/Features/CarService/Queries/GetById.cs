@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using BLL.Infastructure;
 using BLL.Services.Interfaces;
+using DAL.Repositories.Interfaces;
+using Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -23,23 +25,21 @@ namespace BLL.Features.CarService.Queries
         }
         public class Handler : IRequestHandler<Query, CarDto>
         {
-            private readonly IGenericService<CarDto> carRepository;
-            private readonly IMapper mapper;
+            private readonly IUnitOfWork uow;
 
-            public Handler(IGenericService<CarDto> carRepository, IMapper mapper)
+            public Handler(IUnitOfWork uow)
             {
-                this.carRepository = carRepository ?? throw new ArgumentNullException(nameof(carRepository));
-                this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+                this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
             }
             public async Task<CarDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var DbEntry = carRepository.GetById(request.Id);
+                var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     return null;
                 }
-
-                return DbEntry;
+                var DbEntryDto = uow.Mapper.Map<CarDto>(DbEntry);
+                return DbEntryDto;
             }
         }
     }

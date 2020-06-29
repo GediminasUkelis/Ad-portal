@@ -46,10 +46,12 @@ namespace API
                 (options => options.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;"));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IGenericService<CarDto>, CarService>();
+        
             services.AddAutoMapper(typeof(AutoMapperProfile));
-            services.AddMediatR(typeof(Startup).Assembly);
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

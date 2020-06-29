@@ -11,7 +11,7 @@ namespace Domain.Models
     {
         [DataMember]
         public string Name { get; set; }
-        [DataMember]
-        public ICollection<ManufacturerModel> manufacturerModels { get; set; }
+      
+
     }
 }

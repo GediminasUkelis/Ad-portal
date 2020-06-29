@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {}
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -42,6 +42,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Mediator.Net.Middlewares.UnitOfWork": {
+              "target": "Package",
+              "version": "[0.9.23, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -69,32 +81,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,18 +151,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

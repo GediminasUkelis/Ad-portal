@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {}
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\project\\Ad-portal\\AdPortal\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -65,18 +65,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

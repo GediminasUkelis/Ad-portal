@@ -2,6 +2,7 @@
 using BLL.Features.CarService.Queries;
 using BLL.Infastructure;
 using BLL.Services.Interfaces;
+using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -16,31 +17,23 @@ namespace API.Controllers
     [ApiController]
     public class CarController : Controller
     {
-        private readonly IMapper mapper;
-        private IGenericService<CarDto> carService;
-        private readonly IMediator mediator;
-        public CarController(IGenericService<CarDto> carService, IMapper mapper, IMediator mediator)
+
+       
+        private readonly IUnitOfWork uow;
+        public CarController( IUnitOfWork uow)
         {
-            this.carService = carService;
-            this.mapper = mapper;
-            this.mediator = mediator;
+           
+            this.uow = uow;
+          
         }
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async System.Threading.Tasks.Task<ActionResult<List<CarDto>>> ListAsync()
         {
-            var result = await mediator.Send(new List.Query());
+            var result = await uow.Mediator.Send(new List.Query());
             return Ok(result);
-            //var DbEntry = carService.GetAll();
-     
-            //if (DbEntry == null)
-            //{
-            //    return NotFound(); 
-            //}
-            //return Ok(DbEntry);
-        
-            //return unitOfWork.mediator.Send(new List.Query());
+            
         }
 
         [HttpGet("/api/Car/{id}")]
@@ -49,27 +42,27 @@ namespace API.Controllers
         public async System.Threading.Tasks.Task<ActionResult<CarDto>> GetCarByIdAsync([FromRoute] Guid id)
         {
 
-            return await mediator.Send(new GetById.Query(id));
+            return await uow.Mediator.Send(new GetById.Query(id));
         }
 
         [HttpPost]
         public ActionResult PostCar([FromBody] CarDto obj)
         {
-            carService.Insert(obj);
+            //carService.Insert(obj);
             return Ok();
         }
 
         [HttpDelete]
         public ActionResult DeleteCar(Guid id)
         {
-            carService.Delete(id);
+          //  carService.Delete(id);
             return Ok();
         }
 
         [HttpPut]
         public ActionResult UpdateCar(CarDto obj)
         {
-            carService.Update(obj);
+            //carService.Update(obj);
             return Ok();
         }
     }

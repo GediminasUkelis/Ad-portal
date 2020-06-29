@@ -11,7 +11,6 @@ namespace Domain.Models
     {
         [DataMember]
         public string Name { get; set;}
-        [DataMember]
-        public Manufacturer Manufacturer { get; set; }
+     
     }
 }

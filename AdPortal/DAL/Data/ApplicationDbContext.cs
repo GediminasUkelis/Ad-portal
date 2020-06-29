@@ -15,7 +15,7 @@ namespace DAL.Data
         public DbSet<Defects> Defects { get; set; }
         public DbSet<Diameter> Diameters { get; set; }
         public DbSet<Doors> Doors { get; set; }
-        public DbSet<Features> Features { get; set; }
+    
         public DbSet<FrameType> FrameTypes { get; set; }
         public DbSet<FuelType> FuelTypes { get; set; }
         public DbSet<Height> Heights { get; set; }
@@ -29,8 +29,8 @@ namespace DAL.Data
         public DbSet<Transmission> Transmissions { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<Width> Widths { get; set; }
-        public DbSet<MotorbikeFeatures> MotorbikeFeatures { get; set; }
-        public DbSet<CarFeatures> CarFeatures { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;");
@@ -42,28 +42,7 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CarFeatures>()
-              .HasKey(bc => new { bc.CarId, bc.FeatureId });
-            modelBuilder.Entity<CarFeatures>()
-                .HasOne(bc => bc.Car)
-                .WithMany(b => b.CarFeatures)
-                .HasForeignKey(bc => bc.CarId);
-            modelBuilder.Entity<CarFeatures>()
-                .HasOne(bc => bc.Feature)
-                .WithMany(c => c.CarFeatures)
-                .HasForeignKey(bc => bc.FeatureId);
-
-            modelBuilder.Entity<MotorbikeFeatures>()
-              .HasKey(bc => new { bc.MotorbikeId, bc.FeatureId });
-            modelBuilder.Entity<MotorbikeFeatures>()
-                .HasOne(bc => bc.Motorbike)
-                .WithMany(b => b.MotorbikeFeatures)
-                .HasForeignKey(bc => bc.MotorbikeId);
-            modelBuilder.Entity<MotorbikeFeatures>()
-                .HasOne(bc => bc.Feature)
-                .WithMany(c => c.MotorbikeFeatures)
-                .HasForeignKey(bc => bc.FeatureId);
-
+            
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {
@@ -243,8 +222,24 @@ namespace DAL.Data
                CreatedOn = DateTime.Now,
                Type = "Mechaninė"
            });
+            modelBuilder.Entity<ManufacturerModel>().HasData(
+           new ManufacturerModel()
+           {
+               
+               CreatedOn = DateTime.Now,
+               Name="RS6"
 
+           },
+           new ManufacturerModel()
+           {
            
+               CreatedOn = DateTime.Now,
+               Name = "E60"
+
+           });
+
+
+
             base.OnModelCreating(modelBuilder);
         }
     }

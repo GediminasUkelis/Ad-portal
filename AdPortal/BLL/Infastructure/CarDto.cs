@@ -7,10 +7,9 @@ namespace BLL.Infastructure
 {
     public class CarDto : BaseModelDto
     {
-        //public Category Category { get; set; }
+        public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
-
-        public ICollection<CarFeatures> carFeatures { get; set; }
+        public ManufacturerModel ManufacturerModel { get; set; }
         public DateTime ManufactureDate { get; set; }
         public string Engine { get; set; }
         public FuelType FuelType { get; set; }
@@ -22,7 +21,7 @@ namespace BLL.Infastructure
         public Doors Doors { get; set; }
         public int Seats { get; set; }
         public DateTime VehicleInspection { get; set; }
-        //public string Description { get; set; }
-        //public decimal Price { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
     }
 }

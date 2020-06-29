@@ -10,6 +10,7 @@ namespace Domain.Models
     {
         public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
+        public ManufacturerModel ManufacturerModel { get; set; }
         public DateTime ManufactureDate { get; set; }
         public string Engine { get; set; }
         public FuelType FuelType { get; set; }
@@ -22,7 +23,7 @@ namespace Domain.Models
         public int Seats { get; set; }
         public DateTime VehicleInspection { get; set; }
 
-        public ICollection<CarFeatures> CarFeatures { get; set; }
+
 
         public string Description { get; set; }
         public decimal Price { get; set; }

@@ -7,10 +7,10 @@ using System.Text;
 
 namespace DAL.Repositories.Interfaces
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepository<T> where T : BaseModel
     {
    
-       IEnumerable<T> GetAll( Func<IQueryable<T>, IQueryable<T>> includes = null);
+   
 
         List<T> GetAll();
         T GetById(Guid id);

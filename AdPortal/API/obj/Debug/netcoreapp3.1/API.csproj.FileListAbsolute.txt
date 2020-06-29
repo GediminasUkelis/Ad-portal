@@ -208,3 +208,5 @@ C:\Users\audri\Desktop\project\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\st
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.dll
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.pdb
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\Mediator.Net.dll
+C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\Mediator.Net.Middlewares.UnitOfWork.dll
