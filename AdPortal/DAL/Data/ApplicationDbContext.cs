@@ -15,7 +15,6 @@ namespace DAL.Data
         public DbSet<Defects> Defects { get; set; }
         public DbSet<Diameter> Diameters { get; set; }
         public DbSet<Doors> Doors { get; set; }
-    
         public DbSet<FrameType> FrameTypes { get; set; }
         public DbSet<FuelType> FuelTypes { get; set; }
         public DbSet<Height> Heights { get; set; }
@@ -190,7 +189,7 @@ namespace DAL.Data
       TireHeight = 215
   }
   );
-          
+
 
 
             modelBuilder.Entity<SteeringWheelPos>().HasData(
@@ -225,20 +224,18 @@ namespace DAL.Data
             modelBuilder.Entity<ManufacturerModel>().HasData(
            new ManufacturerModel()
            {
-               
+
                CreatedOn = DateTime.Now,
-               Name="RS6"
+               Name = "RS6"
 
            },
            new ManufacturerModel()
            {
-           
+
                CreatedOn = DateTime.Now,
                Name = "E60"
 
            });
-
-
 
             base.OnModelCreating(modelBuilder);
         }

@@ -22,12 +22,7 @@ namespace Domain.Models
         public Doors Doors { get; set; }
         public int Seats { get; set; }
         public DateTime VehicleInspection { get; set; }
-
-
-
         public string Description { get; set; }
         public decimal Price { get; set; }
-
-
     }
 }

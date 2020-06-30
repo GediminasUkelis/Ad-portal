@@ -3,6 +3,7 @@ using DAL.Data;
 using Domain.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,7 +17,7 @@ namespace DAL.Repositories.Interfaces
         IMediator Mediator { get; }
         IMapper Mapper { get; }
         IGenericRepository<Car> carRepository { get; }
+        ILogger Logger { get; }
         void Commit();
-
     }
 }

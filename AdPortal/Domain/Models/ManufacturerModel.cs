@@ -11,6 +11,5 @@ namespace Domain.Models
     {
         [DataMember]
         public string Name { get; set;}
-     
     }
 }

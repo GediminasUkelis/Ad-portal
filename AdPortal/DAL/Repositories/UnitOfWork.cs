@@ -4,6 +4,7 @@ using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,13 +16,15 @@ namespace DAL.Repositories
     {
         public ApplicationDbContext Context { get; }
         private IGenericRepository<Car> carRepo;
+        private readonly ILogger logger;
 
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper)
+        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper, ILogger logger)
         {
             this.carRepo = carRepo;
             Context = context;
             this.Mediator = mediator;
             this.Mapper = mapper;
+            this.logger = logger;
         }
         public IGenericRepository<Car> carRepository
         {
@@ -33,6 +36,7 @@ namespace DAL.Repositories
 
         public IMapper Mapper { get; }
 
+        public ILogger Logger { get; }
         public void Commit()
         {
             Context.SaveChanges();
