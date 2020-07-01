@@ -31,6 +31,7 @@ namespace BLL.Features.CarService.Queries
             {
                 List<CarDto> carDtos = new List<CarDto>();
                 var DbEntry = uow.carRepository.GetAll();
+
                 foreach (var item in DbEntry)
                 {
                     carDtos.Add(uow.Mapper.Map<CarDto>(item));

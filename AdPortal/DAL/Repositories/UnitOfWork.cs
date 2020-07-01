@@ -16,15 +16,15 @@ namespace DAL.Repositories
     {
         public ApplicationDbContext Context { get; }
         private IGenericRepository<Car> carRepo;
-        private readonly ILogger logger;
+        //private readonly ILogger logger;
 
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper, ILogger logger)
+        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper)
         {
             this.carRepo = carRepo;
             Context = context;
             this.Mediator = mediator;
             this.Mapper = mapper;
-            this.logger = logger;
+            //this.logger = logger;
         }
         public IGenericRepository<Car> carRepository
         {
@@ -36,7 +36,7 @@ namespace DAL.Repositories
 
         public IMapper Mapper { get; }
 
-        public ILogger Logger { get; }
+        //public ILogger Logger { get; }
         public void Commit()
         {
             Context.SaveChanges();

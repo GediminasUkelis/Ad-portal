@@ -1,9 +1,11 @@
+using BLL.Middleware;
 using AutoMapper;
 using BLL.Features.CarService.Queries;
 using BLL.Infastructure.AutoMapper;
 using DAL.Data;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
+using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Reflection;
 
@@ -38,9 +41,10 @@ namespace API
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
-
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            //services.AddLogging();
+            ////services.AddSingleton(typeof(ILogger));
+            //services.AddSingleton(typeof(ILogger<UnitOfWork>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,9 +54,8 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
-            //app.UseMiddleware<ErrorHandling>();
+            app.UseMiddleware<ErrorHandling>();
             
-
             app.UseHttpsRedirection();
 
             app.UseRouting();

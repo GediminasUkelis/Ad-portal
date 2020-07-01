@@ -33,15 +33,15 @@ namespace DAL.Repositories
         public T GetById(Guid id)
         {
             var DbEntry = Query().SingleOrDefault(s => s.Id == id);
-            if(DbEntry==null)
-            {
-                var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-                {
-                    Content = new StringContent("{0} doesn't exist", System.Text.Encoding.UTF8, "text/plain"),
-                    StatusCode = HttpStatusCode.NotFound
-                };
-                 throw new HttpResponseException(response);
-            }
+            //if(DbEntry==null)
+            //{
+            //    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+            //    {
+            //        Content = new StringContent("{0} doesn't exist", System.Text.Encoding.UTF8, "text/plain"),
+            //        StatusCode = HttpStatusCode.NotFound
+            //    };
+            //     throw new HttpResponseException(response);
+            //}
                
             return DbEntry;
         }

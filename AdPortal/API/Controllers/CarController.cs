@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using API.Middleware;
+using AutoMapper;
 using BLL.Features.CarService.Commands;
 using BLL.Features.CarService.Queries;
 using BLL.Infastructure;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
@@ -36,7 +38,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<CarDto>> GetCarByIdAsync([FromRoute] Guid id)
-        {
+        {        
             return await uow.Mediator.Send(new GetById.Query(id));
         }
 
