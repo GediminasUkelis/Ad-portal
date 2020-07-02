@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BLL.Infastructure
+namespace BLL.Dto
 {
     public class CarDto : BaseModelDto
     {

@@ -1,15 +1,14 @@
 ﻿using AutoMapper;
 using DAL.Data;
+using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace DAL.Repositories.Interfaces
+namespace BLL.Infastructure.UnitOfWork.Interface
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -17,7 +16,7 @@ namespace DAL.Repositories.Interfaces
         IMediator Mediator { get; }
         IMapper Mapper { get; }
         IGenericRepository<Car> carRepository { get; }
-        //ILogger Logger { get; }
+        ILogger Logger { get; }
         void Commit();
     }
 }

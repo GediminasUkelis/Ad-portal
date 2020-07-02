@@ -48,4 +48,4 @@ C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BL
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.genruntimeconfig.cache
-C:\Users\YES\Desktop\Ad-Portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache
+C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache

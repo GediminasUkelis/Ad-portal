@@ -1,5 +1,5 @@
 ﻿
-using BLL.Middleware;
+using BLL.Infastructure.UnitOfWork.Interface;
 using DAL.Repositories.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +39,8 @@ namespace BLL.Features.CarService.Commands
                 var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    throw new StatusCodeException(HttpStatusCode.NotFound, "{request.id} was not found in the database");
+                    throw new Exception();
+                    //return Task.FromResult(!request.Id.Equals("adssad"));
                 }
                 uow.carRepository.Delete(DbEntry);
                 uow.Commit();

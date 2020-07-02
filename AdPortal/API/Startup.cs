@@ -1,7 +1,9 @@
-using BLL.Middleware;
+using API.Middleware;
 using AutoMapper;
 using BLL.Features.CarService.Queries;
 using BLL.Infastructure.AutoMapper;
+using BLL.Infastructure.UnitOfWork;
+using BLL.Infastructure.UnitOfWork.Interface;
 using DAL.Data;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
@@ -31,7 +33,7 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddLogging();
             services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>
@@ -41,7 +43,8 @@ namespace API
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddSingleton<UnitOfWork>();
             //services.AddLogging();
             ////services.AddSingleton(typeof(ILogger));
             //services.AddSingleton(typeof(ILogger<UnitOfWork>));
@@ -49,12 +52,14 @@ namespace API
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
+        { 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMiddleware<ErrorHandling>();
             }
-            app.UseMiddleware<ErrorHandling>();
+             else 
+                app.UseMiddleware<ErrorHandling>();
             
             app.UseHttpsRedirection();
 

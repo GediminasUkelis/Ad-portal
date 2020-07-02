@@ -23,6 +23,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CarService\" />
+    <Folder Include="Infastructure\Date\" />
+    <Folder Include="Infastructure\Validation\" />
+    <Folder Include="Infastructure\Notifications\" />
+    <Folder Include="RoofService\" />
   </ItemGroup>
 
 </Project>

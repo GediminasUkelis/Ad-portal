@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BLL.Dto;
 using Domain.Models;
 using System;
 using System.Collections.Generic;
