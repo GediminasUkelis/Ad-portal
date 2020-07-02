@@ -43,8 +43,7 @@ namespace API
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
-            //services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddSingleton<UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddLogging();
             ////services.AddSingleton(typeof(ILogger));
             //services.AddSingleton(typeof(ILogger<UnitOfWork>));

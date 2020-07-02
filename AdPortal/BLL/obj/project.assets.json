@@ -7958,11 +7958,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7978,11 +7978,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
+            "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\YES\\Desktop\\New folder (4)\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+            "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
             }
           }
         }

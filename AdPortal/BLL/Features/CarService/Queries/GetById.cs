@@ -45,7 +45,7 @@ namespace BLL.Features.CarService.Queries
                 if (DbEntry == null)
                 {
                     
-                    throw new StatusCodeException(HttpStatusCode.NotFound);
+                    throw new StatusCodeException(HttpStatusCode.NotFound,"was not found in database", request.Id);
 
                 }
                 var DbEntryDto = uow.Mapper.Map<CarDto>(DbEntry);
