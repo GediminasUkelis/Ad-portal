@@ -10,19 +10,21 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using BLL.Infastructure.Exceptions;
+using BLL.Infastructure.UnitOfWork.Interface;
+using Cqrs.Domain;
 
 namespace API.Middleware
 {
     public class ErrorHandling
     {
-        private readonly RequestDelegate next;       
-        //private readonly IUnitOfWork unitOfWork;
-        public ErrorHandling(RequestDelegate next/*, IUnitOfWork unitOfWork*/)
+        private readonly RequestDelegate next;
+
+        public ErrorHandling(RequestDelegate next)
         {
             this.next = next;
-            //this.unitOfWork = unitOfWork;
+
         }
-        public async Task Invoke(HttpContext context)
+        public async Task Invoke(HttpContext context, IUnitOfWork unitOfWork)
         {
             try
             {
@@ -30,21 +32,21 @@ namespace API.Middleware
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(context, ex);
+                await HandleExceptionAsync(context, ex, unitOfWork.Logger);
             }   
         }
-        private async Task HandleExceptionAsync(HttpContext context, Exception ex)
+        private async Task HandleExceptionAsync(HttpContext context, Exception ex, ILogger logger)
         {           
             object errors = null;
             switch (ex)
             {
                 case StatusCodeException statusCodeException:
-                    //logger.LogError(ex, $"HTTP {(int)statusCodeException.Code} {statusCodeException.Error}, with id {statusCodeException.Id}");
+                    logger.LogError(ex, $"HTTP {(int)statusCodeException.Code} {statusCodeException.Error}, with id {statusCodeException.Id}");
                     errors = statusCodeException.Error;
                     context.Response.StatusCode = (int)statusCodeException.Code;
                     break;
                 case Exception exception:
-                    //logger.LogError(ex, exception.Message);
+                    logger.LogError(ex, exception.Message);
                     errors = string.IsNullOrWhiteSpace(exception.Message) ? "Error" : exception.Message;
                     context.Response.StatusCode = (int)HttpStatusCode.Conflict;
                     break;

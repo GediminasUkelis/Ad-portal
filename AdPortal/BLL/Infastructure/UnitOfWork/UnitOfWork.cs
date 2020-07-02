@@ -12,14 +12,14 @@ using System.Text;
 
 namespace BLL.Infastructure.UnitOfWork
 {
-    public class UnitOfWork 
+    public class UnitOfWork : IUnitOfWork
     {
 
         public ApplicationDbContext Context { get; }
         private IGenericRepository<Car> carRepo;
        
 
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper, ILogger logger)
+        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger)
         {
             this.carRepo = carRepo;
             Context = context;
@@ -37,7 +37,7 @@ namespace BLL.Infastructure.UnitOfWork
 
         public IMapper Mapper { get; }
 
-        public ILogger Logger { get; }
+        public ILogger<UnitOfWork> Logger { get; }
 
 
         public void Commit()

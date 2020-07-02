@@ -19,5 +19,11 @@ namespace BLL.Infastructure.Exceptions
             this.Code = Code;
             this.Error = Error;
         }
+        public StatusCodeException(HttpStatusCode Code, string Error, Guid Id) : base(Error)
+        {
+            this.Code = Code;
+            this.Error = Error;
+            this.Id = Id;
+        }
     }
 }
