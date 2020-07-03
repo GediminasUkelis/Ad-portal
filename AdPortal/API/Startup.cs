@@ -8,9 +8,11 @@ using DAL.Data;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,32 +36,31 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
-            services.AddMvc().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+            services.AddMvc().AddNewtonsoftJson(options => 
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;"));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddLogging();
-            ////services.AddSingleton(typeof(ILogger));
-            //services.AddSingleton(typeof(ILogger<UnitOfWork>));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        { 
+        {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseMiddleware<ErrorHandling>();
             }
-             else 
+            else
+            {
                 app.UseMiddleware<ErrorHandling>();
-            
+            }
             app.UseHttpsRedirection();
 
             app.UseRouting();

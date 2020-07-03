@@ -1,6 +1,9 @@
-﻿using Domain.Models;
+﻿using BLL.Infastructure.Validation;
+using Domain.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace BLL.Dto
@@ -23,5 +26,6 @@ namespace BLL.Dto
         public DateTime VehicleInspection { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+
     }
 }

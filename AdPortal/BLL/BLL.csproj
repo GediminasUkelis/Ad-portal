@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Cqrs" Version="4.2.1724.919" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="8.6.2" />
     <PackageReference Include="MediatR" Version="8.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5">
@@ -29,7 +30,6 @@
   <ItemGroup>
     <Folder Include="CarService\" />
     <Folder Include="Infastructure\Date\" />
-    <Folder Include="Infastructure\Validation\" />
     <Folder Include="Infastructure\Notifications\" />
     <Folder Include="RoofService\" />
   </ItemGroup>

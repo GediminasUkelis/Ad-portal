@@ -42,14 +42,12 @@ namespace BLL.Infastructure.UnitOfWork
 
         public void Commit()
         {
-
             Context.SaveChanges();
         }
 
         public void Dispose()
         {
             Context.Dispose();
-
         }
     }
 }

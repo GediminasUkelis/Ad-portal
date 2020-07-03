@@ -1,10 +1,16 @@
 ﻿using BLL.Dto;
 using BLL.Infastructure;
+using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
+using BLL.Infastructure.Validation;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
+using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System;
+using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,6 +37,13 @@ namespace BLL.Features.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                CarDtoValidator validator = new CarDtoValidator();
+                ValidationResult results = validator.Validate(request.obj);
+
+                if (!results.IsValid)
+                {
+                    validator.ValidateAndThrow(request.obj);
+                }
                 var obj = uow.Mapper.Map<Car>(request.obj);
                 uow.carRepository.Insert(obj);
                 uow.Commit();

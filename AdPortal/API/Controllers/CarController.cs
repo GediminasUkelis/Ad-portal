@@ -10,6 +10,7 @@ using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -46,7 +47,7 @@ namespace API.Controllers
         [HttpPost]
         public async Task<Unit> PostCarAsync([FromBody] CarDto obj)
         {
-
+           
             return await uow.Mediator.Send(new Insert.Command(obj));
         }
         [HttpDelete("/api/Car/{id}")]

@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Filters;
+using System.Web.Http.ModelBinding;
 
 namespace BLL.Features.CarService.Queries
 {
@@ -44,7 +45,6 @@ namespace BLL.Features.CarService.Queries
                var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    
                     throw new StatusCodeException(HttpStatusCode.NotFound,"was not found in database", request.Id);
 
                 }
