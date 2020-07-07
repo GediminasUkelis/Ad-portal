@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="CarService\" />
     <Folder Include="Infastructure\Date\" />
     <Folder Include="Infastructure\Notifications\" />
     <Folder Include="RoofService\" />

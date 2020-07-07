@@ -10,9 +10,22 @@ namespace BLL.Infastructure.Validation
     {
         public CarDtoValidator()
         {
-            RuleFor(x => x.Price).NotEmpty().WithMessage("Please specify a price");
-            RuleFor(x => x.Category).NotEmpty().WithMessage("Please specify a Category");
-            RuleFor(x => x.Description).NotEmpty().WithMessage("Please specify a description");
+            RuleFor(c => c.Category).NotEmpty().WithMessage("Please specify the Category");
+            RuleFor(c => c.Manufacturer).NotEmpty().WithMessage("Please specify the Manufacturer");
+            RuleFor(c => c.ManufacturerModel).NotEmpty().WithMessage("Please specify the Manufacturer Model");
+            RuleFor(c => c.ManufactureDate).NotEmpty().WithMessage("Please specify a date");
+            RuleFor(c => c.Seats).NotEmpty().WithMessage("Please specify seats");
+            RuleFor(c => c.SteeringWheelPos).NotEmpty().WithMessage("Please specify steering wheel position");
+            RuleFor(c => c.Transmission).NotEmpty().WithMessage("Please specify transmission type");
+            RuleFor(c => c.VehicleInspection).NotEmpty().WithMessage("Please specify vehicle inspection date");
+            RuleFor(c => c.Color).NotEmpty().WithMessage("Please specify a color");
+            RuleFor(c => c.Defects).NotEmpty().WithMessage("Please specify defects");
+            RuleFor(c => c.Doors).NotEmpty().WithMessage("Please specify door count");
+            RuleFor(c => c.Engine).NotEmpty().WithMessage("Please specify engine");
+            RuleFor(c => c.FrameType).NotEmpty().WithMessage("Please specify frame type");
+            RuleFor(c => c.FuelType).NotEmpty().WithMessage("Please specify fuel type");
+            RuleFor(c => c.Description).NotEmpty().WithMessage("Please specify description");
+            RuleFor(c => c.Price).NotEmpty().WithMessage("Please specify price");
         }
     }
 }

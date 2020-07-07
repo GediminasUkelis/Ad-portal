@@ -12,7 +12,7 @@ namespace DAL.Repositories.Interfaces
         List<T> GetAll();
         T GetById(Guid id);
         void Insert(T obj);
-        void Update(T obj);
+        void Update(T DbEntry, T obj);
         void Delete(T obj);
     }
 }

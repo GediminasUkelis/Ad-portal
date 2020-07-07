@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BLL.Dto
 {
-    public class CarDto : BaseModelDto
+    public class CarDto
     {
         public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }

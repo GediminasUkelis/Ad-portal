@@ -1,18 +1,12 @@
-﻿
+﻿using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
-using DAL.Repositories.Interfaces;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.ModelBinding;
-using System.Web.Http.Results;
 
-namespace BLL.Features.CarService.Commands
+namespace BLL.CarService.Commands
 {
     public class Delete
     {
@@ -36,11 +30,12 @@ namespace BLL.Features.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+
+
                 var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    throw new Exception();
-                    //return Task.FromResult(!request.Id.Equals("adssad"));
+                    throw new StatusCodeException(HttpStatusCode.NotFound, "was not found in database", request.Id);
                 }
                 uow.carRepository.Delete(DbEntry);
                 uow.Commit();

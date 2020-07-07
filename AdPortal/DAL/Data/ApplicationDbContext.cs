@@ -41,7 +41,7 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<Car>().Property(x => x.Id).ValueGeneratedNever();
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {

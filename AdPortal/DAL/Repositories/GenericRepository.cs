@@ -34,16 +34,7 @@ namespace DAL.Repositories
         public T GetById(Guid id)
         {
             var DbEntry = Query().SingleOrDefault(s => s.Id == id);
-            //if(DbEntry==null)
-            //{
-            //    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
-            //    {
-            //        Content = new StringContent("{0} doesn't exist", System.Text.Encoding.UTF8, "text/plain"),
-            //        StatusCode = HttpStatusCode.NotFound
-            //    };
-            //     throw new HttpResponseException(response);
-            //}
-               
+                  
             return DbEntry;
         }
 
@@ -62,10 +53,12 @@ namespace DAL.Repositories
             entities.Add(obj);
         }
 
-        public void Update(T obj)
+        public void Update(T DbEntry, T obj)
         {
-            entities.Attach(obj);
+            //entities.Attach(obj);
             context.Entry(obj).State = EntityState.Modified;
+
+            //context.Entry(DbEntry).CurrentValues.SetValues(obj);
         }
         public IQueryable<T> Query()
         {

@@ -12,7 +12,9 @@ namespace BLL.Infastructure.AutoMapper
         public AutoMapperProfile()
         {
             CreateMap<Car, CarDto>();
+
             CreateMap<CarDto, Car>();
+            
         }
     }
 }

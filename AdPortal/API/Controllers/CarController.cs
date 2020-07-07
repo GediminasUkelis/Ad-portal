@@ -1,20 +1,12 @@
-﻿using API.Middleware;
-using AutoMapper;
+﻿using BLL.CarService.Commands;
+using BLL.CarService.Queries;
 using BLL.Dto;
-using BLL.Features.CarService.Commands;
-using BLL.Features.CarService.Queries;
-using BLL.Infastructure;
 using BLL.Infastructure.UnitOfWork.Interface;
-using DAL.Repositories.Interfaces;
-using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -56,10 +48,10 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Delete.Command(id));
         }
 
-        [HttpPut]
-        public async Task<Unit> UpdateCarAsync(CarDto obj)
+        [HttpPut("/api/Car/{id}")]
+        public async Task<Unit> UpdateCarAsync([FromRoute]Guid Id,[FromBody]CarDto obj)
         {
-            return await uow.Mediator.Send(new Put.Command(obj));
+            return await uow.Mediator.Send(new Put.Command(Id, obj));
         }
     }
 }

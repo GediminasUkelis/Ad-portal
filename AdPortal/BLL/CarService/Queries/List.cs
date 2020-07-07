@@ -1,17 +1,12 @@
-﻿using AutoMapper;
-using BLL.Dto;
-using BLL.Infastructure;
+﻿using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
-using DAL.Repositories.Interfaces;
-using Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BLL.Features.CarService.Queries
+namespace BLL.CarService.Queries
 {
     public class List
     {

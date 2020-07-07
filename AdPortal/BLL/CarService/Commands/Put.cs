@@ -1,29 +1,29 @@
-﻿using BLL.Dto;
-using BLL.Infastructure;
+﻿using BLL.CarService.Queries;
+using BLL.Dto;
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.Infastructure.Validation;
-using DAL.Repositories.Interfaces;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BLL.Features.CarService.Commands
+namespace BLL.CarService.Commands
 {
-    public class Insert
+    public class Put
     {
         public class Command : IRequest
         {
-            public Command(CarDto obj)
+            public Command(Guid Id, CarDto obj)
             {
                 this.obj = obj;
+                this.Id = Id;
             }
+            public Guid Id { get; set; }
             public CarDto obj { get; set; }
         }
 
@@ -37,20 +37,30 @@ namespace BLL.Features.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                CarDtoValidator validator = new CarDtoValidator();
-                ValidationResult results = validator.Validate(request.obj);
-
-                if (!results.IsValid)
+                if(request.obj == null)
                 {
-                    validator.ValidateAndThrow(request.obj);
+                    throw new StatusCodeException(HttpStatusCode.BadRequest, "Object is empty");
                 }
+                var DbEntry = uow.carRepository.GetById(request.Id);
+                if (DbEntry == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.NotFound, "was not found in database", request.Id);
+                }
+                //CarDtoValidator validator = new CarDtoValidator();
+                //ValidationResult results = validator.Validate(request.obj);
+                //if (!results.IsValid)
+                //{
+                //    validator.ValidateAndThrow(request.obj);
+                //}
                 var obj = uow.Mapper.Map<Car>(request.obj);
-                uow.carRepository.Insert(obj);
+               //obj.Id = DbEntry.Id;
+                uow.carRepository.Update(DbEntry,obj);
                 uow.Commit();
                 return Unit.Value;
-                //modelState, logger
             }
+            
+
+           
         }
     }
 }
-

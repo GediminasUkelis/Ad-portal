@@ -1,17 +1,17 @@
 ﻿using BLL.Dto;
-using BLL.Infastructure;
 using BLL.Infastructure.UnitOfWork.Interface;
-using DAL.Repositories.Interfaces;
+using BLL.Infastructure.Validation;
 using Domain.Models;
+using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BLL.Features.CarService.Commands
+namespace BLL.CarService.Commands
 {
-    public class Put
+    public class Insert
     {
         public class Command : IRequest
         {
@@ -32,14 +32,20 @@ namespace BLL.Features.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                CarDtoValidator validator = new CarDtoValidator();
+                ValidationResult results = validator.Validate(request.obj);
+
+                if (!results.IsValid)
+                {
+                    validator.ValidateAndThrow(request.obj);
+                }
                 var obj = uow.Mapper.Map<Car>(request.obj);
-                uow.carRepository.Update(obj);
+                uow.carRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
+                //modelState, logger
             }
-            
-
-           
         }
     }
 }
+

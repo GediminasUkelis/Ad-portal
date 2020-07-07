@@ -1,26 +1,13 @@
-﻿using AutoMapper;
-using BLL.Dto;
-using BLL.Infastructure;
+﻿using BLL.Dto;
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
-using DAL.Repositories.Interfaces;
-using Domain.Models;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
-using System.ServiceModel.Channels;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web.Http;
-using System.Web.Http.Filters;
-using System.Web.Http.ModelBinding;
 
-namespace BLL.Features.CarService.Queries
+namespace BLL.CarService.Queries
 {
     public class GetById
     {
