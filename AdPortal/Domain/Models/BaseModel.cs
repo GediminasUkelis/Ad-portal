@@ -1,6 +1,7 @@
 ﻿using Domain.Models.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -17,7 +18,7 @@ namespace Domain.Models
             Id = Guid.NewGuid();
             CreatedOn = DateTime.Now;
         }
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DataMember]
         public Guid Id { get; set; }
         public DateTime CreatedOn { get; set; }
     }

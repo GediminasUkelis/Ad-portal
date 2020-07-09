@@ -1,4 +1,5 @@
-﻿using BLL.CarService.Queries;
+﻿using AutoMapper;
+using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
@@ -8,6 +9,7 @@ using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
 using System;
+using System.Data.Common;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -46,21 +48,13 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "was not found in database", request.Id);
                 }
-                //CarDtoValidator validator = new CarDtoValidator();
-                //ValidationResult results = validator.Validate(request.obj);
-                //if (!results.IsValid)
-                //{
-                //    validator.ValidateAndThrow(request.obj);
-                //}
-                var obj = uow.Mapper.Map<Car>(request.obj);
-               //obj.Id = DbEntry.Id;
-                uow.carRepository.Update(DbEntry,obj);
+
+                uow.Mapper.Map(request.obj, DbEntry);
+                
+                uow.carRepository.Update(DbEntry);
                 uow.Commit();
                 return Unit.Value;
             }
-            
-
-           
         }
     }
 }

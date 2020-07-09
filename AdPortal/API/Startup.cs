@@ -43,6 +43,7 @@ namespace API
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,7 @@
 ﻿using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Diagnostics.Contracts;
 
 namespace DAL.Data
 {
@@ -41,7 +42,7 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().Property(x => x.Id).ValueGeneratedNever();
+            //modelBuilder.Entity<Car>().Property(x => x.Id).ValueGeneratedNever();
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {

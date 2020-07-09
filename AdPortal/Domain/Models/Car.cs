@@ -8,6 +8,7 @@ namespace Domain.Models
 {
     public class Car : BaseModel
     {
+        // ismesti visus modelius i bendras
         public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
         public ManufacturerModel ManufacturerModel { get; set; }

@@ -30,10 +30,12 @@ namespace DAL.Repositories
             entities = context.Set<T>();
         }
 
-        public List<T> GetAll() => Query().ToList();
+        public List<T> GetAll() => Query().AsNoTracking().ToList();
         public T GetById(Guid id)
         {
-            var DbEntry = Query().SingleOrDefault(s => s.Id == id);
+            var DbEntry = Query()
+                .AsNoTracking()
+                .SingleOrDefault(s => s.Id == id);
                   
             return DbEntry;
         }
@@ -53,12 +55,10 @@ namespace DAL.Repositories
             entities.Add(obj);
         }
 
-        public void Update(T DbEntry, T obj)
+        public void Update(T obj)
         {
-            //entities.Attach(obj);
-            context.Entry(obj).State = EntityState.Modified;
-
-            //context.Entry(DbEntry).CurrentValues.SetValues(obj);
+            entities.Update(obj);
+            //context.Entry(obj).State = EntityState.Modified;
         }
         public IQueryable<T> Query()
         {
