@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YmrCbj/8wEYqzslI1WBnw7RxBsFu7638yLUUyErd/ToZY0lcFP35sGCIODpupGz0vdv+p4bW8M9offyIASi/Iw==",
+  "dgSpecHash": "bFCJAhxbzcAhTual0Ag7H3fF1nxgnORz9PpDdC3ifRf4zDDTDfCZ8cvo7VM/0Gem0KeKhhoWedEkNTBKECjvyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YES\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\chinchilla.logging\\4.1.124.102\\chinchilla.logging.4.1.124.102.nupkg.sha512",

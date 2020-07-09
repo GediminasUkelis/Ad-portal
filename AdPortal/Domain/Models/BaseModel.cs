@@ -18,7 +18,6 @@ namespace Domain.Models
             Id = Guid.NewGuid();
             CreatedOn = DateTime.Now;
         }
-        [DataMember]
         public Guid Id { get; set; }
         public DateTime CreatedOn { get; set; }
     }

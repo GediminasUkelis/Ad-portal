@@ -3,6 +3,7 @@ using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class CarController : Controller

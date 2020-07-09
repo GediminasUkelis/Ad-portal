@@ -33,6 +33,17 @@ namespace API
         {
             services.AddLogging();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("*")
+                                .WithMethods("*")
+                                .WithHeaders("*");
+                    });
+            });
+
             services.AddMvc().AddNewtonsoftJson(options => 
             options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
             services.AddControllers();
@@ -61,6 +72,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
