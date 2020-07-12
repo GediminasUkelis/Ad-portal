@@ -38,9 +38,8 @@ namespace API
                 options.AddPolicy(name: "MyPolicy",
                     builder =>
                     {
-                        builder.WithOrigins("*")
-                                .WithMethods("*")
-                                .WithHeaders("*");
+                        builder.WithOrigins("*");
+                        //builder.WithOrigins("https://localhost:44333");
                     });
             });
 

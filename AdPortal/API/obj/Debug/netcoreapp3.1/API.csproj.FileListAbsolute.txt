@@ -224,3 +224,8 @@ C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\Mi
 C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\System.Web.Cors.dll
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\bin\Debug\netcoreapp3.1\System.Web.Http.Cors.dll
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.csproj.CoreCompileInputs.cache
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\API\obj\Debug\netcoreapp3.1\API.MvcApplicationPartsAssemblyInfo.cache
