@@ -32,7 +32,7 @@ namespace BLL.CarService.Queries
                var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    throw new StatusCodeException(HttpStatusCode.NotFound,"was not found in database", request.Id);
+                    throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
 
                 }
                 var DbEntryDto = uow.Mapper.Map<CarDto>(DbEntry);

@@ -35,7 +35,7 @@ namespace BLL.CarService.Commands
                 var DbEntry = uow.carRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    throw new StatusCodeException(HttpStatusCode.NotFound, "was not found in database", request.Id);
+                    throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
                 }
                 uow.carRepository.Delete(DbEntry);
                 uow.Commit();
