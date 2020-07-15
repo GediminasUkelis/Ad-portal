@@ -107,9 +107,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -120,14 +117,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a2d79e32-444d-4b1c-a34b-9292695d4911"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 229, DateTimeKind.Local).AddTicks(7193),
+                            Id = new Guid("bef04355-916a-49de-be7b-165631ebb2e4"),
                             Name = "Automobilis"
                         },
                         new
                         {
-                            Id = new Guid("cbfdfe38-32e4-4f43-9fc4-e1b9bcd7b692"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 229, DateTimeKind.Local).AddTicks(7800),
+                            Id = new Guid("9ef8410f-ca8f-454e-9492-ba1bef2524c4"),
                             Name = "Motociklas"
                         });
                 });
@@ -137,9 +132,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -151,14 +143,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("90e8506c-4302-4a38-ba8d-c71e3f4c1987"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 230, DateTimeKind.Local).AddTicks(9689),
+                            Id = new Guid("c6d03134-c9f1-4261-98cf-d40d508aec95"),
                             Name = "Balta"
                         },
                         new
                         {
-                            Id = new Guid("aa2af6bd-c75a-4d72-87e7-e5d84c933e77"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(215),
+                            Id = new Guid("5cdc527c-4d74-4c8c-a25e-f12a37b48073"),
                             Name = "Juoda"
                         });
                 });
@@ -168,9 +158,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("VehicCondition")
                         .HasColumnType("nvarchar(max)");
@@ -182,14 +169,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c79c266e-bf9d-417f-bd72-3457278a1ad4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(893),
+                            Id = new Guid("249463ae-3848-4467-a827-14b5f488d2c7"),
                             VehicCondition = "Naudota"
                         },
                         new
                         {
-                            Id = new Guid("23559e34-dd0b-4bb7-b6db-39ec38b6bed4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(1370),
+                            Id = new Guid("62047d99-9f85-4818-a15d-08105e1dcdd2"),
                             VehicCondition = "Nauja"
                         });
                 });
@@ -203,9 +188,6 @@ namespace DAL.Migrations
                     b.Property<string>("CoolingType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.HasKey("Id");
 
                     b.ToTable("Coolings");
@@ -213,15 +195,13 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4df05bd8-410b-4fe9-89ba-67db899701b8"),
-                            CoolingType = "Oru",
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(2017)
+                            Id = new Guid("ee488584-30b5-4d32-a194-99b09748f303"),
+                            CoolingType = "Oru"
                         },
                         new
                         {
-                            Id = new Guid("97bb57af-76a6-48e1-a46c-e22e4d35bf9e"),
-                            CoolingType = "Vandeniu",
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(2478)
+                            Id = new Guid("c4eb2da0-1ecb-4d53-af86-21b9ab0d43f3"),
+                            CoolingType = "Vandeniu"
                         });
                 });
 
@@ -230,9 +210,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Defect")
                         .HasColumnType("nvarchar(max)");
@@ -244,14 +221,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8020d6aa-f22d-4395-a389-bfeeac8de3f0"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(3150),
+                            Id = new Guid("f96512f0-9a63-466c-994b-d5c45e6bacbf"),
                             Defect = "Be defetkų"
                         },
                         new
                         {
-                            Id = new Guid("77df4469-b3e4-41b2-ba4e-1417a8b5b91a"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(3597),
+                            Id = new Guid("9210d40f-63c7-410e-bc2d-64544713268d"),
                             Defect = "Degęs"
                         });
                 });
@@ -261,9 +236,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("TireDiameter")
                         .HasColumnType("decimal(18,2)");
@@ -275,14 +247,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("4bbcfaab-8ddb-426a-92b0-65f758ec0aa3"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(4216),
+                            Id = new Guid("8adba2f7-9eaf-49d6-ae40-52a292c60c35"),
                             TireDiameter = 17m
                         },
                         new
                         {
-                            Id = new Guid("aca85c39-20a5-4149-9834-7e5bffdedaf6"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(4772),
+                            Id = new Guid("9728b7a3-9a78-4be6-ace4-f97d352e4a85"),
                             TireDiameter = 18m
                         });
                 });
@@ -292,9 +262,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("DoorCount")
                         .HasColumnType("nvarchar(max)");
@@ -306,14 +273,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d33fd274-fb60-480e-8380-cb70a6d8b99b"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(5406),
+                            Id = new Guid("c2ba25e0-8355-433a-aeb8-e5f2187df256"),
                             DoorCount = "4/5"
                         },
                         new
                         {
-                            Id = new Guid("cd635009-af34-4c5a-9d97-8c6c7be3eeb9"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(5858),
+                            Id = new Guid("527b5b11-15bd-4485-9fe2-a828450513b3"),
                             DoorCount = "2/3"
                         });
                 });
@@ -323,9 +288,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -337,14 +299,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("aedabf43-e391-4b66-80eb-f299bf2d8cf0"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(6471),
+                            Id = new Guid("d63af71c-07e6-4ea2-a65a-394622f641f1"),
                             Type = "Universalas"
                         },
                         new
                         {
-                            Id = new Guid("502fb7ca-28ed-46e8-8569-3e474fe4fa46"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(6921),
+                            Id = new Guid("7e3585f1-364e-40a6-a91e-2dbe0b1ca9f7"),
                             Type = "Sedanas"
                         });
                 });
@@ -354,9 +314,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -368,14 +325,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e88908df-9c32-44b1-bff0-46810515e69f"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(7522),
+                            Id = new Guid("d895c741-a4d9-4849-8dc5-00df53062280"),
                             Type = "Benzinas"
                         },
                         new
                         {
-                            Id = new Guid("7b150833-4107-442d-aead-7208874714f4"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(7960),
+                            Id = new Guid("1275452f-3fc8-4116-9810-f526734788a2"),
                             Type = "Dyzelinas"
                         });
                 });
@@ -385,9 +340,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("TireHeight")
                         .HasColumnType("decimal(18,2)");
@@ -399,14 +351,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ae8e6829-d44d-4f54-bcbd-de4d8f4e9d4f"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(8552),
+                            Id = new Guid("2e77e556-aa90-475f-8b6a-986628061c67"),
                             TireHeight = 205m
                         },
                         new
                         {
-                            Id = new Guid("189078ef-cf37-4844-9390-a9f692467366"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 231, DateTimeKind.Local).AddTicks(9075),
+                            Id = new Guid("301a8bf7-8955-4c01-82ec-9c29989a893d"),
                             TireHeight = 215m
                         });
                 });
@@ -416,9 +366,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -434,9 +381,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -447,14 +391,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e0c2e55-473d-4292-b4fd-e1674d867ac8"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(2725),
+                            Id = new Guid("31b9b9ec-0bc9-4c10-a424-4b66f5421916"),
                             Name = "RS6"
                         },
                         new
                         {
-                            Id = new Guid("7cdfe45d-578e-4b4c-8fc0-13181f5e9fc5"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(3193),
+                            Id = new Guid("1473bc09-81e6-445b-ab6d-371a7a2ec805"),
                             Name = "E60"
                         });
                 });
@@ -473,9 +415,6 @@ namespace DAL.Migrations
 
                     b.Property<Guid?>("CoolingId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<Guid?>("DefectsId")
                         .HasColumnType("uniqueidentifier");
@@ -535,9 +474,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("SeasonName")
                         .HasColumnType("nvarchar(max)");
 
@@ -552,9 +488,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Position")
                         .HasColumnType("nvarchar(max)");
 
@@ -565,14 +498,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("6f1a0f82-7e35-4411-853e-0818b35793b5"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(254),
+                            Id = new Guid("6be13bcc-be8e-4364-950d-90a651cb85db"),
                             Position = "Kairė"
                         },
                         new
                         {
-                            Id = new Guid("ed860296-a36e-445d-8c29-93ca413cd89d"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(816),
+                            Id = new Guid("2e1b4709-5c29-4664-abf6-949a1174c697"),
                             Position = "Dešinė"
                         });
                 });
@@ -585,9 +516,6 @@ namespace DAL.Migrations
 
                     b.Property<Guid?>("ConditionId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -647,9 +575,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -664,9 +589,6 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
@@ -677,14 +599,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("40a1d5ab-9d1a-4dc0-a28c-b3ef22a70e18"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(1572),
+                            Id = new Guid("5bf58662-c8d9-4ff5-a46d-81ada8a250a3"),
                             Type = "Automatinė"
                         },
                         new
                         {
-                            Id = new Guid("c9e90ab7-1285-46d2-8c05-2286f49dbd22"),
-                            CreatedOn = new DateTime(2020, 6, 29, 10, 4, 12, 232, DateTimeKind.Local).AddTicks(2069),
+                            Id = new Guid("f8f427da-6123-40cc-91a7-1c20aa05b44c"),
                             Type = "Mechaninė"
                         });
                 });
@@ -697,9 +617,6 @@ namespace DAL.Migrations
 
                     b.Property<Guid?>("CategoryId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
@@ -716,9 +633,6 @@ namespace DAL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
 
                     b.Property<decimal>("TireWidth")
                         .HasColumnType("decimal(18,2)");

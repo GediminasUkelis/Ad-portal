@@ -1,10 +1,12 @@
 ﻿using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
+using Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BLL.CarService.Queries
 {
@@ -27,14 +29,15 @@ namespace BLL.CarService.Queries
             public async Task<List<CarDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 List<CarDto> carDtos = new List<CarDto>();
-                var DbEntry = uow.carRepository.GetAll();
-
+                var DbEntry = uow.CarRepository.GetAll();
                 foreach (var item in DbEntry)
                 {
                     carDtos.Add(uow.Mapper.Map<CarDto>(item));
                 }
                 return carDtos;
             }
+            
+
         }
     }
 }

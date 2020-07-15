@@ -43,15 +43,15 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "Object is empty");
                 }
-                var DbEntry = uow.carRepository.GetById(request.Id);
+                var DbEntry = uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
-                    throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
+                    throw new StatusCodeException(HttpStatusCode.NotFound, $"Tire with this {request.Id} was not found in database");
                 }
 
-                uow.Mapper.Map(request.obj, DbEntry);
+                var s = uow.Mapper.Map<Car>(request.obj);
                 
-                uow.carRepository.Update(DbEntry);
+                uow.CarRepository.Update(s);
                 uow.Commit();
                 return Unit.Value;
             }

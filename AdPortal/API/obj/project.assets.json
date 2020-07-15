@@ -2665,7 +2665,10 @@
         },
         "runtime": {
           "bin/placeholder/BLL.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "DAL/1.0.0": {
         "type": "project",
@@ -8708,11 +8711,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "projectPath": "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\API\\API.csproj",
       "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\obj\\",
+      "outputPath": "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8728,8 +8731,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
+            "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
             }
           }
         }

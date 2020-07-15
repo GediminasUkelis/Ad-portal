@@ -11,9 +11,12 @@ namespace BLL.Infastructure.AutoMapper
             CreateMap<Car, CarDto>();
 
             CreateMap<CarDto, Car>()
+
                 .ForMember(x => x.Id, opt => opt.Ignore())
+
                 .ForPath(x => x.Color.Id, opt => opt.Ignore())
-                .ForPath(x => x.Color.Name, opt => opt.MapFrom(input => input.Color.Name))
+                .ForMember(x => x.Color, opt => opt.MapFrom(input => input.Color.Name))
+
 
                 .ForPath(x => x.Category.Id, opt => opt.Ignore())
                 .ForPath(x => x.Category.Name, opt => opt.MapFrom(input => input.Category.Name))
@@ -41,8 +44,37 @@ namespace BLL.Infastructure.AutoMapper
 
                 .ForPath(x => x.Doors.Id, opt => opt.Ignore())
                 .ForPath(x => x.Doors.DoorCount, opt => opt.MapFrom(input => input.Doors.DoorCount))
+                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
 
-                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+            CreateMap<Tire, TireDto>();
+
+            CreateMap<TireDto, Tire>()
+
+                .ForMember(x => x.Id, opt => opt.Ignore())
+
+                .ForPath(x => x.Condition.Id, opt => opt.Ignore())
+                .ForPath(x => x.Condition.VehicCondition, opt => opt.MapFrom(input => input.Condition.VehicCondition))
+
+
+                .ForPath(x => x.Diameter.Id, opt => opt.Ignore())
+                .ForPath(x => x.Diameter.TireDiameter, opt => opt.MapFrom(input => input.Diameter.TireDiameter))
+
+                .ForPath(x => x.Height.Id, opt => opt.Ignore())
+                .ForPath(x => x.Height.TireHeight, opt => opt.MapFrom(input => input.Height.TireHeight))
+
+                .ForPath(x => x.Manufacturer.Id, opt => opt.Ignore())
+                .ForPath(x => x.Manufacturer.Name, opt => opt.MapFrom(input => input.Manufacturer.Name))
+
+                .ForPath(x => x.Season.Id, opt => opt.Ignore())
+                .ForPath(x => x.Season.SeasonName, opt => opt.MapFrom(input => input.Season.SeasonName))
+
+                .ForPath(x => x.TirePurpose.Id, opt => opt.Ignore())
+                .ForPath(x => x.TirePurpose.Name, opt => opt.MapFrom(input => input.TirePurpose.Name))
+
+                .ForPath(x => x.Width.Id, opt => opt.Ignore())
+                .ForPath(x => x.Width.TireWidth, opt => opt.MapFrom(input => input.Width.TireWidth))
+                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+
         }
     }
 }

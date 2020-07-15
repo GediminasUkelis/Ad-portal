@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LgPE8Zc3v7G1rd7DzXOpZMI1kTle+5+iXMrJ1I7KWGbyiQRToi4ywJdiXTNM3pDQMK6P6NOkbvPdqQ8kUnR/rw==",
+  "dgSpecHash": "+UsW5FNnX7bfzofKpuFidaH5xh9gz70R21yHujPFKSzxjnx+zw3t2mt4LItEbSGW907DkSZa2eUE8kCjZeFJUA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\audri\\Desktop\\adportal\\Ad-portal\\AdPortal\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\audri\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\audri\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

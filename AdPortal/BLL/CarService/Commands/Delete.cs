@@ -32,18 +32,18 @@ namespace BLL.CarService.Commands
             {
 
 
-                var DbEntry = uow.carRepository.GetById(request.Id);
+                var DbEntry = uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
                 }
-                uow.carRepository.Delete(DbEntry);
+                uow.CarRepository.Delete(DbEntry);
                 uow.Commit();
                 return Unit.Value;
 
             }
 
-         
-        }
+        
+        } 
     }
 }

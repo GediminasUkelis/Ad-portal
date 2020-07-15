@@ -17,21 +17,27 @@ namespace BLL.Infastructure.UnitOfWork
 
         public ApplicationDbContext Context { get; }
         private IGenericRepository<Car> carRepo;
-       
+        private IGenericRepository<Tire> TireRepo;
 
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger)
+        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, 
+            IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
+            IGenericRepository<Tire> TireRepo)
         {
             this.carRepo = carRepo;
             Context = context;
             this.Mediator = mediator;
             this.Mapper = mapper;
             this.Logger = logger;
+            this.TireRepo = TireRepo;
         }
-        public IGenericRepository<Car> carRepository
+        public IGenericRepository<Car> CarRepository
         {
             get { return carRepo ?? (carRepo = new GenericRepository<Car>(Context)); }
         }
-
+        public IGenericRepository<Tire> TireRepository
+        {
+            get { return TireRepo ?? (TireRepo = new GenericRepository<Tire>(Context)); }
+        }
 
         public IMediator Mediator { get; }
 

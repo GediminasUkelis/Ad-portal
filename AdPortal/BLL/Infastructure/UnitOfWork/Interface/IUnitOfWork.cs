@@ -15,7 +15,8 @@ namespace BLL.Infastructure.UnitOfWork.Interface
         ApplicationDbContext Context { get; }
         IMediator Mediator { get; }
         IMapper Mapper { get; }
-        IGenericRepository<Car> carRepository { get; }
+        IGenericRepository<Car> CarRepository { get; }
+        IGenericRepository<Tire> TireRepository { get; }
         ILogger<UnitOfWork> Logger { get; }
         void Commit();
     }

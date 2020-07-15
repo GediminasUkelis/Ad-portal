@@ -2,6 +2,7 @@
 using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
+using Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
@@ -68,6 +69,13 @@ namespace API.Controllers
         public async Task<Unit> UpdateCarAsync([FromRoute]Guid Id,[FromBody]CarDto obj)
         {
             return await uow.Mediator.Send(new Put.Command(Id, obj));
+        }
+        [HttpGet("/api/Car/Search/{search}")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public async Task<ActionResult<List<CarDto>>> SearchCar([FromQuery] decimal? price, [FromQuery] string? category)
+        {
+            return await uow.Mediator.Send(new Search.Query(price, category));
+         
         }
     }
 }

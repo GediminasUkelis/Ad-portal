@@ -40,10 +40,10 @@ namespace BLL.CarService.Commands
                     validator.ValidateAndThrow(request.obj);
                 }
                 var obj = uow.Mapper.Map<Car>(request.obj);
-                uow.carRepository.Insert(obj);
+                uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
-                //modelState, logger
+
             }
         }
     }

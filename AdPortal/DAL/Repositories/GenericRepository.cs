@@ -39,7 +39,7 @@ namespace DAL.Repositories
                   
             return DbEntry;
         }
-
+        
         public void Delete(T obj)
         {
             T entityToDelete = entities.Find(obj.Id);
@@ -57,6 +57,7 @@ namespace DAL.Repositories
 
         public void Update(T obj)
         {
+            //entities.Attach(obj);
             entities.Update(obj);
             //context.Entry(obj).State = EntityState.Modified;
         }
