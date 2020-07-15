@@ -17,6 +17,8 @@ namespace BLL.Infastructure.UnitOfWork.Interface
         IMapper Mapper { get; }
         IGenericRepository<Car> CarRepository { get; }
         IGenericRepository<Tire> TireRepository { get; }
+        IGenericRepository<Motorbike> MotorbikeRepository { get; }
+
         ILogger<UnitOfWork> Logger { get; }
         void Commit();
     }

@@ -8,11 +8,13 @@ using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.TireService.Commands;
 using BLL.TireService.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+    [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
     public class TireController : Controller

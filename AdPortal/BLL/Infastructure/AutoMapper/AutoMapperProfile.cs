@@ -75,6 +75,33 @@ namespace BLL.Infastructure.AutoMapper
                 .ForPath(x => x.Width.TireWidth, opt => opt.MapFrom(input => input.Width.TireWidth))
                 .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
 
+            CreateMap<Motorbike, MotorbikeDto>();
+
+            CreateMap<MotorbikeDto, Motorbike>()
+                .ForMember(x => x.Id, opt => opt.Ignore())
+
+                .ForPath(x => x.Manufacturer.Id, opt => opt.Ignore())
+                .ForPath(x => x.Manufacturer.Name, opt => opt.MapFrom(input => input.Manufacturer.Name))
+
+                .ForPath(x => x.Category.Id, opt => opt.Ignore())
+                .ForPath(x => x.Category.Name, opt => opt.MapFrom(input => input.Category.Name))
+
+                .ForPath(x => x.Condition.Id, opt => opt.Ignore())
+                .ForPath(x => x.Condition.VehicCondition, opt => opt.MapFrom(input => input.Condition.VehicCondition))
+
+                .ForPath(x => x.VehicleType.Id, opt => opt.Ignore())
+                .ForPath(x => x.VehicleType.Type, opt => opt.MapFrom(input => input.VehicleType.Type))
+
+                .ForPath(x => x.FuelType.Id, opt => opt.Ignore())
+                .ForPath(x => x.FuelType.Type, opt => opt.MapFrom(input => input.FuelType.Type))
+
+                .ForPath(x => x.Cooling.Id, opt => opt.Ignore())
+                .ForPath(x => x.Cooling.CoolingType, opt => opt.MapFrom(input => input.Cooling.CoolingType))
+
+                .ForPath(x => x.Defects.Id, opt => opt.Ignore())
+                .ForPath(x => x.Defects.Defect, opt => opt.MapFrom(input => input.Defects.Defect))
+
+            .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
         }
     }
 }

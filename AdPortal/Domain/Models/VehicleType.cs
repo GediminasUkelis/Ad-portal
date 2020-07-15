@@ -8,7 +8,6 @@ namespace Domain.Models
     {
         [DataMember]
         public string Type { get; set; }
-        public Category Category { get; set; }
         
     }
 }

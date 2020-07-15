@@ -26,7 +26,6 @@ C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DA
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.dll
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
-C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
@@ -42,7 +41,6 @@ C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DA
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.dll
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
-C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json

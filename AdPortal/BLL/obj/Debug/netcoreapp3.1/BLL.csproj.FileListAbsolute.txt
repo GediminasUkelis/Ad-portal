@@ -30,7 +30,6 @@ C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BL
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
-C:\Users\YES\Desktop\ad-portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.genruntimeconfig.cache
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.deps.json
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.runtimeconfig.json
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.runtimeconfig.dev.json
@@ -48,7 +47,6 @@ C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BL
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
 C:\Users\audri\Desktop\project\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.genruntimeconfig.cache
-C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.deps.json
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.runtimeconfig.json
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\BLL\bin\Debug\netcoreapp3.1\BLL.runtimeconfig.dev.json

@@ -18,10 +18,11 @@ namespace BLL.Infastructure.UnitOfWork
         public ApplicationDbContext Context { get; }
         private IGenericRepository<Car> carRepo;
         private IGenericRepository<Tire> TireRepo;
+        private IGenericRepository<Motorbike> MotorbikeRepo;
 
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo, 
+        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo,
             IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
-            IGenericRepository<Tire> TireRepo)
+            IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo)
         {
             this.carRepo = carRepo;
             Context = context;
@@ -29,6 +30,7 @@ namespace BLL.Infastructure.UnitOfWork
             this.Mapper = mapper;
             this.Logger = logger;
             this.TireRepo = TireRepo;
+            this.MotorbikeRepo = motorbikeRepo;
         }
         public IGenericRepository<Car> CarRepository
         {
@@ -38,7 +40,11 @@ namespace BLL.Infastructure.UnitOfWork
         {
             get { return TireRepo ?? (TireRepo = new GenericRepository<Tire>(Context)); }
         }
+        public IGenericRepository<Motorbike> MotorbikeRepository {
 
+            get { return MotorbikeRepo ?? (MotorbikeRepo = new GenericRepository<Motorbike>(Context)); }
+        }
+    
         public IMediator Mediator { get; }
 
         public IMapper Mapper { get; }
