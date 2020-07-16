@@ -10300,11 +10300,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\YES\\Desktop\\delete\\Ad-portal\\AdPortal\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "projectPath": "C:\\Users\\YES\\Desktop\\delete\\Ad-portal\\AdPortal\\API\\API.csproj",
       "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\obj\\",
+      "outputPath": "C:\\Users\\YES\\Desktop\\delete\\Ad-portal\\AdPortal\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10323,8 +10323,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
+            "C:\\Users\\YES\\Desktop\\delete\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\YES\\Desktop\\delete\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
             }
           }
         }

@@ -44,3 +44,13 @@ C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
 C:\Users\audri\Desktop\adportal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.genruntimeconfig.cache
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\bin\Debug\netcoreapp3.1\Domain.deps.json
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\bin\Debug\netcoreapp3.1\Domain.runtimeconfig.json
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\bin\Debug\netcoreapp3.1\Domain.runtimeconfig.dev.json
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.dll
+C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
