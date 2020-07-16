@@ -18,7 +18,7 @@ namespace BLL.Infastructure.Validation
             RuleFor(c => c.Power).NotEmpty().WithMessage("Please specify the Power");
             RuleFor(c => c.Cooling).NotEmpty().WithMessage("Please specify Cooling type");
             RuleFor(c => c.Defects).NotEmpty().WithMessage("Please specify Defects");
-            RuleFor(c => c.Registration).NotEmpty().WithMessage("Please specify Registration");
+            RuleFor(c => c.Registration).Must(x=>x== false || x== true).WithMessage("Please specify Registration");
             RuleFor(c => c.Description).NotEmpty().WithMessage("Please specify Description");
             RuleFor(c => c.Price).NotEmpty().WithMessage("Please specify Price");
         }
