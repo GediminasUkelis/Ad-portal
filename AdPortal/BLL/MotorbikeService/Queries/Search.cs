@@ -67,7 +67,7 @@ namespace BLL.MotorbikeService.Queries
                 {
                     motorbikes = motorbikes.Where(x => x.FuelType.Type == request.obj.FuelType.Type).ToList();
                 }
-                if (request.obj.TireWearOut != null)
+                if (request.obj.TireWearOut != 0)
                 {
                     motorbikes = motorbikes.Where(x => x.TireWearOut == request.obj.TireWearOut).ToList();
                 }
@@ -83,7 +83,7 @@ namespace BLL.MotorbikeService.Queries
                 {
                     motorbikes = motorbikes.Where(x => x.Defects.Defect == request.obj.Defects.Defect).ToList();
                 }
-                if (request.obj.Registration != null)
+                if (request.obj.Registration != false)
                 {
                     motorbikes = motorbikes.Where(x => x.Registration == request.obj.Registration).ToList();
                 }

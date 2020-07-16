@@ -70,5 +70,12 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new Put.Command(Id, obj));
         }
+        [HttpGet("/api/Tire/Search")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public async Task<ActionResult<List<TireDto>>> SearchCar([FromBody] TireDto obj)
+        {
+            return await uow.Mediator.Send(new Search.Query(obj));
+
+        }
     }
 }

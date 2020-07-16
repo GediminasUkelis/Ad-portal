@@ -18,18 +18,12 @@ namespace BLL.CarService.Queries
     {
         public class Query : IRequest<List<CarDto>>
         {
-            public Query( decimal? price, string? category)
+            public Query( CarDto obj)
             {
-               
-                this.price = price;
-                cat = new Category
-                {
-                    Name = category
-                };
+                this.obj = obj;
+                
             }
-            public Category? cat { get; set; }
-            public decimal? price { get; set; }
-            
+            public CarDto obj { get; set; }
         }
         public class Handler : IRequestHandler<Query, List<CarDto>>
         {
@@ -42,23 +36,77 @@ namespace BLL.CarService.Queries
             public async Task<List<CarDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var cars = uow.Mediator.Send(new List.Query()).Result;
+
+                if (cars == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.NotFound, "no Motorbikes found");
+                }
+
+                if (request.obj.Manufacturer != null)
+                {
+                    cars = cars.Where(x => x.Manufacturer.Name == request.obj.Manufacturer.Name).ToList();
+                }
+                if (request.obj.Category != null)
+                {
+                    cars = cars.Where(x => x.Category.Name == request.obj.Category.Name).ToList();
+                }
+                if (request.obj.Category != null)
+                {
+                    cars = cars.Where(x => x.Category.Name == request.obj.Category.Name).ToList();
+                }
+                if (request.obj.ManufactureDate != null)
+                {
+                    cars = cars.Where(x => x.ManufactureDate == request.obj.ManufactureDate).ToList();
+                }
+                if (request.obj.Color != null)
+                {
+                    cars = cars.Where(x => x.Color.Name == request.obj.Color.Name).ToList();
+                }
+                if (request.obj.Doors != null)
+                {
+                    cars = cars.Where(x => x.Doors.DoorCount == request.obj.Doors.DoorCount).ToList();
+                }
+                if (request.obj.FuelType != null)
+                {
+                    cars = cars.Where(x => x.FuelType.Type == request.obj.FuelType.Type).ToList();
+                }
+                if (request.obj.Engine != null)
+                {
+                    cars = cars.Where(x => x.Engine == request.obj.Engine).ToList();
+                }
+                if (request.obj.FrameType != null)
+                {
+                    cars = cars.Where(x => x.FrameType.Type == request.obj.FrameType.Type).ToList();
+                }
+                if (request.obj.ManufacturerModel != null)
+                {
+                    cars = cars.Where(x => x.ManufacturerModel.Name == request.obj.ManufacturerModel.Name).ToList();
+                }
+                if (request.obj.Defects != null)
+                {
+                    cars = cars.Where(x => x.Defects.Defect == request.obj.Defects.Defect).ToList();
+                }
+                if (request.obj.Seats != 0)
+                {
+                    cars = cars.Where(x => x.Seats == request.obj.Seats).ToList();
+                }
+                if (request.obj.Description != null)
+                {
+                    cars = cars.Where(x => x.Description == request.obj.Description).ToList();
+                }
+                if (request.obj.Price != 0)
+                {
+                    cars = cars.Where(x => x.Price == request.obj.Price).ToList();
+                }
+                if (request.obj.SteeringWheelPos != null)
+                {
+                    cars = cars.Where(x => x.SteeringWheelPos.Position == request.obj.SteeringWheelPos.Position).ToList();
+                }
+                if (request.obj.Transmission != null)
+                {
+                    cars = cars.Where(x => x.Transmission.Type == request.obj.Transmission.Type).ToList();
+                }
                 
-
-                if(request.cat.Name!=null)
-                {
-                    cars = cars.Where(x => x.Category.Name == request.cat.Name).ToList();    
-                }
-                if(request.price!=null)
-                {
-                    cars = cars.Where(x => x.Price==request.price).ToList();
-                }
-              
-                if (cars.Count==0)
-                {
-                    throw new StatusCodeException(HttpStatusCode.NotFound, $"No cars were found in database");
-
-                }
-             
                 return cars;
 
             }
