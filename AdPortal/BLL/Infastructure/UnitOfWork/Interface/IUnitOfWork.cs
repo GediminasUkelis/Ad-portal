@@ -3,6 +3,7 @@ using DAL.Data;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace BLL.Infastructure.UnitOfWork.Interface
         IGenericRepository<Car> CarRepository { get; }
         IGenericRepository<Tire> TireRepository { get; }
         IGenericRepository<Motorbike> MotorbikeRepository { get; }
-
+        IUserService User { get; }
+        IHttpContextAccessor httpContextAccessor { get; }
         ILogger<UnitOfWork> Logger { get; }
         void Commit();
     }

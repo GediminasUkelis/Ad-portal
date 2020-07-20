@@ -54,3 +54,5 @@ C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Do
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.dll
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\Domain\obj\Debug\netcoreapp3.1\Domain.genruntimeconfig.cache

@@ -69,3 +69,5 @@ C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.A
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CopyComplete
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.dll
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache

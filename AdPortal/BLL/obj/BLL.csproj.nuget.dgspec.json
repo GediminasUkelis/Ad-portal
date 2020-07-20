@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {}
+    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,11 +27,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "Microsoft.AspNetCore.Cryptography.KeyDerivation": {
+              "target": "Package",
+              "version": "[3.1.6, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -84,6 +88,14 @@
             "Microsoft.Extensions.Logging.Console": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.1, )"
             }
           },
           "imports": [
@@ -108,17 +120,17 @@
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -131,8 +143,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -198,17 +210,17 @@
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

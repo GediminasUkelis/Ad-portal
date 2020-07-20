@@ -3,20 +3,27 @@ using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Net.Http;
 using System.Net.Mime;
 using System.Threading.Tasks;
+using System.Web.Http.Controllers;
 
 namespace API.Controllers
-{
+{   
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    public class CarController : Controller
+    [Authorize]
+    public class CarController : ControllerBase
     {
         private readonly IUnitOfWork uow;
         public CarController( IUnitOfWork uow)
@@ -30,13 +37,15 @@ namespace API.Controllers
         public async Task<ActionResult<List<CarDto>>> ListAsync()
         {
             return await uow.Mediator.Send(new List.Query());
-        }
 
+        }
+        
         [HttpGet("/api/Car/{id}")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    
         public async Task<ActionResult<CarDto>> GetCarByIdAsync([FromRoute] Guid id)
         {        
             return await uow.Mediator.Send(new GetById.Query(id));
@@ -71,9 +80,9 @@ namespace API.Controllers
         }
         [HttpGet("/api/Car/Search/{search}")]
         [Consumes(MediaTypeNames.Application.Json)]
-        public async Task<ActionResult<List<CarDto>>> SearchCar([FromQuery] decimal? price, [FromQuery] string? category)
+        public async Task<ActionResult<List<CarDto>>> SearchCar([FromBody]CarDto obj)
         {
-            return await uow.Mediator.Send(new Search.Query(price, category));
+            return await uow.Mediator.Send(new Search.Query(obj));
          
         }
     }

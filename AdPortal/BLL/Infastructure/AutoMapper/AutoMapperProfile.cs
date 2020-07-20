@@ -102,6 +102,9 @@ namespace BLL.Infastructure.AutoMapper
                 .ForPath(x => x.Defects.Defect, opt => opt.MapFrom(input => input.Defects.Defect))
 
             .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+            CreateMap<User, RegisterDto>();
+
+            CreateMap<RegisterDto, User>();
         }
     }
 }

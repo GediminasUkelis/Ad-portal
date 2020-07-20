@@ -79,3 +79,5 @@ C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.A
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 C:\Users\YES\Desktop\delete\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.genruntimeconfig.cache
+C:\Users\YES\Desktop\ad-Portal\Ad-portal\AdPortal\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache

@@ -5,6 +5,7 @@ using DAL.Repositories;
 using DAL.Repositories.Interfaces;
 using Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,10 +20,12 @@ namespace BLL.Infastructure.UnitOfWork
         private IGenericRepository<Car> carRepo;
         private IGenericRepository<Tire> TireRepo;
         private IGenericRepository<Motorbike> MotorbikeRepo;
-
+        private IUserService userService;
+        private IHttpContextAccessor httpContext;
         public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo,
             IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
-            IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo)
+            IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo, IUserService userService,
+            IHttpContextAccessor httpContext)
         {
             this.carRepo = carRepo;
             Context = context;
@@ -31,6 +34,8 @@ namespace BLL.Infastructure.UnitOfWork
             this.Logger = logger;
             this.TireRepo = TireRepo;
             this.MotorbikeRepo = motorbikeRepo;
+            this.userService = userService;
+            this.httpContext = httpContext;
         }
         public IGenericRepository<Car> CarRepository
         {
@@ -40,17 +45,27 @@ namespace BLL.Infastructure.UnitOfWork
         {
             get { return TireRepo ?? (TireRepo = new GenericRepository<Tire>(Context)); }
         }
-        public IGenericRepository<Motorbike> MotorbikeRepository {
+        public IGenericRepository<Motorbike> MotorbikeRepository 
+        {
 
             get { return MotorbikeRepo ?? (MotorbikeRepo = new GenericRepository<Motorbike>(Context)); }
         }
-    
+        
         public IMediator Mediator { get; }
 
         public IMapper Mapper { get; }
 
         public ILogger<UnitOfWork> Logger { get; }
 
+        public IUserService User
+        {
+            get { return userService ?? (userService = new UserService(Context)); }
+        }
+
+        public IHttpContextAccessor httpContextAccessor
+        {
+            get { return httpContext ?? (httpContext = new HttpContextAccessor()); }
+        }
 
         public void Commit()
         {

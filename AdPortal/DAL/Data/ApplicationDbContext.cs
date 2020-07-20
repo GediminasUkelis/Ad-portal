@@ -29,6 +29,7 @@ namespace DAL.Data
         public DbSet<Transmission> Transmissions { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<Width> Widths { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

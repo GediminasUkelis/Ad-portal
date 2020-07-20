@@ -51,7 +51,7 @@ namespace API.Middleware
                     break;
                 case Exception exception:
                     logger.LogError(ex, exception.Message);
-                    errors = string.IsNullOrWhiteSpace(exception.Message) ? "Error" : exception.InnerException.Message;
+                    errors = string.IsNullOrWhiteSpace(exception.Message) ? "Error" : exception.Message;
                     context.Response.StatusCode = (int)HttpStatusCode.Conflict;
                     break;
             }
