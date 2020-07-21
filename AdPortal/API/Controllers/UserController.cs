@@ -41,11 +41,8 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<string> LoginUserAsync([FromBody] LoginDataDto obj)
         {
-            var token = await uow.Mediator.Send(new Login.Command(obj));
-            //HttpContext.Session.SetString("JwtToken", token);
-            //string accessToken = await HttpContext.GetTokenAsync("access_token");
-            //HttpContext.Request.Headers["Authorization"] = new AuthenticationHeaderValue("Bearer", accessToken);
-            return token;
+            return await uow.Mediator.Send(new Login.Command(obj));
+          
         }
     }
 }

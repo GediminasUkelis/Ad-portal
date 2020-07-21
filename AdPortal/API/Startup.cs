@@ -37,8 +37,16 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddLogging();
-           services.AddCors();
-            
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "MyPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("*");
+                        //builder.WithOrigins("https://localhost:44333");
+                    });
+            });
+
             services.AddControllers();
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;"));

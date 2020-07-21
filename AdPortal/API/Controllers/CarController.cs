@@ -2,6 +2,7 @@
 using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
+using Domain.Models;
 using MediatR;
 
 using Microsoft.AspNetCore.Authorization;

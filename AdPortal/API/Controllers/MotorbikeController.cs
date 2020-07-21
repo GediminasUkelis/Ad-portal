@@ -7,7 +7,10 @@ using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.MotorbikeService.Commands;
 using BLL.MotorbikeService.Queries;
+using Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +28,7 @@ namespace API.Controllers
         {
             this.uow = uow;
         }
+        [Authorize(Roles = Role.Admin)]
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -32,7 +36,7 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new List.Query());
         }
-
+        
         [HttpGet("/api/Mototbike/{id}")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]

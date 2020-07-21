@@ -58,6 +58,7 @@ namespace BLL.UsersService.Commands
                 request.obj.Password = Hash.Create(request.obj.Password, salt);
                 var obj = uow.Mapper.Map<User>(request.obj);
                 obj.Salt = salt;
+                obj.Role = Role.User;
                 uow.User.Register(obj);
                 uow.Commit();
                 return Unit.Value;
