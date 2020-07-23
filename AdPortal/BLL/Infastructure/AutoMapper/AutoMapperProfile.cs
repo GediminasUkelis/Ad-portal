@@ -15,7 +15,7 @@ namespace BLL.Infastructure.AutoMapper
                 .ForMember(x => x.Id, opt => opt.Ignore())
 
                 .ForPath(x => x.Color.Id, opt => opt.Ignore())
-                .ForMember(x => x.Color, opt => opt.MapFrom(input => input.Color.Name))
+                .ForPath(x => x.Color.Name, opt => opt.MapFrom(input => input.Color.Name))
 
 
                 .ForPath(x => x.Category.Id, opt => opt.Ignore())

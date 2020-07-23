@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\API.csproj": {}
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\API.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
         "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\obj\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
               }
             }
           }
@@ -129,18 +129,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,11 +156,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -245,18 +245,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -272,8 +272,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -335,18 +335,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+    "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -405,7 +405,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

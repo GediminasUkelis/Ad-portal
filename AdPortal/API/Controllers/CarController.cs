@@ -23,7 +23,7 @@ namespace API.Controllers
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CarController : ControllerBase
     {
         private readonly IUnitOfWork uow;
