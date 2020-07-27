@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20200623122404_AddFeaturesToDb.Designer.cs" />
     <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.cs" />
     <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.Designer.cs" />
+    <Compile Remove="Migrations\20200727065746_somethingnew.cs" />
+    <Compile Remove="Migrations\20200727065746_somethingnew.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

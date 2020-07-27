@@ -96,31 +96,10 @@ namespace BLL.MotorbikeService.Queries
                     motorbikes = motorbikes.Where(x => x.Price == request.obj.Price).ToList();
                 }
                 return motorbikes;
-                //foreach (PropertyInfo property in request.obj.GetType().GetProperties())
-                //{
-                //    if (property.PropertyType.IsClass)
-                //    {
-                //        list.Add(property.PropertyType);
-                //    }
-                //    else
-                //    {
-                //    list.Add(property);
-                //    }
-                //}
-
+     
 
             }
-            //private void ReadPropertiesRecursively(Type type)
-            //{
-            //    foreach (PropertyInfo property in type.GetProperties())
-            //    {
-            //        if (property.PropertyType.IsClass)
-            //        {
-            //            ReadPropertiesRecursively(property.PropertyType);
-            //        }
-            //        list.Add(property);
-            //    }
-            //}
+         
         }
     }
 }

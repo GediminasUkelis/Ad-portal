@@ -46,19 +46,14 @@ namespace BLL.UsersService.Commands
                     validator.ValidateAndThrow(request.obj);
                 }
                 var User = uow.Context.Users.SingleOrDefault(x => x.Username == request.obj.Username);
-                if (User == null)
+                if (User == null || !Validation.Validate(request.obj.Password, User.Salt, User.Password))
                 {
-                    throw new StatusCodeException(HttpStatusCode.NotFound, $"User with this {request.obj.Username} doesn't exists");
-                }
-                if (!Validation.Validate(request.obj.Password, User.Salt, User.Password))
-                {
-                    throw new StatusCodeException(HttpStatusCode.Unauthorized, $"User password is incorrect");
+                    throw new StatusCodeException(HttpStatusCode.NotFound, "Username and/or password is incorrect");
                 }
                 JwtTokenHandler handler = new JwtTokenHandler(uow);
                 string token = handler.CreateJWTToken(request.obj.Username, request.obj.Password);
                 uow.httpContextAccessor.HttpContext.Session.SetString("JwtToken", token);
                 return token;
-
             }
         }
 

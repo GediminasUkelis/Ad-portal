@@ -13,7 +13,7 @@ namespace BLL.Dto
         public Category Category { get; set; }
         public Manufacturer Manufacturer { get; set; }
         public ManufacturerModel ManufacturerModel { get; set; }
-        public DateTime ManufactureDate { get; set; }
+        public DateTime? ManufactureDate { get; set; }
         public string Engine { get; set; }
         public FuelType FuelType { get; set; }
         public FrameType FrameType { get; set; }
@@ -22,10 +22,10 @@ namespace BLL.Dto
         public Defects Defects { get; set; }
         public SteeringWheelPos SteeringWheelPos { get; set; }
         public Doors Doors { get; set; }
-        public int Seats { get; set; }
-        public DateTime VehicleInspection { get; set; }
+        public int? Seats { get; set; }
+        public DateTime? VehicleInspection { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
-
+        public decimal? Price { get; set; }
+        public ICollection<Image> Image { get; set; }
     }
 }

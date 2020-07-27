@@ -19,6 +19,7 @@ namespace BLL.Infastructure.UnitOfWork.Interface
         IGenericRepository<Car> CarRepository { get; }
         IGenericRepository<Tire> TireRepository { get; }
         IGenericRepository<Motorbike> MotorbikeRepository { get; }
+        IGenericRepository<Image> ImageRepository { get; }
         IUserService User { get; }
         IHttpContextAccessor httpContextAccessor { get; }
         ILogger<UnitOfWork> Logger { get; }

@@ -4,14 +4,16 @@ using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200727055156_AddingImages")]
+    partial class AddingImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,6 +54,9 @@ namespace DAL.Migrations
                     b.Property<Guid?>("FuelTypeId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
@@ -90,6 +95,8 @@ namespace DAL.Migrations
 
                     b.HasIndex("FuelTypeId");
 
+                    b.HasIndex("ImageId");
+
                     b.HasIndex("ManufacturerId");
 
                     b.HasIndex("ManufacturerModelId");
@@ -117,12 +124,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("561718c7-a554-4e58-828f-0bb9490694d2"),
+                            Id = new Guid("7a65d294-33ba-4248-9a22-b3924d2affec"),
                             Name = "Automobilis"
                         },
                         new
                         {
-                            Id = new Guid("72a8f2d1-a82e-4234-9418-b215c3fae451"),
+                            Id = new Guid("0b2f8875-6447-4287-a097-364ca9ecd7ea"),
                             Name = "Motociklas"
                         });
                 });
@@ -143,12 +150,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1c207fcc-55f0-4d66-90bc-a7975d169654"),
+                            Id = new Guid("c3c3da8c-8eb2-4e0f-b119-b6b019de97af"),
                             Name = "Balta"
                         },
                         new
                         {
-                            Id = new Guid("ff1b7331-f97a-4c2c-979e-2aefb0e0c765"),
+                            Id = new Guid("1c8358be-a3ca-4b80-8d8c-9d287f322988"),
                             Name = "Juoda"
                         });
                 });
@@ -169,12 +176,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ff2bbd22-3ac5-44a6-a43b-a5791f1be29a"),
+                            Id = new Guid("342033e6-c732-4c77-9113-cc57ef3a71e6"),
                             VehicCondition = "Naudota"
                         },
                         new
                         {
-                            Id = new Guid("b423a103-28af-4461-ba48-e8481e324d0f"),
+                            Id = new Guid("1e7c6f0a-0bf6-401d-bfa6-75931876e0aa"),
                             VehicCondition = "Nauja"
                         });
                 });
@@ -195,12 +202,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("edfaf6a4-3a5e-4cbf-9ec5-f2699e8245b1"),
+                            Id = new Guid("2f37357b-337c-4d28-a257-58f41c9dc7ba"),
                             CoolingType = "Oru"
                         },
                         new
                         {
-                            Id = new Guid("e1c021ba-8655-4b6d-8270-ef23913fb233"),
+                            Id = new Guid("38c5497e-80a4-4bf2-901c-341102017c67"),
                             CoolingType = "Vandeniu"
                         });
                 });
@@ -221,12 +228,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a3417e17-46c4-4785-8f1a-b44c69f9d816"),
+                            Id = new Guid("1a31482f-75b8-402f-b374-615d58c6d801"),
                             Defect = "Be defetkų"
                         },
                         new
                         {
-                            Id = new Guid("2148286f-93f9-4bfd-abaf-27f24dc11aef"),
+                            Id = new Guid("fdd9999e-775d-479d-8366-45e2241aaca4"),
                             Defect = "Degęs"
                         });
                 });
@@ -247,12 +254,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e113a10b-2b27-41a1-9d02-b454b4984804"),
+                            Id = new Guid("038a0aef-2024-475f-833b-c07a4ea2039b"),
                             TireDiameter = 17m
                         },
                         new
                         {
-                            Id = new Guid("461201d6-a303-41d1-9342-4c4484dd9138"),
+                            Id = new Guid("a8a41964-9d2e-46bf-b8b2-58204e816b30"),
                             TireDiameter = 18m
                         });
                 });
@@ -273,12 +280,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b9a0b9f7-94b8-42f1-b69e-e0bf8fd7ea24"),
+                            Id = new Guid("998c41ea-4429-477f-b4e4-77e1db845202"),
                             DoorCount = "4/5"
                         },
                         new
                         {
-                            Id = new Guid("3043ecc5-53be-4e75-9b4f-966a4e65e0ad"),
+                            Id = new Guid("b3024581-b843-4a31-803d-3915bfa04c8f"),
                             DoorCount = "2/3"
                         });
                 });
@@ -299,12 +306,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("306543ce-ba1b-4b34-827f-2e34185b31e7"),
+                            Id = new Guid("a251c6ac-d814-476e-9fa5-936532b513be"),
                             Type = "Universalas"
                         },
                         new
                         {
-                            Id = new Guid("3866ba2e-1062-4c0b-90eb-e06f38a8ff83"),
+                            Id = new Guid("14559818-5126-4840-b6d4-bb0360d5eff0"),
                             Type = "Sedanas"
                         });
                 });
@@ -325,12 +332,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b999dd2d-d2eb-41f4-a52d-30498355e4d1"),
+                            Id = new Guid("79257db4-27b6-4d4b-89ad-3a2490653999"),
                             Type = "Benzinas"
                         },
                         new
                         {
-                            Id = new Guid("9e9609cc-7af9-455d-9c76-bfa6c1f06c9c"),
+                            Id = new Guid("5162f7d1-dc28-4065-871a-31b32872f165"),
                             Type = "Dyzelinas"
                         });
                 });
@@ -351,12 +358,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("34177ec1-3722-494f-9d0e-c01275be6052"),
+                            Id = new Guid("72b24c99-6118-4c4e-9ef6-a02279eeb614"),
                             TireHeight = 205m
                         },
                         new
                         {
-                            Id = new Guid("3dc42c9d-22aa-4047-b0b3-87a50c0fb8a5"),
+                            Id = new Guid("6079546a-ba39-48d5-8bb6-3bdeeb8728a9"),
                             TireHeight = 215m
                         });
                 });
@@ -370,12 +377,7 @@ namespace DAL.Migrations
                     b.Property<string>("Bytes")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("CarsId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CarsId");
 
                     b.ToTable("Images");
                 });
@@ -410,12 +412,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("9369b9a9-a570-44b7-9d0c-ce39d911952a"),
+                            Id = new Guid("c774f0d9-c45c-47b0-9e85-c039e0cabb50"),
                             Name = "RS6"
                         },
                         new
                         {
-                            Id = new Guid("f62f9714-b3b4-4b38-bf64-a258d9d343c2"),
+                            Id = new Guid("dcbf7ebd-7251-422f-b565-aa59629edab9"),
                             Name = "E60"
                         });
                 });
@@ -517,12 +519,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ec625ecb-b0c3-427f-96de-0bb0228ddb0c"),
+                            Id = new Guid("ae7347ba-f93e-47da-9cba-c66c602360e0"),
                             Position = "Kairė"
                         },
                         new
                         {
-                            Id = new Guid("61e45246-19d5-4f8f-be1d-aae23c6a5cd8"),
+                            Id = new Guid("de1a37dc-95af-462e-b6f6-39c268fd9a12"),
                             Position = "Dešinė"
                         });
                 });
@@ -618,12 +620,12 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c032d083-ae4c-4e98-acca-fd355f701699"),
+                            Id = new Guid("74106af1-ef9a-41dc-8e66-87881eaeea69"),
                             Type = "Automatinė"
                         },
                         new
                         {
-                            Id = new Guid("7f52790d-0a38-4997-a7eb-5103dc1cf411"),
+                            Id = new Guid("5d8552c4-43d5-4c9a-ab6a-788b84ee64eb"),
                             Type = "Mechaninė"
                         });
                 });
@@ -708,6 +710,10 @@ namespace DAL.Migrations
                         .WithMany()
                         .HasForeignKey("FuelTypeId");
 
+                    b.HasOne("Domain.Models.Image", "Image")
+                        .WithMany("Cars")
+                        .HasForeignKey("ImageId");
+
                     b.HasOne("Domain.Models.Manufacturer", "Manufacturer")
                         .WithMany()
                         .HasForeignKey("ManufacturerId");
@@ -723,13 +729,6 @@ namespace DAL.Migrations
                     b.HasOne("Domain.Models.Transmission", "Transmission")
                         .WithMany()
                         .HasForeignKey("TransmissionId");
-                });
-
-            modelBuilder.Entity("Domain.Models.Image", b =>
-                {
-                    b.HasOne("Domain.Models.Car", "Cars")
-                        .WithMany("Image")
-                        .HasForeignKey("CarsId");
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
