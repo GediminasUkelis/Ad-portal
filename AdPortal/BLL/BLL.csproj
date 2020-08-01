@@ -34,7 +34,6 @@
     <Folder Include="Infastructure\Date\" />
     <Folder Include="Infastructure\Notifications\" />
     <Folder Include="RoofService\" />
-    <Folder Include="UsersService\Queries\" />
   </ItemGroup>
 
 </Project>

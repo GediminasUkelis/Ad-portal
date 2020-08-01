@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using BLL.Dto;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.UsersService.Commands;
+using BLL.UsersService.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -17,6 +18,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class UserController : ControllerBase
     {
         private readonly IUnitOfWork uow;
@@ -43,6 +45,16 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new Login.Command(obj));
           
+        }
+        [HttpGet("/api/User")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<UserDto> FindUser([FromRoute] string Username)
+        {
+            return await uow.Mediator.Send(new SingleUser.Query(Username));
+
         }
     }
 }

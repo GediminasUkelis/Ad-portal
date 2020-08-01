@@ -12,5 +12,8 @@ namespace Domain.Models
         public string Password { get; set; }
         public string Salt { get; set; }
         public string Role { get; set; }
+        public ICollection<Car> Cars { get; set; }
+        public ICollection<Motorbike> Motorbikes { get; set; }
+        public ICollection<Tire> Tires { get; set; }
     }
 }

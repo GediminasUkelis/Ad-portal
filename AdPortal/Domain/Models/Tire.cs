@@ -19,6 +19,7 @@ namespace Domain.Models
         public int Quantity { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public User User { get; set; }
 
     }
 }

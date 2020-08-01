@@ -21,13 +21,15 @@ namespace BLL.Infastructure.UnitOfWork
         private IGenericRepository<Tire> TireRepo;
         private IGenericRepository<Motorbike> MotorbikeRepo;
         private IGenericRepository<Image> ImageRepo;
+        private IGenericRepository<User> UserRepo;
         private IUserService userService;
         private IHttpContextAccessor httpContext;
         public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo,
             IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
             IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo, IUserService userService,
-            IHttpContextAccessor httpContext, IGenericRepository<Image> ImageRepo)
+            IHttpContextAccessor httpContext, IGenericRepository<Image> ImageRepo, IGenericRepository<User> UserRepo)
         {
+            this.UserRepo = UserRepo;
             this.carRepo = carRepo;
             Context = context;
             this.Mediator = mediator;
@@ -55,8 +57,11 @@ namespace BLL.Infastructure.UnitOfWork
         public IGenericRepository<Image> ImageRepository
         { 
             get { return ImageRepo ?? (ImageRepo = new GenericRepository<Image>(Context)); }
-        }   
-        
+        }
+        public IGenericRepository<User> UserRepository
+        {
+            get { return UserRepo ?? (UserRepo = new GenericRepository<User>(Context)); }
+        }
         public IMediator Mediator { get; }
 
         public IMapper Mapper { get; }

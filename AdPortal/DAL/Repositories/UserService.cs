@@ -16,15 +16,19 @@ namespace DAL.Repositories
         {
             this.context = context;
         }
+
+        public User FindSingleUser(string username)
+        {
+            return context.Users.Find(username);
+        }
+
         public User Login(LoginData data)
         {
            return context.Users.SingleOrDefault(x => x.Username == data.Username && x.Password == data.Password);
-            
         }
 
         public void Register(User user)
         {
-            
             context.Users.Add(user);
         }
     }

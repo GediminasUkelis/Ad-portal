@@ -109,6 +109,7 @@ namespace BLL.Infastructure.AutoMapper
             CreateMap<Image, ImageDto>(); 
 
             CreateMap<ImageDto, Image>();
+            CreateMap<User, UserDto>();
         }
     }
 }

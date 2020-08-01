@@ -9,5 +9,6 @@ namespace DAL.Repositories.Interfaces
     {
         void Register(User user);
         User Login(LoginData data);
+        User FindSingleUser(string username);
     }
 }

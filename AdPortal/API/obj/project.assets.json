@@ -3444,10 +3444,7 @@
         },
         "runtime": {
           "bin/placeholder/BLL.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "DAL/1.0.0": {
         "type": "project",
@@ -10571,19 +10568,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\YES\\.nuget\\packages\\": {}
+    "C:\\Users\\audri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\API\\obj\\",
+      "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10596,8 +10593,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
+            "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
             }
           }
         }
@@ -10690,6 +10687,16 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -10698,7 +10705,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   },
