@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj": {}
+    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj": {
+    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\API.csproj",
+        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\API.csproj",
         "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\API\\obj\\",
+        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,8 +27,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
+              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj"
               }
             }
           }
@@ -121,16 +121,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -143,14 +133,14 @@
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
+    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
         "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\obj\\",
+        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -166,11 +156,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
+              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -247,16 +237,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -269,14 +249,14 @@
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
+    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -292,8 +272,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
+              "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj"
               }
             }
           }
@@ -350,16 +330,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -369,14 +339,14 @@
         }
       }
     },
-    "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
+    "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\audri\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\audri\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -430,16 +400,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

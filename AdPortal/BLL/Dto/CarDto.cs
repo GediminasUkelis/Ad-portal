@@ -26,6 +26,7 @@ namespace BLL.Dto
         public DateTime? VehicleInspection { get; set; }
         public string Description { get; set; }
         public decimal? Price { get; set; }
-        public ICollection<Image> Image { get; set; }
+        public ICollection<ImageDto> Image { get; set; }
+       
     }
 }

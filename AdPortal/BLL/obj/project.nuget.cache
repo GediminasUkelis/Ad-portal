@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "if6bxWyuGyIrP/fpBwQxN52PSBslifYiui4LjJBl22C59+QX13XaXR0MYpgEROxUi5sEbWsd07UO3QxGIt1zOw==",
+  "dgSpecHash": "4UwOaXPG7vPXSycVGZ32eE3ixCFS6uE0XTQiqN4mc5dj4jDrJtzAMefJPL9Q5C+KMSxhMxpvJmsxzeb8O6flSQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\audri\\Desktop\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\audri\\Desktop\\ad\\Ad-portal\\AdPortal\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\audri\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\audri\\.nuget\\packages\\chinchilla.logging\\4.1.124.102\\chinchilla.logging.4.1.124.102.nupkg.sha512",
@@ -163,9 +163,7 @@
     "C:\\Users\\audri\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\audri\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\audri\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\audri\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\audri\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
-    "C:\\Users\\audri\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512"
+    "C:\\Users\\audri\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": [
     {

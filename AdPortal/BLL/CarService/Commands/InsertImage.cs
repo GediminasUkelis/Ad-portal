@@ -46,10 +46,6 @@ namespace BLL.CarService.Commands
                         validator.ValidateAndThrow(Image);
                     }
                 }
-
-
-
-
                 var obj = uow.Mapper.Map<Image>(request.obj);
                 uow.ImageRepository.Insert(obj);
                 uow.Commit();

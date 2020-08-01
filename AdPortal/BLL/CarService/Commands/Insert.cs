@@ -6,6 +6,7 @@ using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -46,18 +48,17 @@ namespace BLL.CarService.Commands
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
                 }
                 CarDto CarObj = JsonConvert.DeserializeObject<CarDto>(JObject.Parse(request.obj).ToString());
-
-         
                 CarDtoValidator validator = new CarDtoValidator();
                 ValidationResult results = validator.Validate(CarObj);
-
                 if (!results.IsValid)
                 {
                     validator.ValidateAndThrow(CarObj);
                 }
+                
                 var obj = uow.Mapper.Map<Car>(CarObj);
-
-
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                var id = Guid.Parse(accessToken);
+                obj.UserId = id;
                 if (request.Image == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "Image is empty");
@@ -67,32 +68,24 @@ namespace BLL.CarService.Commands
                     if (image.Length > 0)
                     {
                         var filePath = Path.GetTempFileName();
-
                         using (var stream = File.Create(filePath))
                         {
                             using (var ms = new MemoryStream())
                             {
                                 image.CopyTo(ms);
                                 var fileBytes = ms.ToArray();
-
-                        
-                                  var  ImageBytes = String.Join(" ", fileBytes);
+                                var  ImageBytes = String.Join(" ", fileBytes);
                                 Image image1 = new Image()
                                 {
                                     Cars = obj,
                                     Bytes = ImageBytes
                                 };
-
-                                
                                 obj.Image.Add(image1);
-
+                         
                             }
-
                         }
                     }
                 }
-
-
                 uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

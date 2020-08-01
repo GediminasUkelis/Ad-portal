@@ -42,6 +42,9 @@ namespace BLL.TireService.Commands
                     validator.ValidateAndThrow(request.obj);
                 }
                 var obj = uow.Mapper.Map<Tire>(request.obj);
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                var id = Guid.Parse(accessToken);
+                obj.UserId = id;
                 uow.TireRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

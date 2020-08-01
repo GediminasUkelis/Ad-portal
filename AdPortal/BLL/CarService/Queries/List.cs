@@ -4,6 +4,7 @@ using Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -30,10 +31,20 @@ namespace BLL.CarService.Queries
             {
                 List<CarDto> carDtos = new List<CarDto>();
                 var DbEntry = uow.CarRepository.GetAll();
+                var images = uow.ImageRepository.GetAll();
+
+                List<Image> imageDtos = new List<Image>();
                 foreach (var item in DbEntry)
                 {
+                    foreach (var s in images.Where(x => x.Id == item.Id).ToList())
+                    {
+                        item.Image.Add(s);
+                    }
+
                     carDtos.Add(uow.Mapper.Map<CarDto>(item));
+
                 }
+               
                 return carDtos;
             }
             

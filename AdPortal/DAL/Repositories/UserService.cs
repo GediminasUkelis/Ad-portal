@@ -19,7 +19,7 @@ namespace DAL.Repositories
 
         public User FindSingleUser(string username)
         {
-            return context.Users.Find(username);
+            return context.Users.SingleOrDefault(x=>x.Username==username);
         }
 
         public User Login(LoginData data)

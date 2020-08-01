@@ -34,7 +34,7 @@ namespace DAL.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-9L1J508\\AUDRIUSSQL;database=ad-Portal;trusted_connection=true;");
+            optionsBuilder.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;");
         }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
           : base(options)

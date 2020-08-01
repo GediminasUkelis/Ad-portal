@@ -44,6 +44,9 @@ namespace BLL.Infastructure.AutoMapper
 
                 .ForPath(x => x.Doors.Id, opt => opt.Ignore())
                 .ForPath(x => x.Doors.DoorCount, opt => opt.MapFrom(input => input.Doors.DoorCount))
+             
+                .ForPath(x => x.User.Id, opt => opt.Ignore())
+             
                 .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
 
             CreateMap<Tire, TireDto>();

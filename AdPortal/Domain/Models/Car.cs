@@ -32,5 +32,7 @@ namespace Domain.Models
         public decimal Price { get; set; }
         public DateTime CreatedOn { get; set; }
         public ICollection<Image> Image { get; set; }
+        public Guid UserId { get; set; }
+        public User User { get; set; }
     }
 }

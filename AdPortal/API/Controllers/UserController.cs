@@ -46,8 +46,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Login.Command(obj));
           
         }
-        [HttpGet("/api/User")]
-        [Consumes(MediaTypeNames.Application.Json)]
+        [HttpGet("/api/User/{Username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

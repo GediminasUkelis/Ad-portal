@@ -45,6 +45,9 @@ namespace BLL.MotorbikeService.Commands
                 }
 
                 var motorbike = uow.Mapper.Map<Motorbike>(request.obj);
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                var id = Guid.Parse(accessToken);
+                motorbike.UserId = id;
                 uow.MotorbikeRepository.Insert(motorbike);
                 uow.Commit();
                 return Unit.Value;
