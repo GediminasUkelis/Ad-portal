@@ -24,7 +24,7 @@ namespace API.Controllers
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    
     public class CarController : ControllerBase
     {
         private readonly IUnitOfWork uow;
@@ -52,6 +52,14 @@ namespace API.Controllers
             return await uow.Mediator.Send(new GetById.Query(id));
         }
 
+        [HttpGet("/api/Car/Search/{search}")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public async Task<ActionResult<List<CarDto>>> SearchCar([FromBody] CarDto obj)
+        {
+            return await uow.Mediator.Send(new Search.Query(obj));
+        }
+
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -61,28 +69,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Insert.Command(obj,Image));
         }
 
-
-        //[HttpPost]
-        ////[Consumes(MediaTypeNames.Image.Jpeg, MediaTypeNames.Application.Json)]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //public async Task<Unit> PostCarAsync([FromForm] List<IFormFile> obj)
-        //{
-        //    return await uow.Mediator.Send(new InsertImage.Command(obj));
-        //}
-
-
-        //[HttpPost]
-        ////[Consumes(MediaTypeNames.Image.Jpeg, MediaTypeNames.Application.Json)]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesResponseType(StatusCodes.Status400BadRequest)]
-        //public async Task<Unit> PostCarAsync([FromForm] List<IFormFile> Image, [FromBody] CarDto obj)
-        //{
-        //    return await uow.Mediator.Send(new Insert.Command(obj,Image));
-        //}
-
+        [Authorize]
         [HttpDelete("/api/Car/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -92,6 +79,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Delete.Command(id));
         }
 
+        [Authorize]
         [HttpPut("/api/Car/{id}")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -100,12 +88,6 @@ namespace API.Controllers
         public async Task<Unit> UpdateCarAsync([FromRoute]Guid Id,[FromBody]CarDto obj)
         {
             return await uow.Mediator.Send(new Put.Command(Id, obj));
-        }
-        [HttpGet("/api/Car/Search/{search}")]
-        [Consumes(MediaTypeNames.Application.Json)]
-        public async Task<ActionResult<List<CarDto>>> SearchCar([FromBody]CarDto obj)
-        {
-            return await uow.Mediator.Send(new Search.Query(obj));
         }
     }
 }

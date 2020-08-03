@@ -8,6 +8,7 @@ using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.TireService.Commands;
 using BLL.TireService.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,14 @@ namespace API.Controllers
             return await uow.Mediator.Send(new GetById.Query(id));
         }
 
+        [HttpGet("/api/Tire/Search")]
+        [Consumes(MediaTypeNames.Application.Json)]
+        public async Task<ActionResult<List<TireDto>>> SearchCar([FromBody] TireDto obj)
+        {
+            return await uow.Mediator.Send(new Search.Query(obj));
+        }
+
+        [Authorize]
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -52,6 +61,8 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new Insert.Command(obj));
         }
+
+        [Authorize]
         [HttpDelete("/api/Tire/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -61,6 +72,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Delete.Command(id));
         }
 
+        [Authorize]
         [HttpPut("/api/Tire/{id}")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -69,13 +81,6 @@ namespace API.Controllers
         public async Task<Unit> UpdateTireAsync([FromRoute] Guid Id, [FromBody] TireDto obj)
         {
             return await uow.Mediator.Send(new Put.Command(Id, obj));
-        }
-        [HttpGet("/api/Tire/Search")]
-        [Consumes(MediaTypeNames.Application.Json)]
-        public async Task<ActionResult<List<TireDto>>> SearchCar([FromBody] TireDto obj)
-        {
-            return await uow.Mediator.Send(new Search.Query(obj));
-
         }
     }
 }

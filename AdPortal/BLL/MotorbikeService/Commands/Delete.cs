@@ -35,6 +35,16 @@ namespace BLL.MotorbikeService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Motorbike by Id {request.Id} Not found in database");
                 }
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
+                if (id != DbEntry.UserId)
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
                 uow.MotorbikeRepository.Delete(DbEntry);
                 uow.Commit();
                 return Unit.Value;

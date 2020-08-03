@@ -7,6 +7,6 @@ namespace BLL.Dto
     public class BaseModelDto
     {
         public Guid Id { get; set; }
-        public DateTime CreatedOn { get; set; }
+       
     }
 }

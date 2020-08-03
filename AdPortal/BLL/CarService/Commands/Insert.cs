@@ -8,10 +8,12 @@ using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Security.Claims;
@@ -57,7 +59,11 @@ namespace BLL.CarService.Commands
                 
                 var obj = uow.Mapper.Map<Car>(CarObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
-                var id = Guid.Parse(accessToken);
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
                 obj.UserId = id;
                 if (request.Image == null)
                 {
@@ -86,10 +92,11 @@ namespace BLL.CarService.Commands
                         }
                     }
                 }
+                //obj.CreatedOn = DateTime.UtcNow;
                 uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
-
+                
             }
         }
     }

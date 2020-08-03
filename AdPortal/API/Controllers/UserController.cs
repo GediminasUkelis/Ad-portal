@@ -26,16 +26,16 @@ namespace API.Controllers
         {
             this.uow = uow;
         }
-        
-        [HttpPost("/api/Register")]
-        [Consumes(MediaTypeNames.Application.Json)]
+
+        [HttpGet("/api/User/{Username}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<Unit> RegisterUserAsync([FromBody] RegisterDto obj)
+        public async Task<UserDto> FindUser([FromRoute] string Username)
         {
-            return await uow.Mediator.Send(new Register.Command(obj));
+            return await uow.Mediator.Send(new SingleUser.Query(Username));
         }
+
         [HttpPost("/api/Login")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -44,16 +44,16 @@ namespace API.Controllers
         public async Task<string> LoginUserAsync([FromBody] LoginDataDto obj)
         {
             return await uow.Mediator.Send(new Login.Command(obj));
-          
         }
-        [HttpGet("/api/User/{Username}")]
+
+        [HttpPost("/api/Register")]
+        [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<UserDto> FindUser([FromRoute] string Username)
+        public async Task<Unit> RegisterUserAsync([FromBody] RegisterDto obj)
         {
-            return await uow.Mediator.Send(new SingleUser.Query(Username));
-
+            return await uow.Mediator.Send(new Register.Command(obj));
         }
     }
 }

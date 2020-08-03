@@ -44,6 +44,17 @@ namespace BLL.TireService.Commands
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Tire with this {request.Id} was not found in database");
                 }
 
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
+                if (DbEntry.UserId != id)
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
+
                 uow.Mapper.Map(request.obj, DbEntry);
 
                 uow.TireRepository.Update(DbEntry);

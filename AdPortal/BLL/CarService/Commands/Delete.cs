@@ -37,6 +37,17 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
                 }
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
+                if (id != DbEntry.UserId)
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
+
                 uow.CarRepository.Delete(DbEntry);
                 uow.Commit();
                 return Unit.Value;

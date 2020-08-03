@@ -20,6 +20,7 @@ namespace API.Controllers
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MotorbikeController : Controller
     {
         private readonly IUnitOfWork uow;
@@ -28,7 +29,7 @@ namespace API.Controllers
         {
             this.uow = uow;
         }
-        [Authorize(Roles = Role.Admin)]
+    
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -52,9 +53,9 @@ namespace API.Controllers
         public async Task<ActionResult<List<MotorbikeDto>>> SearchCar([FromBody] MotorbikeDto obj)
         {
             return await uow.Mediator.Send(new Search.Query(obj));
-
         }
 
+        [Authorize]
         [HttpPost]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -65,6 +66,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Insert.Command(obj));
         }
 
+        [Authorize]
         [HttpPut("/api/Motorbike/{id}")]
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -75,6 +77,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new Put.Command(obj, Id));
         }
 
+        [Authorize]
         [HttpDelete("/api/Motorbike/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

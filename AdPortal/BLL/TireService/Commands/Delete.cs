@@ -2,9 +2,7 @@
 using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,20 +29,25 @@ namespace BLL.TireService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-
-
                 var DbEntry = uow.TireRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Tire with this {request.Id} was not found in database");
                 }
+                var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
+                if (id != DbEntry.UserId)
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
                 uow.TireRepository.Delete(DbEntry);
                 uow.Commit();
                 return Unit.Value;
-
             }
-
-
         }
     }
 }
