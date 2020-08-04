@@ -6,7 +6,8 @@ namespace Domain.Models
 {
     public class Image : BaseModel
     {
-        public string Bytes { get; set; }
+        public string Path { get; set; }
+        public Guid CarId { get; set; }
         public Car Cars { get; set; }
     }
 }

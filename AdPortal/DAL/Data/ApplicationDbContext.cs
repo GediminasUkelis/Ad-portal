@@ -44,6 +44,9 @@ namespace DAL.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Car>().Property(x => x.Id).ValueGeneratedNever();
+
+            modelBuilder.Entity<Car>().HasMany(c => c.Image).WithOne(i => i.Cars).HasForeignKey(i => i.CarId).OnDelete(DeleteBehavior.Cascade);
+            
             modelBuilder.Entity<Category>().HasData(
                 new Category()
                 {

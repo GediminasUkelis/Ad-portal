@@ -69,30 +69,28 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "Image is empty");
                 }
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\"+obj.Id))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Images\" + obj.Id);
+                }
                 foreach (var image in request.Image)
                 {
                     if (image.Length > 0)
                     {
-                        var filePath = Path.GetTempFileName();
-                        using (var stream = File.Create(filePath))
+                        using (var fileStream = new FileStream(Directory.GetCurrentDirectory() 
+                            + @"\Images\" + obj.Id +@"\" + image.FileName, FileMode.Create))
                         {
-                            using (var ms = new MemoryStream())
+                            image.CopyTo(fileStream);
+                            var path = new Image()
                             {
-                                image.CopyTo(ms);
-                                var fileBytes = ms.ToArray();
-                                var  ImageBytes = String.Join(" ", fileBytes);
-                                Image image1 = new Image()
-                                {
-                                    Cars = obj,
-                                    Bytes = ImageBytes
-                                };
-                                obj.Image.Add(image1);
-                         
-                            }
+                                Path = Directory.GetCurrentDirectory()
+                            + "\\Images\\" + obj.Id + "\\" + image.FileName
+                            };
+                            //path.Path.Replace(@"\\", @"\");
+                            obj.Image.Add(path);
                         }
                     }
                 }
-                //obj.CreatedOn = DateTime.UtcNow;
                 uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

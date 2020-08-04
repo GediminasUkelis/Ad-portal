@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Utkq1mCKCYJBGJk2KFgdPdN4uke0d1Wq8g1vk0htOkKfve7/I3kCCRIKf+jpcLw5xX379wU0VrKwQRPn6gbXEQ==",
+  "dgSpecHash": "h54PeFDGdg6EpH1UbQmcYsVFTNJfQH5818sQ/yND5kpQ26OL1XuOHKvDpmrTqQ3RRroLo5tIqGGDcfGmq/r3Ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\Portal\\Ad-portal\\AdPortal\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YES\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

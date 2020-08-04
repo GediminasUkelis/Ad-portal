@@ -4,8 +4,8 @@ using System.Text;
 
 namespace BLL.Dto
 {
-    public class ImageDto
+    public class ImageDto 
     {
-        public string Bytes { get; set; }
+        public string Path { get; set; }
     }
 }

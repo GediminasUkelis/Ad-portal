@@ -2,6 +2,7 @@
 using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
 using System;
+using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -30,8 +31,6 @@ namespace BLL.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-
-
                 var DbEntry = uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
@@ -48,6 +47,10 @@ namespace BLL.CarService.Commands
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
 
+                if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
+                {
+                    Directory.Delete(Directory.GetCurrentDirectory() + @"\Images\" + request.Id,true);
+                }
                 uow.CarRepository.Delete(DbEntry);
                 uow.Commit();
                 return Unit.Value;

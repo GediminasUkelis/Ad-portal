@@ -24,8 +24,6 @@ namespace BLL.Dto
         public Doors Doors { get; set; }
         public int? Seats { get; set; }
         public DateTime? VehicleInspection { get; set; }
-
-        [DataType(DataType.Date)]
         public DateTime CreatedOn { get; set; }
         public string Description { get; set; }
         public decimal? Price { get; set; }
