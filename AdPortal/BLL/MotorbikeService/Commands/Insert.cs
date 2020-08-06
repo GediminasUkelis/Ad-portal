@@ -6,8 +6,12 @@ using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -19,11 +23,13 @@ namespace BLL.MotorbikeService.Commands
     {
         public class Command : IRequest
         {
-            public MotorbikeDto obj { get; set; }
-            public Command(MotorbikeDto obj)
+        public Command(string obj, List<IFormFile> Image)
             {
                 this.obj = obj;
+                this.Image = Image;
             }
+            public string obj { get; set; }
+            public List<IFormFile> Image { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -35,20 +41,54 @@ namespace BLL.MotorbikeService.Commands
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                if (request.obj == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
+                }
+                MotorbikeDto MotorbikeObj = JsonConvert.DeserializeObject<MotorbikeDto>(JObject.Parse(request.obj).ToString());
 
                 MotorbikeDtoValidator validator = new MotorbikeDtoValidator();
-                ValidationResult results = validator.Validate(request.obj);
-
+                ValidationResult results = validator.Validate(MotorbikeObj);
                 if (!results.IsValid)
                 {
-                    validator.ValidateAndThrow(request.obj);
+                    validator.ValidateAndThrow(MotorbikeObj);
                 }
 
-                var motorbike = uow.Mapper.Map<Motorbike>(request.obj);
+                var obj = uow.Mapper.Map<Motorbike>(MotorbikeObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
-                var id = Guid.Parse(accessToken);
-                motorbike.UserId = id;
-                uow.MotorbikeRepository.Insert(motorbike);
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
+                obj.UserId = id;
+                if (request.Image == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.BadRequest, "Image is empty");
+                }
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + obj.Id))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Images\" + obj.Id);
+                }
+
+                foreach (var image in request.Image)
+                {
+                    if (image.Length > 0)
+                    {
+                        using (var fileStream = new FileStream(Directory.GetCurrentDirectory()
+                            + @"\Images\" + obj.Id + @"\" + image.FileName, FileMode.Create))
+                        {
+                            image.CopyTo(fileStream);
+                            var path = new MotorbikeImage()
+                            {
+                                Path = Directory.GetCurrentDirectory()
+                            + "\\Images\\" + obj.Id + "\\" + image.FileName
+                            };
+                            obj.Image.Add(path);
+                        }
+                    }
+                }
+                uow.MotorbikeRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
             }

@@ -28,6 +28,6 @@ namespace BLL.Dto
         public string Description { get; set; }
         public decimal? Price { get; set; }
         public ICollection<ImageDto> Image { get; set; }
-       
+
     }
 }

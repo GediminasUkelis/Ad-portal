@@ -3,6 +3,7 @@ using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
@@ -44,6 +45,10 @@ namespace BLL.MotorbikeService.Commands
                 if (id != DbEntry.UserId)
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
+                if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
+                {
+                    Directory.Delete(Directory.GetCurrentDirectory() + @"\Images\" + request.Id, true);
                 }
                 uow.MotorbikeRepository.Delete(DbEntry);
                 uow.Commit();

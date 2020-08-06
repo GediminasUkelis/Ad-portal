@@ -2,6 +2,7 @@
 using BLL.Infastructure.UnitOfWork.Interface;
 using MediatR;
 using System;
+using System.IO;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,6 +44,10 @@ namespace BLL.TireService.Commands
                 if (id != DbEntry.UserId)
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
+                }
+                if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
+                {
+                    Directory.Delete(Directory.GetCurrentDirectory() + @"\Images\" + request.Id, true);
                 }
                 uow.TireRepository.Delete(DbEntry);
                 uow.Commit();

@@ -46,7 +46,6 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-
                 if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
                 {
                     Directory.Delete(Directory.GetCurrentDirectory() + @"\Images\" + request.Id,true);

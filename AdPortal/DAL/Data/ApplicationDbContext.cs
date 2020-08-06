@@ -7,7 +7,9 @@ namespace DAL.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Image> Images { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
+        public DbSet<TireImage> TireImages { get; set; }
+        public DbSet<MotorbikeImage> MotorbikeImages { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Color> Colors { get; set; }
@@ -43,12 +45,11 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Car>().Property(x => x.Id).ValueGeneratedNever();
-
             modelBuilder.Entity<Car>().HasMany(c => c.Image).WithOne(i => i.Cars).HasForeignKey(i => i.CarId).OnDelete(DeleteBehavior.Cascade);
-            
+            modelBuilder.Entity<Motorbike>().HasMany(c => c.Image).WithOne(i => i.Motorbikes).HasForeignKey(i => i.MotorbikeId).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<Tire>().HasMany(c => c.Image).WithOne(i => i.Tires).HasForeignKey(i => i.TireId).OnDelete(DeleteBehavior.Cascade);
             modelBuilder.Entity<Category>().HasData(
-                new Category()
+                new Category() 
                 {
                     Id = Guid.NewGuid(),
        

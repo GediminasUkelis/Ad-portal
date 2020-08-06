@@ -1,12 +1,18 @@
 ﻿using BLL.Dto;
+using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.Infastructure.Validation;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,11 +23,13 @@ namespace BLL.TireService.Commands
     {
         public class Command : IRequest
         {
-            public Command(TireDto obj)
+            public Command(string obj, List<IFormFile> Image)
             {
                 this.obj = obj;
+                this.Image = Image;
             }
-            public TireDto obj { get; set; }
+            public string obj { get; set; }
+            public List<IFormFile> Image { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -34,17 +42,52 @@ namespace BLL.TireService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                if (request.obj == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
+                }
+                TireDto tireObj = JsonConvert.DeserializeObject<TireDto>(JObject.Parse(request.obj).ToString());
                 TireDtoValidator validator = new TireDtoValidator();
-                ValidationResult results = validator.Validate(request.obj);
-
+                ValidationResult results = validator.Validate(tireObj);
                 if (!results.IsValid)
                 {
-                    validator.ValidateAndThrow(request.obj);
+                    validator.ValidateAndThrow(tireObj);
                 }
-                var obj = uow.Mapper.Map<Tire>(request.obj);
+                var obj = uow.Mapper.Map<Tire>(tireObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
-                var id = Guid.Parse(accessToken);
+                Guid id;
+                if (!Guid.TryParse(accessToken, out id))
+                {
+                    throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
+                }
                 obj.UserId = id;
+                if (request.Image == null)
+                {
+                    throw new StatusCodeException(HttpStatusCode.BadRequest, "Image is empty");
+                }
+                if (!Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + obj.Id))
+                {
+                    Directory.CreateDirectory(Directory.GetCurrentDirectory() + @"\Images\" + obj.Id);
+                }
+
+
+                foreach (var image in request.Image)
+                {
+                    if (image.Length > 0)
+                    {
+                        using (var fileStream = new FileStream(Directory.GetCurrentDirectory()
+                            + @"\Images\" + obj.Id + @"\" + image.FileName, FileMode.Create))
+                        {
+                            image.CopyTo(fileStream);
+                            var path = new TireImage()
+                            {
+                                Path = Directory.GetCurrentDirectory()
+                            + "\\Images\\" + obj.Id + "\\" + image.FileName
+                            };
+                            obj.Image.Add(path);
+                        }
+                    }
+                }
                 uow.TireRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

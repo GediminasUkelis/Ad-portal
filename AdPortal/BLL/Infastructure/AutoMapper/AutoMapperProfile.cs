@@ -108,7 +108,9 @@ namespace BLL.Infastructure.AutoMapper
             CreateMap<User, RegisterDto>();
 
             CreateMap<RegisterDto, User>();
-            CreateMap<Image, ImageDto>();
+            CreateMap<CarImage, ImageDto>().ReverseMap();
+            CreateMap<MotorbikeImage, ImageDto>().ReverseMap();
+            CreateMap<TireImage, ImageDto>().ReverseMap();
             CreateMap<User, UserDto>();
         }
     }

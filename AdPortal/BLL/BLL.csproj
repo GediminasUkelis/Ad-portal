@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RoofService\**" />
+    <EmbeddedResource Remove="RoofService\**" />
+    <None Remove="RoofService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
@@ -33,7 +39,6 @@
   <ItemGroup>
     <Folder Include="Infastructure\Date\" />
     <Folder Include="Infastructure\Notifications\" />
-    <Folder Include="RoofService\" />
   </ItemGroup>
 
 </Project>

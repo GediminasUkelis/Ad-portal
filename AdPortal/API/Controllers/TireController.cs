@@ -57,9 +57,9 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<Unit> PostTireAsync([FromBody] TireDto obj)
+        public async Task<Unit> PostTireAsync([FromForm] string obj, [FromForm] List<IFormFile> Image)
         {
-            return await uow.Mediator.Send(new Insert.Command(obj));
+            return await uow.Mediator.Send(new Insert.Command(obj,Image));
         }
 
         [Authorize]

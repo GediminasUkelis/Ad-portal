@@ -49,6 +49,8 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
                 }
+
+
                 CarDto CarObj = JsonConvert.DeserializeObject<CarDto>(JObject.Parse(request.obj).ToString());
                 CarDtoValidator validator = new CarDtoValidator();
                 ValidationResult results = validator.Validate(CarObj);
@@ -81,7 +83,7 @@ namespace BLL.CarService.Commands
                             + @"\Images\" + obj.Id +@"\" + image.FileName, FileMode.Create))
                         {
                             image.CopyTo(fileStream);
-                            var path = new Image()
+                            var path = new CarImage()
                             {
                                 Path = Directory.GetCurrentDirectory()
                             + "\\Images\\" + obj.Id + "\\" + image.FileName
@@ -94,7 +96,6 @@ namespace BLL.CarService.Commands
                 uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
-                
             }
         }
     }

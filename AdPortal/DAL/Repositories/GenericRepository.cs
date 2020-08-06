@@ -69,7 +69,7 @@ namespace DAL.Repositories
             {
                 query = query.Include(property.Name);
             }
-            int a = 12;
+         
             return query;
          
 

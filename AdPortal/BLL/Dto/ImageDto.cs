@@ -8,4 +8,6 @@ namespace BLL.Dto
     {
         public string Path { get; set; }
     }
+    
+
 }

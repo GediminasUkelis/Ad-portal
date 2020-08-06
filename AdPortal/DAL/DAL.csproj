@@ -15,6 +15,18 @@
     <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.Designer.cs" />
     <Compile Remove="Migrations\20200727065746_somethingnew.cs" />
     <Compile Remove="Migrations\20200727065746_somethingnew.Designer.cs" />
+    <Compile Remove="Migrations\20200805090338_AddingImagesToOtherModels.cs" />
+    <Compile Remove="Migrations\20200805090338_AddingImagesToOtherModels.Designer.cs" />
+    <Compile Remove="Migrations\20200805091812_AddingImagesToOtherModels.cs" />
+    <Compile Remove="Migrations\20200805091812_AddingImagesToOtherModels.Designer.cs" />
+    <Compile Remove="Migrations\20200805092338_AddingImagesToOtherModels1.cs" />
+    <Compile Remove="Migrations\20200805092338_AddingImagesToOtherModels1.Designer.cs" />
+    <Compile Remove="Migrations\20200805092503_AddingImagesToOtherModels1.cs" />
+    <Compile Remove="Migrations\20200805092503_AddingImagesToOtherModels1.Designer.cs" />
+    <Compile Remove="Migrations\20200805092754_AddingImagesToOtherModels1.cs" />
+    <Compile Remove="Migrations\20200805092754_AddingImagesToOtherModels1.Designer.cs" />
+    <Compile Remove="Migrations\20200805093758_AddingImagesToOtherModels2.cs" />
+    <Compile Remove="Migrations\20200805093758_AddingImagesToOtherModels2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
