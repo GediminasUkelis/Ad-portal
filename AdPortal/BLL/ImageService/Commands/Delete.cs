@@ -68,7 +68,7 @@ namespace BLL.ImageService.Commands
                     var item = carEntry.Image.FirstOrDefault(c => c.Path == image.Path);
                     if (item != null && File.Exists(item.Path))
                     {
-                        uow.Context.CarImages.Remove(item);
+                        uow.Context.Image.Remove(item);
                         File.Delete(item.Path);
                     }
                 }

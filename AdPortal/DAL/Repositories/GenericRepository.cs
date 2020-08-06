@@ -35,7 +35,7 @@ namespace DAL.Repositories
         {
             var DbEntry = Query()
                 .AsNoTracking()
-                .SingleOrDefault(s => s.Id == id);
+                .FirstOrDefault(s => s.Id == id);
                   
             return DbEntry;
         }

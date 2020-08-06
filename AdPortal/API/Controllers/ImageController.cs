@@ -30,5 +30,14 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new Delete.Command(postId, images));
         }
+
+        [HttpPost("/api/Image/{postId}")]
+        [Produces(MediaTypeNames.Application.Json)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<Unit> InsertImagesAsync([FromRoute] Guid postId, [FromForm] List<IFormFile> images)
+        {
+            return await uow.Mediator.Send(new Insert.Command(postId, images));
+        }
+
     }
 }

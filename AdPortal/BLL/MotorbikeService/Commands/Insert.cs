@@ -73,16 +73,17 @@ namespace BLL.MotorbikeService.Commands
 
                 foreach (var image in request.Image)
                 {
+                    string fileName = Guid.NewGuid() + image.FileName;
                     if (image.Length > 0)
                     {
                         using (var fileStream = new FileStream(Directory.GetCurrentDirectory()
-                            + @"\Images\" + obj.Id + @"\" + image.FileName, FileMode.Create))
+                            + @"\Images\" + obj.Id + @"\" + fileName, FileMode.Create))
                         {
                             image.CopyTo(fileStream);
-                            var path = new MotorbikeImage()
+                            var path = new Image()
                             {
                                 Path = Directory.GetCurrentDirectory()
-                            + "\\Images\\" + obj.Id + "\\" + image.FileName
+                            + "\\Images\\" + obj.Id + "\\" + fileName
                             };
                             obj.Image.Add(path);
                         }

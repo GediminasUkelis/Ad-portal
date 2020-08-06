@@ -31,7 +31,7 @@ namespace Domain.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         public DateTime CreatedOn { get; set; }
-        public ICollection<CarImage> Image { get; set; }
+        public ICollection<Image> Image { get; set; }
         public Guid UserId { get; set; }
         public User User { get; set; }
     }

@@ -75,14 +75,15 @@ namespace BLL.TireService.Commands
                 {
                     if (image.Length > 0)
                     {
+                        string fileName = Guid.NewGuid() + image.FileName;
                         using (var fileStream = new FileStream(Directory.GetCurrentDirectory()
-                            + @"\Images\" + obj.Id + @"\" + image.FileName, FileMode.Create))
+                            + @"\Images\" + obj.Id + @"\" + fileName, FileMode.Create))
                         {
                             image.CopyTo(fileStream);
-                            var path = new TireImage()
+                            var path = new Image()
                             {
                                 Path = Directory.GetCurrentDirectory()
-                            + "\\Images\\" + obj.Id + "\\" + image.FileName
+                            + "\\Images\\" + obj.Id + "\\" + fileName
                             };
                             obj.Image.Add(path);
                         }

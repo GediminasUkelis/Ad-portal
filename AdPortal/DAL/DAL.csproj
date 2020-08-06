@@ -15,6 +15,8 @@
     <Compile Remove="Migrations\20200625070426_AddedGuidDroppedId.Designer.cs" />
     <Compile Remove="Migrations\20200727065746_somethingnew.cs" />
     <Compile Remove="Migrations\20200727065746_somethingnew.Designer.cs" />
+    <Compile Remove="Migrations\20200803121405_AddingCardIDtoImage.cs" />
+    <Compile Remove="Migrations\20200803121405_AddingCardIDtoImage.Designer.cs" />
     <Compile Remove="Migrations\20200805090338_AddingImagesToOtherModels.cs" />
     <Compile Remove="Migrations\20200805090338_AddingImagesToOtherModels.Designer.cs" />
     <Compile Remove="Migrations\20200805091812_AddingImagesToOtherModels.cs" />
@@ -27,6 +29,16 @@
     <Compile Remove="Migrations\20200805092754_AddingImagesToOtherModels1.Designer.cs" />
     <Compile Remove="Migrations\20200805093758_AddingImagesToOtherModels2.cs" />
     <Compile Remove="Migrations\20200805093758_AddingImagesToOtherModels2.Designer.cs" />
+    <Compile Remove="Migrations\20200805095653_AdingImagesToOtherModels.cs" />
+    <Compile Remove="Migrations\20200805095653_AdingImagesToOtherModels.Designer.cs" />
+    <Compile Remove="Migrations\20200806113131_AddImageTableToDb.cs" />
+    <Compile Remove="Migrations\20200806113131_AddImageTableToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200806122321_hi.cs" />
+    <Compile Remove="Migrations\20200806122321_hi.Designer.cs" />
+    <Compile Remove="Migrations\20200806124422_s.cs" />
+    <Compile Remove="Migrations\20200806124422_s.Designer.cs" />
+    <Compile Remove="Migrations\20200806125139_AddImageTableToDb.cs" />
+    <Compile Remove="Migrations\20200806125139_AddImageTableToDb.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -45,12 +45,17 @@ namespace BLL.TireService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
+                foreach (var item in DbEntry.Image)
+                {
+                    uow.Context.Image.Remove(item);
+                }
+                uow.Commit();
+                uow.TireRepository.Delete(DbEntry);
+                uow.Commit();
                 if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
                 {
                     Directory.Delete(Directory.GetCurrentDirectory() + @"\Images\" + request.Id, true);
                 }
-                uow.TireRepository.Delete(DbEntry);
-                uow.Commit();
                 return Unit.Value;
             }
         }

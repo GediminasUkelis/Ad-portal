@@ -16,7 +16,7 @@ namespace Domain.Models
         public DateTime ManufactureDate { get; set; }
         public decimal TireWearOut { get; set; }
         public Manufacturer Manufacturer { get; set; }
-        public ICollection<TireImage> Image { get; set; }
+        public ICollection<Image> Image { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }

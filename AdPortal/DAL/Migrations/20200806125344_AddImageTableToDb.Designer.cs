@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200805095653_AdingImagesToOtherModels")]
-    partial class AdingImagesToOtherModels
+    [Migration("20200806125344_AddImageTableToDb")]
+    partial class AddImageTableToDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,25 +108,6 @@ namespace DAL.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("Domain.Models.CarImage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CarId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.ToTable("CarImages");
-                });
-
             modelBuilder.Entity("Domain.Models.Category", b =>
                 {
                     b.Property<Guid>("Id")
@@ -139,18 +120,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("5498def1-1ca3-42c9-bfe1-64019412bc49"),
-                            Name = "Automobilis"
-                        },
-                        new
-                        {
-                            Id = new Guid("24f5190a-b8cd-494a-a750-a7ac2da0d7d1"),
-                            Name = "Motociklas"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Color", b =>
@@ -165,18 +134,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Colors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("14fcd99c-3593-40be-b132-5465c9edefaf"),
-                            Name = "Balta"
-                        },
-                        new
-                        {
-                            Id = new Guid("d88635dc-678d-4700-8340-83eaab0b7a84"),
-                            Name = "Juoda"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Condition", b =>
@@ -191,18 +148,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Conditions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("87d02b16-711e-408c-9c46-028deb30c505"),
-                            VehicCondition = "Naudota"
-                        },
-                        new
-                        {
-                            Id = new Guid("8c9aadf1-76d1-42c4-bf12-7f4203f6f348"),
-                            VehicCondition = "Nauja"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Cooling", b =>
@@ -217,18 +162,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coolings");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("15ffe8aa-2b9a-4106-a09b-5be4d1ff145d"),
-                            CoolingType = "Oru"
-                        },
-                        new
-                        {
-                            Id = new Guid("4edb5c1b-f59a-4247-9edd-12825e8c9280"),
-                            CoolingType = "Vandeniu"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Defects", b =>
@@ -243,18 +176,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Defects");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("46e32ac2-1470-4cbf-bccf-bcd30de9707b"),
-                            Defect = "Be defetkų"
-                        },
-                        new
-                        {
-                            Id = new Guid("cb4c8b85-7ee8-4e27-8a0f-9e0854a5eace"),
-                            Defect = "Degęs"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Diameter", b =>
@@ -269,18 +190,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Diameters");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("92d169fb-19b6-4725-902c-55512ea2a5b9"),
-                            TireDiameter = 17m
-                        },
-                        new
-                        {
-                            Id = new Guid("f4eddc26-d1bc-495e-a3a5-597d7b3c58dd"),
-                            TireDiameter = 18m
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Doors", b =>
@@ -295,18 +204,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Doors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("93cb3b17-8b07-4a8f-9cd4-eafbfd23bc21"),
-                            DoorCount = "4/5"
-                        },
-                        new
-                        {
-                            Id = new Guid("ba9dfc3a-4478-4536-95b1-e5135c2d3060"),
-                            DoorCount = "2/3"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.FrameType", b =>
@@ -321,18 +218,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FrameTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("5d53e8e3-3dab-4e94-ab7a-57c1cee47c8f"),
-                            Type = "Universalas"
-                        },
-                        new
-                        {
-                            Id = new Guid("3f78b537-7d01-4bde-bfdc-81d62bfcfc68"),
-                            Type = "Sedanas"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.FuelType", b =>
@@ -347,18 +232,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FuelTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8700eacf-bb3c-42f4-9c76-40708bdf2af7"),
-                            Type = "Benzinas"
-                        },
-                        new
-                        {
-                            Id = new Guid("adb92f27-86d5-4ad2-a8da-fee07844bf22"),
-                            Type = "Dyzelinas"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Height", b =>
@@ -373,18 +246,35 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Heights");
+                });
 
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("bd10d612-fcbd-4df0-8c86-f46f7e4ce19e"),
-                            TireHeight = 205m
-                        },
-                        new
-                        {
-                            Id = new Guid("95f0b057-15d6-43bc-ac0c-289a717f995c"),
-                            TireHeight = 215m
-                        });
+            modelBuilder.Entity("Domain.Models.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CarId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("MotorbikeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("TireId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("MotorbikeId");
+
+                    b.HasIndex("TireId");
+
+                    b.ToTable("Image");
                 });
 
             modelBuilder.Entity("Domain.Models.Manufacturer", b =>
@@ -413,18 +303,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ManufacturerModels");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("f6a9907d-12b7-403d-8eec-df80d56d623d"),
-                            Name = "RS6"
-                        },
-                        new
-                        {
-                            Id = new Guid("a57722b2-e538-47bd-b712-e5a38bb5035d"),
-                            Name = "E60"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
@@ -499,25 +377,6 @@ namespace DAL.Migrations
                     b.ToTable("Motorbikes");
                 });
 
-            modelBuilder.Entity("Domain.Models.MotorbikeImage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("MotorbikeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MotorbikeId");
-
-                    b.ToTable("MotorbikeImages");
-                });
-
             modelBuilder.Entity("Domain.Models.Season", b =>
                 {
                     b.Property<Guid>("Id")
@@ -544,18 +403,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SteeringWheelPos");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("6e2a17a0-5f03-45a7-97ef-a710a35547e8"),
-                            Position = "Kairė"
-                        },
-                        new
-                        {
-                            Id = new Guid("90011866-1c58-4c40-aaed-ded1114e6d9c"),
-                            Position = "Dešinė"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.Tire", b =>
@@ -624,25 +471,6 @@ namespace DAL.Migrations
                     b.ToTable("Tires");
                 });
 
-            modelBuilder.Entity("Domain.Models.TireImage", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("TireId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TireId");
-
-                    b.ToTable("TireImages");
-                });
-
             modelBuilder.Entity("Domain.Models.TirePurpose", b =>
                 {
                     b.Property<Guid>("Id")
@@ -669,18 +497,6 @@ namespace DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Transmissions");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("2012170e-9df6-4aef-9652-3180fec0df5b"),
-                            Type = "Automatinė"
-                        },
-                        new
-                        {
-                            Id = new Guid("373e19e0-5c4e-48ad-b6e8-f5b240b4359f"),
-                            Type = "Mechaninė"
-                        });
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>
@@ -786,13 +602,19 @@ namespace DAL.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Models.CarImage", b =>
+            modelBuilder.Entity("Domain.Models.Image", b =>
                 {
-                    b.HasOne("Domain.Models.Car", "Cars")
+                    b.HasOne("Domain.Models.Car", "Car")
                         .WithMany("Image")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CarId");
+
+                    b.HasOne("Domain.Models.Motorbike", "Motorbike")
+                        .WithMany("Image")
+                        .HasForeignKey("MotorbikeId");
+
+                    b.HasOne("Domain.Models.Tire", "Tire")
+                        .WithMany("Image")
+                        .HasForeignKey("TireId");
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
@@ -832,15 +654,6 @@ namespace DAL.Migrations
                         .HasForeignKey("VehicleTypeId");
                 });
 
-            modelBuilder.Entity("Domain.Models.MotorbikeImage", b =>
-                {
-                    b.HasOne("Domain.Models.Motorbike", "Motorbikes")
-                        .WithMany("Image")
-                        .HasForeignKey("MotorbikeId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Domain.Models.Tire", b =>
                 {
                     b.HasOne("Domain.Models.Condition", "Condition")
@@ -876,15 +689,6 @@ namespace DAL.Migrations
                     b.HasOne("Domain.Models.Width", "Width")
                         .WithMany()
                         .HasForeignKey("WidthId");
-                });
-
-            modelBuilder.Entity("Domain.Models.TireImage", b =>
-                {
-                    b.HasOne("Domain.Models.Tire", "Tires")
-                        .WithMany("Image")
-                        .HasForeignKey("TireId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

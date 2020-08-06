@@ -20,18 +20,19 @@ namespace BLL.Infastructure.UnitOfWork
         private IGenericRepository<Car> carRepo;
         private IGenericRepository<Tire> TireRepo;
         private IGenericRepository<Motorbike> MotorbikeRepo;
-   
+        private IGenericRepository<Image> ImageRepo;
         private IGenericRepository<User> UserRepo;
         private IUserService userService;
         private IHttpContextAccessor httpContext;
         public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo,
             IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
             IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo, IUserService userService,
-            IHttpContextAccessor httpContext, IGenericRepository<User> UserRepo)
+            IHttpContextAccessor httpContext, IGenericRepository<User> UserRepo, IGenericRepository<Image> ImageRepo)
         {
             this.UserRepo = UserRepo;
             this.carRepo = carRepo;
             Context = context;
+            this.ImageRepo = ImageRepo;
             this.Mediator = mediator;
             this.Mapper = mapper;
             this.Logger = logger;
@@ -43,21 +44,25 @@ namespace BLL.Infastructure.UnitOfWork
         }
         public IGenericRepository<Car> CarRepository
         {
-            get { return carRepo ?? (carRepo = new GenericRepository<Car>(Context)); }
+            get { return carRepo ??= new GenericRepository<Car>(Context); }
         }
         public IGenericRepository<Tire> TireRepository
         {
-            get { return TireRepo ?? (TireRepo = new GenericRepository<Tire>(Context)); }
+            get { return TireRepo ??= new GenericRepository<Tire>(Context); }
         }
         public IGenericRepository<Motorbike> MotorbikeRepository
         {
 
-            get { return MotorbikeRepo ?? (MotorbikeRepo = new GenericRepository<Motorbike>(Context)); }
+            get { return MotorbikeRepo ??= new GenericRepository<Motorbike>(Context); }
         }
     
         public IGenericRepository<User> UserRepository
         {
-            get { return UserRepo ?? (UserRepo = new GenericRepository<User>(Context)); }
+            get { return UserRepo ??= new GenericRepository<User>(Context); }
+        }
+        public IGenericRepository<Image> ImageRepository
+        {
+            get { return ImageRepo ??= new GenericRepository<Image>(Context); }
         }
         public IMediator Mediator { get; }
 
@@ -67,12 +72,12 @@ namespace BLL.Infastructure.UnitOfWork
 
         public IUserService User
         {
-            get { return userService ?? (userService = new UserService(Context)); }
+            get { return userService ??= new UserService(Context); }
         }
 
         public IHttpContextAccessor httpContextAccessor
         {
-            get { return httpContext ?? (httpContext = new HttpContextAccessor()); }
+            get { return httpContext ??= new HttpContextAccessor(); }
         }
 
 
