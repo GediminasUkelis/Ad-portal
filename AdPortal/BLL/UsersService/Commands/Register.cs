@@ -7,6 +7,7 @@ using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using Newtonsoft.Json;
 using System;
@@ -41,7 +42,7 @@ namespace BLL.UsersService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                if(uow.Context.Users.SingleOrDefault(x=>x.Username==request.obj.Username)!=null)
+                if(await uow.Context.Users.SingleOrDefaultAsync(x=>x.Username==request.obj.Username)!=null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"User with this {request.obj.Username} already exists");
                 }
@@ -59,7 +60,7 @@ namespace BLL.UsersService.Commands
                 var obj = uow.Mapper.Map<User>(request.obj);
                 obj.Salt = salt;
                 obj.Role = Role.User;
-                uow.User.Register(obj);
+                await uow.User.RegisterAsync(obj);
                 uow.Commit();
                 return Unit.Value;
 

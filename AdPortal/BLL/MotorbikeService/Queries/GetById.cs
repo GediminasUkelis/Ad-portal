@@ -31,7 +31,7 @@ namespace BLL.MotorbikeService.Queries
 
             public async Task<MotorbikeDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var DbEntry = uow.MotorbikeRepository.GetById(request.Id);
+                var DbEntry = await uow.MotorbikeRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Motorbike with this {request.Id} was not found in database");

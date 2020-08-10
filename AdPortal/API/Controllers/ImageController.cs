@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
 using System.Threading.Tasks;
+using BLL.CarService.Queries;
 using BLL.Dto;
 using BLL.ImageService.Commands;
 using BLL.Infastructure.UnitOfWork.Interface;
@@ -38,6 +39,7 @@ namespace API.Controllers
         {
             return await uow.Mediator.Send(new Insert.Command(postId, images));
         }
+
 
     }
 }

@@ -39,6 +39,10 @@
     <Compile Remove="Migrations\20200806124422_s.Designer.cs" />
     <Compile Remove="Migrations\20200806125139_AddImageTableToDb.cs" />
     <Compile Remove="Migrations\20200806125139_AddImageTableToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200810075824_SingleFieldsInsteadOfComplex.cs" />
+    <Compile Remove="Migrations\20200810075824_SingleFieldsInsteadOfComplex.Designer.cs" />
+    <Compile Remove="Migrations\20200810093306_TEMP.cs" />
+    <Compile Remove="Migrations\20200810093306_TEMP.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

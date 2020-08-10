@@ -39,7 +39,7 @@ namespace BLL.MotorbikeService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, $" Object is empty");
                 }
-                var DbEntry = uow.MotorbikeRepository.GetById(request.Id);
+                var DbEntry = await uow.MotorbikeRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound,$"Motorbike with id {request.Id} not found");
@@ -57,7 +57,7 @@ namespace BLL.MotorbikeService.Commands
                 }
 
                 uow.Mapper.Map(request.obj, DbEntry);
-                uow.MotorbikeRepository.Update(DbEntry);
+                await uow.MotorbikeRepository.Update(DbEntry);
                 uow.Commit();
                 return Unit.Value;
             }

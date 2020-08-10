@@ -30,19 +30,19 @@ namespace DAL.Repositories
             entities = context.Set<T>();
         }
 
-        public List<T> GetAll() => Query().AsNoTracking().ToList();
-        public T GetById(Guid id)
+        public async Task<List<T>> GetAll() => await Query().AsNoTracking().ToListAsync();
+        public async Task<T> GetById(Guid id)
         {
             var DbEntry = Query()
                 .AsNoTracking()
-                .FirstOrDefault(s => s.Id == id);
+                .FirstOrDefaultAsync(s => s.Id == id);
                   
-            return DbEntry;
+            return await DbEntry;
         }
         
-        public void Delete(T obj)
+        public async Task Delete(T obj)
         {
-            T entityToDelete = entities.Find(obj.Id);
+            T entityToDelete = await entities.FindAsync(obj.Id);
             if (context.Entry(entityToDelete).State == EntityState.Detached)
             {
                 entities.Attach(entityToDelete);
@@ -50,16 +50,14 @@ namespace DAL.Repositories
 
             entities.Remove(entityToDelete);
         }
-        public void Insert(T obj)
+        public async Task Insert(T obj)
         {
-            entities.Add(obj);
+            await entities.AddAsync(obj);
         }
 
-        public void Update(T obj)
+        public async Task Update(T obj)
         {
-            //entities.Attach(obj);
-            entities.Update(obj);
-            //context.Entry(obj).State = EntityState.Modified;
+            context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
         }
         public IQueryable<T> Query()
         {

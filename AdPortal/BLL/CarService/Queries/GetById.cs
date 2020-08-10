@@ -29,7 +29,7 @@ namespace BLL.CarService.Queries
             }
             public async Task<CarDto> Handle(Query request, CancellationToken cancellationToken)
             {
-               var DbEntry = uow.CarRepository.GetById(request.Id);
+               var DbEntry = await uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");

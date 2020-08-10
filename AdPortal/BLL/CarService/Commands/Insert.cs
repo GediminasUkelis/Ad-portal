@@ -2,6 +2,7 @@
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.Infastructure.Validation;
+using DAL.Data;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
@@ -9,6 +10,7 @@ using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -50,8 +52,8 @@ namespace BLL.CarService.Commands
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
                 }
 
-
-                CarDto CarObj = JsonConvert.DeserializeObject<CarDto>(JObject.Parse(request.obj).ToString());
+               
+                    CarDto CarObj = JsonConvert.DeserializeObject<CarDto>(JObject.Parse(request.obj).ToString());
                 CarDtoValidator validator = new CarDtoValidator();
                 ValidationResult results = validator.Validate(CarObj);
                 if (!results.IsValid)
@@ -94,7 +96,7 @@ namespace BLL.CarService.Commands
                         }
                     }
                 }
-                uow.CarRepository.Insert(obj);
+                await uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
             }

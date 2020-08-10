@@ -31,7 +31,7 @@ namespace BLL.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var DbEntry = uow.CarRepository.GetById(request.Id);
+                var DbEntry = await uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
@@ -51,7 +51,7 @@ namespace BLL.CarService.Commands
                     uow.Context.Image.Remove(item);
                 }
                 uow.Commit();
-                uow.CarRepository.Delete(DbEntry);
+                await uow.CarRepository.Delete(DbEntry);
                
                 uow.Commit();
                 if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))

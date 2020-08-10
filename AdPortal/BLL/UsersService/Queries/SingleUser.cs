@@ -33,23 +33,10 @@ namespace BLL.UsersService.Queries
             }
             public async Task<UserDto> Handle(Query request, CancellationToken cancellationToken)
             {
-                var found = uow.User.FindSingleUser(request.Username);
-                if (found == null)
-                    throw new StatusCodeException(HttpStatusCode.NotFound, $"This username -  {request.Username} does not exists!");
-                var UserCars = uow.CarRepository.GetAll();
-                List<CarDto> carDtos = new List<CarDto>();
-                foreach (var item in UserCars)
-                {
-                    if(item.User!=null)
-                    {
-                        if (item.User.Id == found.Id)
-                        {
-                            carDtos.Add(uow.Mapper.Map<CarDto>(item));
-                        }
-                    }
-                }
-                var User = uow.Mapper.Map<UserDto>(found);
-                User.Cars = carDtos;
+                var user = await uow.User.FindSingleUserAsync(request.Username);
+                if (user == null)
+                    throw new StatusCodeException(HttpStatusCode.NotFound, $"This username -  {request.Username} does not exists!"); 
+                var User = uow.Mapper.Map<UserDto>(user);
                 return User;
 
             }

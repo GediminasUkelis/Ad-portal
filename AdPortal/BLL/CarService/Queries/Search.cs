@@ -18,10 +18,10 @@ namespace BLL.CarService.Queries
     {
         public class Query : IRequest<List<CarDto>>
         {
-            public Query( CarDto obj)
+            public Query(CarDto obj)
             {
                 this.obj = obj;
-                
+
             }
             public CarDto obj { get; set; }
         }
@@ -42,49 +42,43 @@ namespace BLL.CarService.Queries
                     throw new StatusCodeException(HttpStatusCode.NotFound, "no Motorbikes found");
                 }
 
-                if (request.obj.Manufacturer != null)
-                {
-                    cars = cars.Where(x => x.Manufacturer.Name == request.obj.Manufacturer.Name).ToList();
-                }
+                //if (request.obj.Manufacturer != null)
+                //{
+                //    cars = cars.Where(x => x.Manufacturer.Name == request.obj.Manufacturer.Name).ToList();
+                //}
                 if (request.obj.Category != null)
                 {
-                    cars = cars.Where(x => x.Category.Name == request.obj.Category.Name).ToList();
+                    cars = cars.Where(x => x.Category == request.obj.Category).ToList();
                 }
-                if (request.obj.Category != null)
-                {
-                    cars = cars.Where(x => x.Category.Name == request.obj.Category.Name).ToList();
-                }
+
                 if (request.obj.ManufactureDate != null)
                 {
                     cars = cars.Where(x => x.ManufactureDate == request.obj.ManufactureDate).ToList();
                 }
                 if (request.obj.Color != null)
                 {
-                    cars = cars.Where(x => x.Color.Name == request.obj.Color.Name).ToList();
+                    cars = cars.Where(x => x.Color == request.obj.Color).ToList();
                 }
                 if (request.obj.Doors != null)
                 {
-                    cars = cars.Where(x => x.Doors.DoorCount == request.obj.Doors.DoorCount).ToList();
+                    cars = cars.Where(x => x.Doors == request.obj.Doors).ToList();
                 }
-                if (request.obj.FuelType != null)
+                if (request.obj.Fuel != null)
                 {
-                    cars = cars.Where(x => x.FuelType.Type == request.obj.FuelType.Type).ToList();
+                    cars = cars.Where(x => x.Fuel == request.obj.Fuel).ToList();
                 }
                 if (request.obj.Engine != null)
                 {
                     cars = cars.Where(x => x.Engine == request.obj.Engine).ToList();
                 }
-                if (request.obj.FrameType != null)
+                if (request.obj.Frame != null)
                 {
-                    cars = cars.Where(x => x.FrameType.Type == request.obj.FrameType.Type).ToList();
+                    cars = cars.Where(x => x.Frame == request.obj.Frame).ToList();
                 }
-                if (request.obj.ManufacturerModel != null)
-                {
-                    cars = cars.Where(x => x.ManufacturerModel.Name == request.obj.ManufacturerModel.Name).ToList();
-                }
+
                 if (request.obj.Defects != null)
                 {
-                    cars = cars.Where(x => x.Defects.Defect == request.obj.Defects.Defect).ToList();
+                    cars = cars.Where(x => x.Defects == request.obj.Defects).ToList();
                 }
                 if (request.obj.Seats != 0)
                 {
@@ -100,14 +94,15 @@ namespace BLL.CarService.Queries
                 }
                 if (request.obj.SteeringWheelPos != null)
                 {
-                    cars = cars.Where(x => x.SteeringWheelPos.Position == request.obj.SteeringWheelPos.Position).ToList();
+                    cars = cars.Where(x => x.SteeringWheelPos == request.obj.SteeringWheelPos).ToList();
                 }
                 if (request.obj.Transmission != null)
                 {
-                    cars = cars.Where(x => x.Transmission.Type == request.obj.Transmission.Type).ToList();
+                    cars = cars.Where(x => x.Transmission == request.obj.Transmission).ToList();
                 }
-                
+
                 return cars;
+
 
             }
         }

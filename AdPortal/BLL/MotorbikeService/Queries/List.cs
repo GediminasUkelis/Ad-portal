@@ -29,7 +29,7 @@ namespace BLL.MotorbikeService.Queries
             public async Task<List<MotorbikeDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 List<MotorbikeDto> motorbikeDtos = new List<MotorbikeDto>();
-                var DbEntry = uow.MotorbikeRepository.GetAll();
+                var DbEntry = await uow.MotorbikeRepository.GetAll();
 
                 foreach (var entry in DbEntry)
                 {

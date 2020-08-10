@@ -50,29 +50,25 @@ namespace BLL.ImageService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
                 }
-                var User = uow.UserRepository.GetById(id);
+                var User = await uow.UserRepository.GetById(id);
 
                 var userCars = User.Cars.FirstOrDefault(c => c.Id == request.PostId);
                 var userBikes = User.Motorbikes.FirstOrDefault(c => c.Id == request.PostId);
-                var userTires = User.Tires.FirstOrDefault(c => c.Id == request.PostId);
-                if (userCars == null && userBikes == null && userTires == null)
+                if (userCars == null && userBikes == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Post doesnt exist");
                 }
                 if(userCars!=null)
                 {
-                    userCars = uow.CarRepository.GetById(userCars.Id);
+                    userCars = await uow.CarRepository.GetById(userCars.Id);
                 }
                 if (userBikes != null)
                 {
-                    userBikes = uow.MotorbikeRepository.GetById(userBikes.Id);
+                    userBikes = await uow.MotorbikeRepository.GetById(userBikes.Id);
                 }
-                if (userTires != null)
-                {
-                    userTires = uow.TireRepository.GetById(userTires.Id);
-                }
+              
                 
-                if (userCars == null && userBikes == null && userTires == null)
+                if (userCars == null && userBikes == null )
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Post doesnt exist");
                 }
@@ -98,7 +94,7 @@ namespace BLL.ImageService.Commands
                                     CarId = request.PostId
                                 };
                             }
-                            else if(userBikes!=null)
+                            else 
                             {
                                 image = new Image()
                                 {
@@ -107,15 +103,7 @@ namespace BLL.ImageService.Commands
                                    MotorbikeId =request.PostId
                                 };
                             }
-                            else
-                            {
-                                image = new Image()
-                                {
-                                    Path = Directory.GetCurrentDirectory()
-                                    + "\\Images\\" + request.PostId + "\\" + fileName,
-                                    TireId=request.PostId
-                                };
-                            }
+                           
                             //path.Path.Replace(@"\\", @"\");
 
                             uow.ImageRepository.Insert(image);
@@ -123,8 +111,7 @@ namespace BLL.ImageService.Commands
                                 userCars.Image.Add(image);
                             if (userBikes != null)
                                 userBikes.Image.Add(image);
-                            if (userTires != null)
-                                userTires.Image.Add(image);
+                           
                         }
                     }
                 }

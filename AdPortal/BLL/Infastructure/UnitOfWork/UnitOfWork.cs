@@ -17,16 +17,16 @@ namespace BLL.Infastructure.UnitOfWork
     {
 
         public ApplicationDbContext Context { get; }
-        private IGenericRepository<Car> carRepo;
-        private IGenericRepository<Tire> TireRepo;
-        private IGenericRepository<Motorbike> MotorbikeRepo;
+        private ICarRepository carRepo;
+     
+        private IMotorbikeRepository MotorbikeRepo;
         private IGenericRepository<Image> ImageRepo;
         private IGenericRepository<User> UserRepo;
         private IUserService userService;
         private IHttpContextAccessor httpContext;
-        public UnitOfWork(ApplicationDbContext context, IGenericRepository<Car> carRepo,
+        public UnitOfWork(ApplicationDbContext context, ICarRepository carRepo,
             IMediator mediator, IMapper mapper, ILogger<UnitOfWork> logger,
-            IGenericRepository<Tire> TireRepo, IGenericRepository<Motorbike> motorbikeRepo, IUserService userService,
+            IMotorbikeRepository motorbikeRepo, IUserService userService,
             IHttpContextAccessor httpContext, IGenericRepository<User> UserRepo, IGenericRepository<Image> ImageRepo)
         {
             this.UserRepo = UserRepo;
@@ -36,24 +36,21 @@ namespace BLL.Infastructure.UnitOfWork
             this.Mediator = mediator;
             this.Mapper = mapper;
             this.Logger = logger;
-            this.TireRepo = TireRepo;
+           
             this.MotorbikeRepo = motorbikeRepo;
   
             this.userService = userService;
             this.httpContext = httpContext;
         }
-        public IGenericRepository<Car> CarRepository
+        public ICarRepository CarRepository
         {
-            get { return carRepo ??= new GenericRepository<Car>(Context); }
+            get { return carRepo ??= new CarRepository(Context); }
         }
-        public IGenericRepository<Tire> TireRepository
-        {
-            get { return TireRepo ??= new GenericRepository<Tire>(Context); }
-        }
-        public IGenericRepository<Motorbike> MotorbikeRepository
+       
+        public IMotorbikeRepository MotorbikeRepository
         {
 
-            get { return MotorbikeRepo ??= new GenericRepository<Motorbike>(Context); }
+            get { return MotorbikeRepo ??= new MotorbikeRepository(Context); }
         }
     
         public IGenericRepository<User> UserRepository
