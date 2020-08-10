@@ -10,6 +10,6 @@ namespace BLL.Dto
         public string Username { get; set; }
         public string Name { get; set; }
         public ICollection<CarDto> Cars { get; set; }
-
+        public ICollection<MotorbikeDto> Motorbikes { get; set; }
     }
 }

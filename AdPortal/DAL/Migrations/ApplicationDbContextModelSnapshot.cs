@@ -25,53 +25,57 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("ColorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Condition")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("DefectsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Defects")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("DoorsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Doors")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<string>("Engine")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("FrameTypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Frame")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("FuelTypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Fuel")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ManufacturerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("ManufacturerModelId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ManufacturerModel")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
-                    b.Property<int>("Seats")
+                    b.Property<short>("Seats")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("SteeringWheelPos")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Transmission")
                         .HasColumnType("int");
-
-                    b.Property<Guid?>("SteeringWheelPosId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TransmissionId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -80,26 +84,6 @@ namespace DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ColorId");
-
-                    b.HasIndex("DefectsId");
-
-                    b.HasIndex("DoorsId");
-
-                    b.HasIndex("FrameTypeId");
-
-                    b.HasIndex("FuelTypeId");
-
-                    b.HasIndex("ManufacturerId");
-
-                    b.HasIndex("ManufacturerModelId");
-
-                    b.HasIndex("SteeringWheelPosId");
-
-                    b.HasIndex("TransmissionId");
 
                     b.HasIndex("UserId");
 
@@ -120,132 +104,6 @@ namespace DAL.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Domain.Models.Color", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Colors");
-                });
-
-            modelBuilder.Entity("Domain.Models.Condition", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("VehicCondition")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Conditions");
-                });
-
-            modelBuilder.Entity("Domain.Models.Cooling", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CoolingType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Coolings");
-                });
-
-            modelBuilder.Entity("Domain.Models.Defects", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Defect")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Defects");
-                });
-
-            modelBuilder.Entity("Domain.Models.Diameter", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("TireDiameter")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Diameters");
-                });
-
-            modelBuilder.Entity("Domain.Models.Doors", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("DoorCount")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Doors");
-                });
-
-            modelBuilder.Entity("Domain.Models.FrameType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FrameTypes");
-                });
-
-            modelBuilder.Entity("Domain.Models.FuelType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FuelTypes");
-                });
-
-            modelBuilder.Entity("Domain.Models.Height", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("TireHeight")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Heights");
-                });
-
             modelBuilder.Entity("Domain.Models.Image", b =>
                 {
                     b.Property<Guid>("Id")
@@ -261,16 +119,11 @@ namespace DAL.Migrations
                     b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("TireId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
 
                     b.HasIndex("MotorbikeId");
-
-                    b.HasIndex("TireId");
 
                     b.ToTable("Image");
                 });
@@ -309,192 +162,59 @@ namespace DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("BikeType")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("ConditionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("CoolingId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Condition")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("DefectsId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Cooling")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Defects")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EngineCapacity")
-                        .HasColumnType("int");
+                    b.Property<short>("EngineCapacity")
+                        .HasColumnType("smallint");
 
-                    b.Property<Guid?>("FuelTypeId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Fuel")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ManufactureDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid?>("ManufacturerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Power")
-                        .HasColumnType("int");
+                    b.Property<string>("ManufacturerModel")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<short>("Power")
+                        .HasColumnType("smallint");
+
+                    b.Property<float>("Price")
+                        .HasColumnType("real");
 
                     b.Property<bool>("Registration")
                         .HasColumnType("bit");
 
-                    b.Property<decimal>("TireWearOut")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("TireWearOut")
+                        .HasColumnType("real");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("VehicleTypeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ConditionId");
-
-                    b.HasIndex("CoolingId");
-
-                    b.HasIndex("DefectsId");
-
-                    b.HasIndex("FuelTypeId");
-
-                    b.HasIndex("ManufacturerId");
-
                     b.HasIndex("UserId");
-
-                    b.HasIndex("VehicleTypeId");
 
                     b.ToTable("Motorbikes");
-                });
-
-            modelBuilder.Entity("Domain.Models.Season", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("SeasonName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Seasons");
-                });
-
-            modelBuilder.Entity("Domain.Models.SteeringWheelPos", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Position")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SteeringWheelPos");
-                });
-
-            modelBuilder.Entity("Domain.Models.Tire", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ConditionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid?>("DiameterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("HeightId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("ManufactureDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("ManufacturerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("SeasonId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("TirePurposeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("TireWearOut")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("WidthId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ConditionId");
-
-                    b.HasIndex("DiameterId");
-
-                    b.HasIndex("HeightId");
-
-                    b.HasIndex("ManufacturerId");
-
-                    b.HasIndex("SeasonId");
-
-                    b.HasIndex("TirePurposeId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("WidthId");
-
-                    b.ToTable("Tires");
-                });
-
-            modelBuilder.Entity("Domain.Models.TirePurpose", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TirePurposes");
-                });
-
-            modelBuilder.Entity("Domain.Models.Transmission", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Transmissions");
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>
@@ -523,76 +243,8 @@ namespace DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Domain.Models.VehicleType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VehicleTypes");
-                });
-
-            modelBuilder.Entity("Domain.Models.Width", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("TireWidth")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Widths");
-                });
-
             modelBuilder.Entity("Domain.Models.Car", b =>
                 {
-                    b.HasOne("Domain.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("Domain.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ColorId");
-
-                    b.HasOne("Domain.Models.Defects", "Defects")
-                        .WithMany()
-                        .HasForeignKey("DefectsId");
-
-                    b.HasOne("Domain.Models.Doors", "Doors")
-                        .WithMany()
-                        .HasForeignKey("DoorsId");
-
-                    b.HasOne("Domain.Models.FrameType", "FrameType")
-                        .WithMany()
-                        .HasForeignKey("FrameTypeId");
-
-                    b.HasOne("Domain.Models.FuelType", "FuelType")
-                        .WithMany()
-                        .HasForeignKey("FuelTypeId");
-
-                    b.HasOne("Domain.Models.Manufacturer", "Manufacturer")
-                        .WithMany()
-                        .HasForeignKey("ManufacturerId");
-
-                    b.HasOne("Domain.Models.ManufacturerModel", "ManufacturerModel")
-                        .WithMany()
-                        .HasForeignKey("ManufacturerModelId");
-
-                    b.HasOne("Domain.Models.SteeringWheelPos", "SteeringWheelPos")
-                        .WithMany()
-                        .HasForeignKey("SteeringWheelPosId");
-
-                    b.HasOne("Domain.Models.Transmission", "Transmission")
-                        .WithMany()
-                        .HasForeignKey("TransmissionId");
-
                     b.HasOne("Domain.Models.User", "User")
                         .WithMany("Cars")
                         .HasForeignKey("UserId")
@@ -609,84 +261,15 @@ namespace DAL.Migrations
                     b.HasOne("Domain.Models.Motorbike", "Motorbike")
                         .WithMany("Image")
                         .HasForeignKey("MotorbikeId");
-
-                    b.HasOne("Domain.Models.Tire", "Tire")
-                        .WithMany("Image")
-                        .HasForeignKey("TireId");
                 });
 
             modelBuilder.Entity("Domain.Models.Motorbike", b =>
                 {
-                    b.HasOne("Domain.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId");
-
-                    b.HasOne("Domain.Models.Condition", "Condition")
-                        .WithMany()
-                        .HasForeignKey("ConditionId");
-
-                    b.HasOne("Domain.Models.Cooling", "Cooling")
-                        .WithMany()
-                        .HasForeignKey("CoolingId");
-
-                    b.HasOne("Domain.Models.Defects", "Defects")
-                        .WithMany()
-                        .HasForeignKey("DefectsId");
-
-                    b.HasOne("Domain.Models.FuelType", "FuelType")
-                        .WithMany()
-                        .HasForeignKey("FuelTypeId");
-
-                    b.HasOne("Domain.Models.Manufacturer", "Manufacturer")
-                        .WithMany()
-                        .HasForeignKey("ManufacturerId");
-
                     b.HasOne("Domain.Models.User", "User")
                         .WithMany("Motorbikes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("Domain.Models.VehicleType", "VehicleType")
-                        .WithMany()
-                        .HasForeignKey("VehicleTypeId");
-                });
-
-            modelBuilder.Entity("Domain.Models.Tire", b =>
-                {
-                    b.HasOne("Domain.Models.Condition", "Condition")
-                        .WithMany()
-                        .HasForeignKey("ConditionId");
-
-                    b.HasOne("Domain.Models.Diameter", "Diameter")
-                        .WithMany()
-                        .HasForeignKey("DiameterId");
-
-                    b.HasOne("Domain.Models.Height", "Height")
-                        .WithMany()
-                        .HasForeignKey("HeightId");
-
-                    b.HasOne("Domain.Models.Manufacturer", "Manufacturer")
-                        .WithMany()
-                        .HasForeignKey("ManufacturerId");
-
-                    b.HasOne("Domain.Models.Season", "Season")
-                        .WithMany()
-                        .HasForeignKey("SeasonId");
-
-                    b.HasOne("Domain.Models.TirePurpose", "TirePurpose")
-                        .WithMany()
-                        .HasForeignKey("TirePurposeId");
-
-                    b.HasOne("Domain.Models.User", "User")
-                        .WithMany("Tires")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Models.Width", "Width")
-                        .WithMany()
-                        .HasForeignKey("WidthId");
                 });
 #pragma warning restore 612, 618
         }

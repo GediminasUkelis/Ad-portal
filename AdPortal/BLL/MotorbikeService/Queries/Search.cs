@@ -32,7 +32,7 @@ namespace BLL.MotorbikeService.Queries
 
             public async Task<List<MotorbikeDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var motorbikes = uow.Mediator.Send(new List.Query()).Result;
+                var motorbikes = await uow.Mediator.Send(new List.Query());
 
                 if (motorbikes == null)
                 {
@@ -41,31 +41,31 @@ namespace BLL.MotorbikeService.Queries
 
                 if (request.obj.Manufacturer != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.Manufacturer.Name == request.obj.Manufacturer.Name).ToList();
+                    motorbikes = motorbikes.Where(x => x.Manufacturer == request.obj.Manufacturer).ToList();
                 }
                 if (request.obj.Category != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.Category.Name == request.obj.Category.Name).ToList();
+                    motorbikes = motorbikes.Where(x => x.Category == request.obj.Category).ToList();
                 }
                 if (request.obj.Condition != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.Condition.VehicCondition == request.obj.Condition.VehicCondition).ToList();
+                    motorbikes = motorbikes.Where(x => x.Condition == request.obj.Condition).ToList();
                 }
                 if (request.obj.ManufactureDate != null)
                 {
                     motorbikes = motorbikes.Where(x => x.ManufactureDate == request.obj.ManufactureDate).ToList();
                 }
-                if (request.obj.VehicleType != null)
+                if (request.obj.BikeType != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.VehicleType.Type == request.obj.VehicleType.Type).ToList();
+                    motorbikes = motorbikes.Where(x => x.BikeType == request.obj.BikeType).ToList();
                 }
                 if (request.obj.EngineCapacity != null)
                 {
                     motorbikes = motorbikes.Where(x => x.EngineCapacity == request.obj.EngineCapacity).ToList();
                 }
-                if (request.obj.FuelType != null)
+                if (request.obj.Fuel != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.FuelType.Type == request.obj.FuelType.Type).ToList();
+                    motorbikes = motorbikes.Where(x => x.Fuel == request.obj.Fuel).ToList();
                 }
                 if (request.obj.TireWearOut != 0)
                 {
@@ -77,11 +77,11 @@ namespace BLL.MotorbikeService.Queries
                 }
                 if (request.obj.Cooling != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.Cooling.CoolingType == request.obj.Cooling.CoolingType).ToList();
+                    motorbikes = motorbikes.Where(x => x.Cooling == request.obj.Cooling).ToList();
                 }
                 if (request.obj.Defects != null)
                 {
-                    motorbikes = motorbikes.Where(x => x.Defects.Defect == request.obj.Defects.Defect).ToList();
+                    motorbikes = motorbikes.Where(x => x.Defects == request.obj.Defects).ToList();
                 }
                 if (request.obj.Registration != false)
                 {

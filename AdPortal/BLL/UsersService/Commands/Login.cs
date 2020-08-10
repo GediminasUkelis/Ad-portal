@@ -7,6 +7,8 @@ using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,9 +33,11 @@ namespace BLL.UsersService.Commands
         public class Handler : IRequestHandler<Command, string>
         {
             private readonly IUnitOfWork uow;
-            public Handler(IUnitOfWork uow)
+            private readonly IConfiguration configuration;
+            public Handler(IUnitOfWork uow, IConfiguration configuration)
             {
                 this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
+                this.configuration = configuration;
             }
 
             public async Task<string> Handle(Command request, CancellationToken cancellationToken)
@@ -45,12 +49,12 @@ namespace BLL.UsersService.Commands
                 {
                     validator.ValidateAndThrow(request.obj);
                 }
-                var User = uow.Context.Users.SingleOrDefault(x => x.Username == request.obj.Username);
+                var User = await uow.Context.Users.SingleOrDefaultAsync(x => x.Username == request.obj.Username);
                 if (User == null || !Validation.Validate(request.obj.Password, User.Salt, User.Password))
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Username and/or password is incorrect");
                 }
-                JwtTokenHandler handler = new JwtTokenHandler(uow);
+                JwtTokenHandler handler = new JwtTokenHandler(uow, configuration);
                 string token = handler.CreateJWTToken(request.obj.Username, request.obj.Password);
                 uow.httpContextAccessor.HttpContext.Session.SetString("JwtToken", token);
                 return token;

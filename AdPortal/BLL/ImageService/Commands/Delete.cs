@@ -50,14 +50,14 @@ namespace BLL.ImageService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
                 }
-                var User = uow.UserRepository.GetById(id);
+                var User = await uow.UserRepository.GetById(id);
 
                 var userCars = User.Cars.FirstOrDefault(c => c.Id == request.Id);
                 if (userCars == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Post doesnt exist");
                 }
-                var carEntry = uow.CarRepository.GetById(userCars.Id);
+                var carEntry = await uow.CarRepository.GetById(userCars.Id);
 
                 if (carEntry == null)
                 {

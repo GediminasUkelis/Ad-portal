@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Infastructure\Date\**" />
+    <Compile Remove="Infastructure\Notifications\**" />
     <Compile Remove="RoofService\**" />
+    <EmbeddedResource Remove="Infastructure\Date\**" />
+    <EmbeddedResource Remove="Infastructure\Notifications\**" />
     <EmbeddedResource Remove="RoofService\**" />
+    <None Remove="Infastructure\Date\**" />
+    <None Remove="Infastructure\Notifications\**" />
     <None Remove="RoofService\**" />
   </ItemGroup>
 
@@ -34,11 +40,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.7.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Infastructure\Date\" />
-    <Folder Include="Infastructure\Notifications\" />
   </ItemGroup>
 
 </Project>

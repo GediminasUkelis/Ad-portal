@@ -12,7 +12,6 @@ namespace Domain.Models
         public Car Car { get; set; }
         public Guid? MotorbikeId { get; set; }
         public Motorbike Motorbike { get; set; }
-        public Guid? TireId { get; set; }
-        public Tire Tire { get; set; }
+
     } 
 }

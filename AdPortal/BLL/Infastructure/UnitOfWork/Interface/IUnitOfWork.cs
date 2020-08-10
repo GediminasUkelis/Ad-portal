@@ -16,9 +16,8 @@ namespace BLL.Infastructure.UnitOfWork.Interface
         ApplicationDbContext Context { get; }
         IMediator Mediator { get; }
         IMapper Mapper { get; }
-        IGenericRepository<Car> CarRepository { get; }
-        IGenericRepository<Tire> TireRepository { get; }
-        IGenericRepository<Motorbike> MotorbikeRepository { get; }
+        ICarRepository CarRepository { get; }
+        IMotorbikeRepository MotorbikeRepository { get; }
         IGenericRepository<User> UserRepository { get; }
         IGenericRepository<Image> ImageRepository { get; }
         IUserService User { get; }

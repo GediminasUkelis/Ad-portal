@@ -43,7 +43,7 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "Object is empty");
                 }
-                var DbEntry = uow.CarRepository.GetById(request.Id);
+                var DbEntry = await uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Tire with this {request.Id} was not found in database");
@@ -58,9 +58,9 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                var s = uow.Mapper.Map<Car>(request.obj);
-                
-                uow.CarRepository.Update(s);
+                var MappedObj = uow.Mapper.Map<Car>(request.obj);
+
+                await uow.CarRepository.Update(MappedObj);
                 uow.Commit();
                 return Unit.Value;
             }

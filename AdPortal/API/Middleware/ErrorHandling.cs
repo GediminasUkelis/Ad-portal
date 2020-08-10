@@ -39,11 +39,6 @@ namespace API.Middleware
             object errors = null;
             switch (ex)
             {
-                case ValidationException validationException:
-                    logger.LogError(ex, validationException.Message);
-                    errors = validationException.Errors.Select(x => x.ErrorMessage);
-                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    break;
                 case StatusCodeException statusCodeException:
                     logger.LogError(ex, $"HTTP {(int)statusCodeException.Code} {statusCodeException.Error}, with id {statusCodeException.Id}");
                     errors = statusCodeException.Error;

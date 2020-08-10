@@ -31,7 +31,7 @@ namespace BLL.CarService.Queries
             public async Task<List<CarDto>> Handle(Query request, CancellationToken cancellationToken)
             {
                 List<CarDto> carDtos = new List<CarDto>();
-                var DbEntry = uow.CarRepository.GetAll();
+                var DbEntry = await uow.CarRepository.GetAll();
                 foreach (var item in DbEntry)
                 {
                     carDtos.Add(uow.Mapper.Map<CarDto>(item));

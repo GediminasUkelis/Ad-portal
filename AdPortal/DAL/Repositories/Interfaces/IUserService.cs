@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories.Interfaces
 {
     public interface IUserService
     {
-        void Register(User user);
-        User Login(LoginData data);
-        User FindSingleUser(string username);
+        Task RegisterAsync(User user);
+        Task<User> LoginAsync(LoginData data);
+        Task<User> FindSingleUserAsync(string username);
     }
 }

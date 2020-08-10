@@ -31,7 +31,7 @@ namespace BLL.MotorbikeService.Commands
             }
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var DbEntry = uow.MotorbikeRepository.GetById(request.Id);
+                var DbEntry = await uow.MotorbikeRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Motorbike by Id {request.Id} Not found in database");
@@ -51,7 +51,7 @@ namespace BLL.MotorbikeService.Commands
                     uow.Context.Image.Remove(item);
                 }
                 uow.Commit();
-                uow.MotorbikeRepository.Delete(DbEntry);
+                await uow.MotorbikeRepository.Delete(DbEntry);
                 uow.Commit();
                 if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))
                 {

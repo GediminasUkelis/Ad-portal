@@ -1,3 +1,4 @@
+using API.Controllers;
 using API.Middleware;
 using AutoMapper;
 using BLL.CarService.Queries;
@@ -48,9 +49,11 @@ namespace API
             });
 
             services.AddControllers();
-            services.AddDbContext<ApplicationDbContext>
-                (options => options.UseSqlServer("server=.;database=ad-Portal;trusted_connection=true;"));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                  options.UseSqlServer(Configuration.GetConnectionString("ConnString")));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IMotorbikeRepository, MotorbikeRepository>();
+            services.AddScoped<ICarRepository, CarRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddMediatR(typeof(List.Handler).Assembly);
@@ -63,7 +66,7 @@ namespace API
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-            
+            var SecretKey = Encoding.ASCII.GetBytes(Configuration.GetSection("JWTToken:SecretKey").Value);
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -72,7 +75,8 @@ namespace API
             })
          .AddJwtBearer(x =>
          {
-             var SecretKey = Encoding.ASCII.GetBytes("MyKey-sdasdas2c5981ASD11cqsqWEDcsq6c5QWDQW1ds2d1321qcqc0sq0qsc23qf6q5s4df3Q234WDq2s1d");
+
+            
              x.RequireHttpsMetadata = false;
              x.SaveToken = true;
              x.TokenValidationParameters = new TokenValidationParameters

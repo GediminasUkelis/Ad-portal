@@ -17,19 +17,22 @@ namespace DAL.Repositories
             this.context = context;
         }
 
-        public User FindSingleUser(string username)
+        public async System.Threading.Tasks.Task<User> FindSingleUserAsync(string username)
         {
-            return context.Users.SingleOrDefault(x=>x.Username==username);
+            return await context.Users
+                .Include(c=>c.Cars).ThenInclude(i=>i.Image)
+                .Include(x=>x.Motorbikes).ThenInclude(i=>i.Image)
+                .SingleOrDefaultAsync(x=>x.Username==username);
         }
 
-        public User Login(LoginData data)
+        public async System.Threading.Tasks.Task<User> LoginAsync(LoginData data)
         {
-           return context.Users.SingleOrDefault(x => x.Username == data.Username && x.Password == data.Password);
+           return await context.Users.SingleOrDefaultAsync(x => x.Username == data.Username && x.Password == data.Password);
         }
 
-        public void Register(User user)
+        public async System.Threading.Tasks.Task RegisterAsync(User user)
         {
-            context.Users.Add(user);
+            await context.Users.AddAsync(user);
         }
     }
 }
