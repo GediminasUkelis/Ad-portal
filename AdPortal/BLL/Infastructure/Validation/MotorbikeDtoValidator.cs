@@ -11,19 +11,19 @@ namespace BLL.Infastructure.Validation
              
             RuleFor(c => c.ManufacturerModel).NotEmpty().WithMessage("Please specify the Manufacturer Model");
            
-            RuleFor(c => c.Category).NotEmpty().WithMessage("Please specify the Category");
+            RuleFor(c => c.Category).NotNull().WithMessage("Please specify the Category");
                
-            RuleFor(c => c.Condition).NotEmpty().WithMessage("Please specify the Condition");
+            RuleFor(c => c.Condition).NotNull().WithMessage("Please specify the Condition");
                
             RuleFor(c => c.ManufactureDate).NotEmpty().WithMessage("Please specify manufacture date");
-            RuleFor(c => c.BikeType).NotEmpty().WithMessage("Please specify the vehicle type");
+            RuleFor(c => c.BikeType).NotNull().WithMessage("Please specify the vehicle type");
                
             RuleFor(c => c.EngineCapacity).NotEmpty().WithMessage("Please specify engine capacity");
-            RuleFor(c => c.Fuel).NotEmpty().WithMessage("Please specify the fuel type");
+            RuleFor(c => c.Fuel).NotNull().WithMessage("Please specify the fuel type");
                
             RuleFor(c => c.TireWearOut).NotEmpty().WithMessage("Please specify tire wear out percentage");
             RuleFor(c => c.Power).NotEmpty().WithMessage("Please specify the Power");
-            RuleFor(c => c.Cooling).NotEmpty().WithMessage("Please specify Cooling type");
+            RuleFor(c => c.Cooling).NotNull().WithMessage("Please specify Cooling type");
                
             RuleFor(c => c.Defects).NotEmpty().WithMessage("Please specify Defects");
           

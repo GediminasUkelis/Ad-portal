@@ -23,7 +23,7 @@ namespace BLL.Dto
         public Enumerators.Cooling Cooling { get; set; }
         public string Defects { get; set; }
         public bool Registration { get; set; }
-        public ICollection<Image> Image { get; set; }
+        public ICollection<ImageDto> Image { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
       

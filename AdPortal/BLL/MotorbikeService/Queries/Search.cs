@@ -43,6 +43,10 @@ namespace BLL.MotorbikeService.Queries
                 {
                     motorbikes = motorbikes.Where(x => x.Manufacturer == request.obj.Manufacturer).ToList();
                 }
+                if (request.obj.ManufacturerModel != null)
+                {
+                    motorbikes = motorbikes.Where(x => x.ManufacturerModel == request.obj.ManufacturerModel).ToList();
+                }
                 if (request.obj.Category != null)
                 {
                     motorbikes = motorbikes.Where(x => x.Category == request.obj.Category).ToList();

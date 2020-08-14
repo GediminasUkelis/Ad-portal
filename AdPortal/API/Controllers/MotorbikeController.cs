@@ -20,7 +20,7 @@ namespace API.Controllers
     [EnableCors("MyPolicy")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+ 
     public class MotorbikeController : Controller
     {
         private readonly IUnitOfWork uow;
@@ -38,7 +38,7 @@ namespace API.Controllers
             return await uow.Mediator.Send(new List.Query());
         }
         
-        [HttpGet("/api/Mototbike/{id}")]
+        [HttpGet("/api/Motorbike/{id}")]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

@@ -43,6 +43,14 @@
     <Compile Remove="Migrations\20200810075824_SingleFieldsInsteadOfComplex.Designer.cs" />
     <Compile Remove="Migrations\20200810093306_TEMP.cs" />
     <Compile Remove="Migrations\20200810093306_TEMP.Designer.cs" />
+    <Compile Remove="Migrations\20200814071405_hello.cs" />
+    <Compile Remove="Migrations\20200814071405_hello.Designer.cs" />
+    <Compile Remove="Migrations\20200814071442_CascadeToCarsAndBikesTables.cs" />
+    <Compile Remove="Migrations\20200814071442_CascadeToCarsAndBikesTables.Designer.cs" />
+    <Compile Remove="Migrations\20200814071610_CascadeToCarsAndBikesTables.cs" />
+    <Compile Remove="Migrations\20200814071610_CascadeToCarsAndBikesTables.Designer.cs" />
+    <Compile Remove="Migrations\20200814072854_kaskadiorikaskadiori.cs" />
+    <Compile Remove="Migrations\20200814072854_kaskadiorikaskadiori.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

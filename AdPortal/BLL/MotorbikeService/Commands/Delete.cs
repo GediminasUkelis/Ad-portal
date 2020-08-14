@@ -46,11 +46,11 @@ namespace BLL.MotorbikeService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                foreach (var item in DbEntry.Image)
-                {
-                    uow.Context.Image.Remove(item);
-                }
-                uow.Commit();
+                //foreach (var item in DbEntry.Image)
+                //{
+                //    uow.Context.Image.Remove(item);
+                //}
+                //uow.Commit();
                 await uow.MotorbikeRepository.Delete(DbEntry);
                 uow.Commit();
                 if (Directory.Exists(Directory.GetCurrentDirectory() + @"\Images\" + request.Id))

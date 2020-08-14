@@ -55,7 +55,7 @@ namespace BLL.UsersService.Commands
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Username and/or password is incorrect");
                 }
                 JwtTokenHandler handler = new JwtTokenHandler(uow, configuration);
-                string token = handler.CreateJWTToken(request.obj.Username, request.obj.Password);
+                string token = handler.CreateJWTToken(request.obj.Username);
                 uow.httpContextAccessor.HttpContext.Session.SetString("JwtToken", token);
                 return token;
             }

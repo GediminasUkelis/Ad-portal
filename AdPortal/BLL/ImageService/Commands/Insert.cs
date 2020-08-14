@@ -103,10 +103,9 @@ namespace BLL.ImageService.Commands
                                    MotorbikeId =request.PostId
                                 };
                             }
-                           
-                            //path.Path.Replace(@"\\", @"\");
 
-                            uow.ImageRepository.Insert(image);
+
+                            await uow.ImageRepository.Insert(image);
                             if (userCars != null)
                                 userCars.Image.Add(image);
                             if (userBikes != null)

@@ -42,15 +42,23 @@ namespace BLL.CarService.Queries
                     throw new StatusCodeException(HttpStatusCode.NotFound, "no Motorbikes found");
                 }
 
-                //if (request.obj.Manufacturer != null)
-                //{
-                //    cars = cars.Where(x => x.Manufacturer.Name == request.obj.Manufacturer.Name).ToList();
-                //}
+                if (request.obj.Manufacturer != null)
+                {
+                    cars = cars.Where(x => x.Manufacturer == request.obj.Manufacturer).ToList();
+                }
+
+                if (request.obj.ManufacturerModel != null)
+                {
+                    cars = cars.Where(x => x.ManufacturerModel == request.obj.ManufacturerModel).ToList();
+                }
                 if (request.obj.Category != null)
                 {
                     cars = cars.Where(x => x.Category == request.obj.Category).ToList();
                 }
-
+                if (request.obj.Condition != null)
+                {
+                    cars = cars.Where(x => x.Condition == request.obj.Condition).ToList();
+                }
                 if (request.obj.ManufactureDate != null)
                 {
                     cars = cars.Where(x => x.ManufactureDate == request.obj.ManufactureDate).ToList();

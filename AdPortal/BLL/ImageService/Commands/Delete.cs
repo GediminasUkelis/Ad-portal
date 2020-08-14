@@ -1,6 +1,7 @@
 ﻿using BLL.Dto;
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
+using Cqrs.Events;
 using Domain.Models;
 using MediatR;
 using System;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,7 +45,7 @@ namespace BLL.ImageService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "No images selected");
                 }
-
+                
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
                 Guid id;
                 if (!Guid.TryParse(accessToken, out id))
@@ -53,23 +55,40 @@ namespace BLL.ImageService.Commands
                 var User = await uow.UserRepository.GetById(id);
 
                 var userCars = User.Cars.FirstOrDefault(c => c.Id == request.Id);
-                if (userCars == null)
+                var userBikes = User.Motorbikes.FirstOrDefault(c => c.Id == request.Id);
+                if (userCars == null&& userBikes==null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Post doesnt exist");
                 }
                 var carEntry = await uow.CarRepository.GetById(userCars.Id);
+                var motorbikeEntry = await uow.MotorbikeRepository.GetById(userCars.Id);
 
-                if (carEntry == null)
+                if (carEntry == null && motorbikeEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, "Post doesnt exist");
                 }
-                foreach (var image in request.Images)
+                if (carEntry != null)
                 {
-                    var item = carEntry.Image.FirstOrDefault(c => c.Path == image.Path);
-                    if (item != null && File.Exists(item.Path))
+                    foreach (var image in request.Images)
                     {
-                        uow.Context.Image.Remove(item);
-                        File.Delete(item.Path);
+                        var item = carEntry.Image.FirstOrDefault(c => c.Path == image.Path);
+                        if (item != null && File.Exists(item.Path))
+                        {
+                            uow.Context.Image.Remove(item);
+                            File.Delete(item.Path);
+                        }
+                    }
+                }
+                if (motorbikeEntry != null)
+                {
+                    foreach (var image in request.Images)
+                    {
+                        var item = motorbikeEntry.Image.FirstOrDefault(c => c.Path == image.Path);
+                        if (item != null && File.Exists(item.Path))
+                        {
+                            uow.Context.Image.Remove(item);
+                            File.Delete(item.Path);
+                        }
                     }
                 }
                 uow.Commit();

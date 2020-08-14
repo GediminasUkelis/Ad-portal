@@ -19,7 +19,6 @@ namespace Domain.Models
         public Enumerators.Category Category { get; set; }
         public string Manufacturer { get; set; }
         public string ManufacturerModel { get; set; }
-
         public DateTime ManufactureDate { get; set; }
         public string Engine { get; set; }
         public Enumerators.Frame Frame { get; set; }

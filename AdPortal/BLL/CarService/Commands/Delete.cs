@@ -31,6 +31,7 @@ namespace BLL.CarService.Commands
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                
                 var DbEntry = await uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
@@ -46,11 +47,11 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                foreach(var item in DbEntry.Image)
-                {
-                    uow.Context.Image.Remove(item);
-                }
-                uow.Commit();
+                //foreach(var item in DbEntry.Image)
+                //{
+                //    uow.Context.Image.Remove(item);
+                //}
+                //uow.Commit();
                 await uow.CarRepository.Delete(DbEntry);
                
                 uow.Commit();

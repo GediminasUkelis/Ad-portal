@@ -17,12 +17,10 @@ namespace DAL.Repositories
 
         public CarRepository(ApplicationDbContext _context)
         {
-
             context = _context;
             entities = context.Set<Car>();
         }
         public async Task<List<Car>> GetAll() => await context.Cars
-          
             .Include(i => i.Image).ToListAsync();
 
         public async Task<Car> GetById(Guid id) => await context.Cars

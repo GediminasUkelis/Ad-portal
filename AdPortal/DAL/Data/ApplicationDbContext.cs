@@ -19,7 +19,8 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-          
+            modelBuilder.Entity<Car>().HasMany(c => c.Image).WithOne(i => i.Car).HasForeignKey(i => i.CarId).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<Motorbike>().HasMany(c => c.Image).WithOne(i => i.Motorbike).HasForeignKey(i => i.MotorbikeId).OnDelete(DeleteBehavior.ClientCascade);
 
             base.OnModelCreating(modelBuilder);
         }

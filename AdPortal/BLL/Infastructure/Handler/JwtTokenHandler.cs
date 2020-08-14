@@ -21,7 +21,7 @@ namespace BLL.Infastructure.Handler
             this.uow = uow;
             this.configuration = configuration;
         }
-        public string CreateJWTToken(string username, string password)
+        public string CreateJWTToken(string username)
         {
             var key = Encoding.ASCII.GetBytes(configuration.GetSection("JWTToken:SecretKey").Value);
             var user = uow.Context.Users.FirstOrDefault(x => x.Username == username);
