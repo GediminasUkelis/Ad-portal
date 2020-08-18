@@ -8,10 +8,10 @@ namespace DAL.Repositories.Interfaces
 {
     public interface IMotorbikeRepository
     {
-        Task<List<Motorbike>> GetAll();
-        Task<Motorbike> GetById(Guid id);
-        Task Insert(Motorbike obj);
-        Task Update(Motorbike obj);
-        Task Delete(Motorbike obj);
+        Task<List<Vehicle>> GetAll();
+        Task<Vehicle> GetById(Guid id);
+        Task Insert(Vehicle obj);
+        Task Update(Vehicle obj);
+        Task Delete(Vehicle obj);
     }
 }

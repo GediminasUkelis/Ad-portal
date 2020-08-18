@@ -10,7 +10,7 @@ namespace BLL.MotorbikeService.Queries
 {
     public class List
     {
-        public class Query : IRequest<List<MotorbikeDto>>
+        public class Query : IRequest<List<VehicleDto>>
         {
             public Query()
             {
@@ -18,7 +18,7 @@ namespace BLL.MotorbikeService.Queries
             }
         }
 
-        public class Handler : IRequestHandler<Query, List<MotorbikeDto>>
+        public class Handler : IRequestHandler<Query, List<VehicleDto>>
         {
 
             private readonly IUnitOfWork uow;
@@ -26,18 +26,17 @@ namespace BLL.MotorbikeService.Queries
             {
                 this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
             }
-            public async Task<List<MotorbikeDto>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<VehicleDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                List<MotorbikeDto> motorbikeDtos = new List<MotorbikeDto>();
+                List<VehicleDto> motorbikeDtos = new List<VehicleDto>();
                 var DbEntry = await uow.MotorbikeRepository.GetAll();
 
                 foreach (var entry in DbEntry)
                 {
-                    motorbikeDtos.Add(uow.Mapper.Map<MotorbikeDto>(entry));
+                    motorbikeDtos.Add(uow.Mapper.Map<VehicleDto>(entry));
                 }
                 return motorbikeDtos;
             }
         }
-
     }
 }

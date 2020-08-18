@@ -20,13 +20,13 @@ namespace BLL.CarService.Commands
     {
         public class Command : IRequest
         {
-            public Command(Guid Id, CarDto obj)
+            public Command(Guid Id, VehicleDto obj)
             {
                 this.obj = obj;
                 this.Id = Id;
             }
             public Guid Id { get; set; }
-            public CarDto obj { get; set; }
+            public VehicleDto obj { get; set; }
         }
 
         public class Handler : IRequestHandler<Command>
@@ -58,7 +58,7 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                var MappedObj = uow.Mapper.Map<Car>(request.obj);
+                var MappedObj = uow.Mapper.Map<Vehicle>(request.obj);
 
                 await uow.CarRepository.Update(MappedObj);
                 uow.Commit();

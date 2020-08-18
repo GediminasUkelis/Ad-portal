@@ -13,30 +13,30 @@ namespace DAL.Repositories
     public class CarRepository : ICarRepository
     {
         private ApplicationDbContext context;
-        private DbSet<Car> entities;
+        private DbSet<Vehicle> entities;
 
         public CarRepository(ApplicationDbContext _context)
         {
             context = _context;
-            entities = context.Set<Car>();
+            entities = context.Set<Vehicle>();
         }
-        public async Task<List<Car>> GetAll() => await context.Cars
-            .Include(i => i.Image).ToListAsync();
+        public async Task<List<Vehicle>> GetAll() => await context.Vehicles
+            .Include(i => i.Image).Include(c=>c.CarDetails).ToListAsync();
 
-        public async Task<Car> GetById(Guid id) => await context.Cars
-           
-            .Include(i => i.Image).FirstOrDefaultAsync(c => c.Id == id);
-        public async Task Delete(Car obj)
+        public async Task<Vehicle> GetById(Guid id) => await context.Vehicles
+
+            .Include(i => i.Image).Include(c => c.CarDetails).FirstOrDefaultAsync(c => c.Id == id);
+        public async Task Delete(Vehicle obj)
         {
             entities.Remove(await GetById(obj.Id));
         }
 
-        public async Task Insert(Car obj)
+        public async Task Insert(Vehicle obj)
         {
             await entities.AddAsync(obj);
         }
 
-        public async Task Update(Car obj)
+        public async Task Update(Vehicle obj)
         {
             context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
         }

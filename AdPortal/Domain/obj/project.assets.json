@@ -5006,11 +5006,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\YES\\Desktop\\ad-portport\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
+      "projectPath": "C:\\Users\\YES\\Desktop\\ad-portport\\Ad-portal\\AdPortal\\Domain\\Domain.csproj",
       "packagesPath": "C:\\Users\\YES\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\YES\\Desktop\\ad-Portal\\Ad-portal\\AdPortal\\Domain\\obj\\",
+      "outputPath": "C:\\Users\\YES\\Desktop\\ad-portport\\Ad-portal\\AdPortal\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\YES\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5069,7 +5069,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

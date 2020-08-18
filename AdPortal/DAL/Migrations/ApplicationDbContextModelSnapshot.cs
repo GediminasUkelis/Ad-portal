@@ -19,102 +19,7 @@ namespace DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Domain.Models.Car", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Color")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Condition")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Defects")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Doors")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
-
-                    b.Property<string>("Engine")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Frame")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Fuel")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ManufactureDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Manufacturer")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ManufacturerModel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<short>("Seats")
-                        .HasColumnType("smallint");
-
-                    b.Property<bool>("SteeringWheelPos")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Transmission")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("VehicleInspection")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Cars");
-                });
-
-            modelBuilder.Entity("Domain.Models.Image", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("CarId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("MotorbikeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("MotorbikeId");
-
-                    b.ToTable("Image");
-                });
-
-            modelBuilder.Entity("Domain.Models.Motorbike", b =>
+            modelBuilder.Entity("Domain.Models.BikeDetails", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -123,46 +28,71 @@ namespace DAL.Migrations
                     b.Property<int>("BikeType")
                         .HasColumnType("int");
 
-                    b.Property<int>("Category")
-                        .HasColumnType("int");
+                    b.HasKey("Id");
+
+                    b.ToTable("BikeDetails");
+                });
+
+            modelBuilder.Entity("Domain.Models.CarDetails", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Doors")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<short>("Seats")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("SteeringWheelPos")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarDetails");
+                });
+
+            modelBuilder.Entity("Domain.Models.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Image");
+                });
+
+            modelBuilder.Entity("Domain.Models.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Condition")
                         .HasColumnType("int");
 
-                    b.Property<int>("Cooling")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Defects")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<short>("EngineCapacity")
-                        .HasColumnType("smallint");
-
-                    b.Property<int>("Fuel")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ManufactureDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Manufacturer")
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ManufacturerModel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<short>("Power")
-                        .HasColumnType("smallint");
 
                     b.Property<float>("Price")
-                        .HasColumnType("real");
-
-                    b.Property<bool>("Registration")
-                        .HasColumnType("bit");
-
-                    b.Property<float>("TireWearOut")
                         .HasColumnType("real");
 
                     b.Property<Guid>("UserId")
@@ -170,9 +100,9 @@ namespace DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.ToTable("Product");
 
-                    b.ToTable("Motorbikes");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Product");
                 });
 
             modelBuilder.Entity("Domain.Models.User", b =>
@@ -201,32 +131,91 @@ namespace DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Domain.Models.Car", b =>
+            modelBuilder.Entity("Domain.Models.Vehicle", b =>
                 {
-                    b.HasOne("Domain.Models.User", "User")
-                        .WithMany("Cars")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("Domain.Models.Product");
+
+                    b.Property<Guid?>("BikeDetailsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CarDetailsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Cooling")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Defects")
+                        .HasColumnType("int");
+
+                    b.Property<short>("Engine")
+                        .HasColumnType("smallint");
+
+                    b.Property<int>("Frame")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fuel")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ManufactureDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Manufacturer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManufacturerModel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<short>("Power")
+                        .HasColumnType("smallint");
+
+                    b.Property<bool>("Registration")
+                        .HasColumnType("bit");
+
+                    b.Property<float>("TireWearOut")
+                        .HasColumnType("real");
+
+                    b.Property<int>("Transmission")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("VehicleInspection")
+                        .HasColumnType("datetime2");
+
+                    b.HasIndex("BikeDetailsId");
+
+                    b.HasIndex("CarDetailsId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasDiscriminator().HasValue("Vehicle");
                 });
 
             modelBuilder.Entity("Domain.Models.Image", b =>
                 {
-                    b.HasOne("Domain.Models.Car", "Car")
+                    b.HasOne("Domain.Models.Product", "Product")
                         .WithMany("Image")
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.ClientCascade);
-
-                    b.HasOne("Domain.Models.Motorbike", "Motorbike")
-                        .WithMany("Image")
-                        .HasForeignKey("MotorbikeId")
-                        .OnDelete(DeleteBehavior.ClientCascade);
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Models.Motorbike", b =>
+            modelBuilder.Entity("Domain.Models.Vehicle", b =>
                 {
+                    b.HasOne("Domain.Models.BikeDetails", "BikeDetails")
+                        .WithMany()
+                        .HasForeignKey("BikeDetailsId");
+
+                    b.HasOne("Domain.Models.CarDetails", "CarDetails")
+                        .WithMany()
+                        .HasForeignKey("CarDetailsId");
+
                     b.HasOne("Domain.Models.User", "User")
-                        .WithMany("Motorbikes")
+                        .WithMany("Vehicles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

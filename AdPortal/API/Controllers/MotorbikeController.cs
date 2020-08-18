@@ -33,7 +33,7 @@ namespace API.Controllers
         [HttpGet]
         [Produces(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<List<MotorbikeDto>>> ListAsync()
+        public async Task<ActionResult<List<VehicleDto>>> ListAsync()
         {
             return await uow.Mediator.Send(new List.Query());
         }
@@ -43,14 +43,14 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<MotorbikeDto>> GetMotorbikeByIdAsync([FromRoute]Guid Id)
+        public async Task<ActionResult<VehicleDto>> GetMotorbikeByIdAsync([FromRoute]Guid Id)
         {
             return await uow.Mediator.Send(new GetById.Query(Id));
         }
 
         [HttpGet("/api/Motorbike/Search")]
         [Consumes(MediaTypeNames.Application.Json)]
-        public async Task<ActionResult<List<MotorbikeDto>>> SearchCar([FromBody] MotorbikeDto obj)
+        public async Task<ActionResult<List<VehicleDto>>> SearchCar([FromBody] VehicleDto obj)
         {
             return await uow.Mediator.Send(new Search.Query(obj));
         }
@@ -71,7 +71,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<Unit> PutMotorbikeAsync([FromBody] MotorbikeDto obj, [FromRoute] Guid Id)
+        public async Task<Unit> PutMotorbikeAsync([FromBody] VehicleDto obj, [FromRoute] Guid Id)
         {
             return await uow.Mediator.Send(new Put.Command(obj, Id));
         }

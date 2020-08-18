@@ -20,8 +20,9 @@ namespace DAL.Repositories
         public async System.Threading.Tasks.Task<User> FindSingleUserAsync(string username)
         {
             return await context.Users
-                .Include(c=>c.Cars).ThenInclude(i=>i.Image)
-                .Include(x=>x.Motorbikes).ThenInclude(i=>i.Image)
+                .Include(x=>x.Vehicles).ThenInclude(x=>x.CarDetails)
+                .Include(x=>x.Vehicles).ThenInclude(x=>x.Image)
+                .Include(x=>x.Vehicles).ThenInclude(x=>x.BikeDetails)
                 .SingleOrDefaultAsync(x=>x.Username==username);
         }
 

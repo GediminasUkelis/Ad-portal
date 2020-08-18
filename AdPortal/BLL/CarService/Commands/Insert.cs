@@ -52,16 +52,16 @@ namespace BLL.CarService.Commands
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
                 }
 
-               
-                    CarDto CarObj = JsonConvert.DeserializeObject<CarDto>(JObject.Parse(request.obj).ToString());
-                CarDtoValidator validator = new CarDtoValidator();
+
+                VehicleDto CarObj = JsonConvert.DeserializeObject<VehicleDto>(JObject.Parse(request.obj).ToString());
+                CarVehicleDtoValidation validator = new CarVehicleDtoValidation();
                 ValidationResult results = validator.Validate(CarObj);
                 if (!results.IsValid)
                 {
                     validator.ValidateAndThrow(CarObj);
                 }
                 
-                var obj = uow.Mapper.Map<Car>(CarObj);
+                var obj = uow.Mapper.Map<Vehicle>(CarObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
                 Guid id;
                 if (!Guid.TryParse(accessToken, out id))

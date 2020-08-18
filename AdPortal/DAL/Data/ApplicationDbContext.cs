@@ -7,9 +7,8 @@ namespace DAL.Data
 {
     public class ApplicationDbContext : DbContext
     {
+        public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Image> Image { get; set; }
-        public DbSet<Car> Cars { get; set; }
-        public DbSet<Motorbike> Motorbikes { get; set; }
         public DbSet<User> Users { get; set; }
        
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
@@ -19,8 +18,7 @@ namespace DAL.Data
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().HasMany(c => c.Image).WithOne(i => i.Car).HasForeignKey(i => i.CarId).OnDelete(DeleteBehavior.ClientCascade);
-            modelBuilder.Entity<Motorbike>().HasMany(c => c.Image).WithOne(i => i.Motorbike).HasForeignKey(i => i.MotorbikeId).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<Product>().HasMany(c => c.Image).WithOne(i => i.Product).HasForeignKey(i => i.ProductId).OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
         }

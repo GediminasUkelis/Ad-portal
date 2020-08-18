@@ -45,16 +45,16 @@ namespace BLL.MotorbikeService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.BadRequest, "object is empty");
                 }
-                MotorbikeDto MotorbikeObj = JsonConvert.DeserializeObject<MotorbikeDto>(JObject.Parse(request.obj).ToString());
+                VehicleDto MotorbikeObj = JsonConvert.DeserializeObject<VehicleDto>(JObject.Parse(request.obj).ToString());
 
-                MotorbikeDtoValidator validator = new MotorbikeDtoValidator();
+                MotorbikeVehicleDtoValidation validator = new MotorbikeVehicleDtoValidation();
                 ValidationResult results = validator.Validate(MotorbikeObj);
                 if (!results.IsValid)
                 {
                     validator.ValidateAndThrow(MotorbikeObj);
                 }
 
-                var obj = uow.Mapper.Map<Motorbike>(MotorbikeObj);
+                var obj = uow.Mapper.Map<Vehicle>(MotorbikeObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
                 Guid id;
                 if (!Guid.TryParse(accessToken, out id))
@@ -94,6 +94,5 @@ namespace BLL.MotorbikeService.Commands
                 return Unit.Value;
             }
         }
-
     }
 }

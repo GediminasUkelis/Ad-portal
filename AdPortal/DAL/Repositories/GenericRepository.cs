@@ -67,13 +67,7 @@ namespace DAL.Repositories
             {
                 query = query.Include(property.Name);
             }
-         
             return query;
-         
-
         }
-
-
-      
     }
 }

@@ -11,7 +11,7 @@ namespace BLL.CarService.Queries
 {
     public class GetById
     {
-        public class Query : IRequest<CarDto>
+        public class Query : IRequest<VehicleDto>
         {
             public Query(Guid Id)
             {
@@ -19,7 +19,7 @@ namespace BLL.CarService.Queries
             }
             public Guid Id { get; set; }
         }
-        public class Handler : IRequestHandler<Query, CarDto>
+        public class Handler : IRequestHandler<Query, VehicleDto>
         {
             private readonly IUnitOfWork uow;
 
@@ -27,7 +27,7 @@ namespace BLL.CarService.Queries
             {
                 this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
             }
-            public async Task<CarDto> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<VehicleDto> Handle(Query request, CancellationToken cancellationToken)
             {
                var DbEntry = await uow.CarRepository.GetById(request.Id);
                 if (DbEntry == null)
@@ -35,7 +35,7 @@ namespace BLL.CarService.Queries
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Car with this {request.Id} was not found in database");
 
                 }
-                var DbEntryDto = uow.Mapper.Map<CarDto>(DbEntry);
+                var DbEntryDto = uow.Mapper.Map<VehicleDto>(DbEntry);
                     return DbEntryDto;
                 
             }

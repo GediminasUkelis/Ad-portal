@@ -12,6 +12,12 @@ namespace Domain.Models.Enums
             Dyzelinas,
             Dujos
         }
+        public enum Defects
+        {
+            skendes, 
+            deges, 
+            be
+        }
        public enum Frame
         {
            Universalas,

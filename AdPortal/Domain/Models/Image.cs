@@ -8,10 +8,7 @@ namespace Domain.Models
     public class Image : BaseModel
     {
         public string Path { get; set; }
-        public Guid? CarId { get; set; }
-        public Car Car { get; set; }
-        public Guid? MotorbikeId { get; set; }
-        public Motorbike Motorbike { get; set; }
-
+        public Guid ProductId { get; set;}
+        public Product Product { get; set; }
     } 
 }

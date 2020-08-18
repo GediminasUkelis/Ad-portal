@@ -14,29 +14,29 @@ namespace BLL.CarService.Queries
 {
     public class List
     {
-        public class Query : IRequest<List<CarDto>>
+        public class Query : IRequest<List<VehicleDto>>
         {
             public Query()
             {
 
             }
         }
-        public class Handler : IRequestHandler<Query, List<CarDto>>
+        public class Handler : IRequestHandler<Query, List<VehicleDto>>
         {
             private readonly IUnitOfWork uow;
             public Handler(IUnitOfWork uow)
             {
                 this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
             }
-            public async Task<List<CarDto>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<List<VehicleDto>> Handle(Query request, CancellationToken cancellationToken)
             {
-                List<CarDto> carDtos = new List<CarDto>();
+                List<VehicleDto> carVehicle = new List<VehicleDto>();
                 var DbEntry = await uow.CarRepository.GetAll();
                 foreach (var item in DbEntry)
                 {
-                    carDtos.Add(uow.Mapper.Map<CarDto>(item));
+                    carVehicle.Add(uow.Mapper.Map<VehicleDto>(item));
                 }
-                return carDtos;
+                return carVehicle;
             }
         }
     }

@@ -15,10 +15,10 @@ namespace BLL.MotorbikeService.Commands
     {
         public class Command : IRequest
         {
-            public MotorbikeDto obj { get; set; }
+            public VehicleDto obj { get; set; }
             public Guid Id{ get; set; }
             
-            public Command(MotorbikeDto obj, Guid Id)
+            public Command(VehicleDto obj, Guid Id)
             {
                 this.obj = obj;
                 this.Id = Id;

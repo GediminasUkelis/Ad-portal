@@ -13,7 +13,7 @@ namespace BLL.MotorbikeService.Queries
 {
     public class GetById
     {
-        public class Query : IRequest<MotorbikeDto>
+        public class Query : IRequest<VehicleDto>
         {
             public Guid Id{ get; set; }
             public Query(Guid Id)
@@ -21,7 +21,7 @@ namespace BLL.MotorbikeService.Queries
                 this.Id = Id;
             }
         }
-        public class Handler : IRequestHandler<Query, MotorbikeDto> {
+        public class Handler : IRequestHandler<Query, VehicleDto> {
 
             private readonly IUnitOfWork uow;
             public Handler(IUnitOfWork uow)
@@ -29,14 +29,14 @@ namespace BLL.MotorbikeService.Queries
                 this.uow = uow ?? throw new ArgumentNullException(nameof(uow));
             }
 
-            public async Task<MotorbikeDto> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<VehicleDto> Handle(Query request, CancellationToken cancellationToken)
             {
                 var DbEntry = await uow.MotorbikeRepository.GetById(request.Id);
                 if (DbEntry == null)
                 {
                     throw new StatusCodeException(HttpStatusCode.NotFound, $"Motorbike with this {request.Id} was not found in database");
                 }
-                var motorbikeDto = uow.Mapper.Map<MotorbikeDto>(DbEntry);
+                var motorbikeDto = uow.Mapper.Map<VehicleDto>(DbEntry);
                 return motorbikeDto;
             }
         }

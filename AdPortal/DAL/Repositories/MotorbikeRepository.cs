@@ -12,30 +12,30 @@ namespace DAL.Repositories
     public class MotorbikeRepository : IMotorbikeRepository
     {
         private ApplicationDbContext context;
-        private DbSet<Motorbike> entities;
+        private DbSet<Vehicle> entities;
 
         public MotorbikeRepository(ApplicationDbContext _context)
         {
 
             context = _context;
-            entities = context.Set<Motorbike>();
+            entities = context.Set<Vehicle>();
         }
-        public async Task<List<Motorbike>> GetAll() => await context.Motorbikes
-            .Include(i => i.Image).ToListAsync();
+        public async Task<List<Vehicle>> GetAll() => await context.Vehicles
+            .Include(i => i.Image).Include(m=>m.BikeDetails).ToListAsync();
 
-        public async Task<Motorbike> GetById(Guid id) => await context.Motorbikes
-            .Include(i => i.Image).FirstOrDefaultAsync(c => c.Id == id);
-        public async Task Delete(Motorbike obj)
+        public async Task<Vehicle> GetById(Guid id) => await context.Vehicles
+            .Include(i => i.Image).Include(m => m.BikeDetails).FirstOrDefaultAsync(c => c.Id == id);
+        public async Task Delete(Vehicle obj)
         {
             entities.Remove(await GetById(obj.Id));
         }
 
-        public async Task Insert(Motorbike obj)
+        public async Task Insert(Vehicle obj)
         {
             await entities.AddAsync(obj);
         }
 
-        public async Task Update(Motorbike obj)
+        public async Task Update(Vehicle obj)
         {
             context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
         }
