@@ -2,6 +2,7 @@
 using BLL.Dto;
 using Domain.Models;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BLL.Infastructure.AutoMapper
 {
@@ -10,21 +11,22 @@ namespace BLL.Infastructure.AutoMapper
         public AutoMapperProfile()
         {
             CreateMap<Vehicle, VehicleDto>();
-            CreateMap<CarDetails, CarDetailsDto>().ReverseMap();
-            CreateMap<BikeDetails, BikeDetailsDto>().ReverseMap();
-            CreateMap<VehicleDto, Vehicle>()
 
-                .ForMember(x => x.Id, opt => opt.Ignore())
-
-                .ForPath(x => x.BikeDetails.Id, opt => opt.Ignore())
-                .ForPath(x => x.CarDetails.Id, opt => opt.Ignore())
-                .ForPath(x => x.User.Id, opt => opt.Ignore())
+            CreateMap<ProductDto, Product>()
+                .Include<VehicleDto, Vehicle>()
+                .ForMember(x=>x.Id, s=>s.Ignore())
+                .ForMember(x=>x.UserId, s=>s.Ignore())
                 .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
 
-            CreateMap<User, RegisterDto>();
-            CreateMap<RegisterDto, User>();
+            CreateMap<VehicleDto, Vehicle>()
+                .ForPath(x => x.CarDetails.Id, opt => opt.Ignore())
+               
+                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+
+            CreateMap<CarDetails, CarDetailsDto>().ReverseMap();
+            CreateMap<BikeDetails, BikeDetailsDto>().ReverseMap();
+            CreateMap<User, RegisterDto>().ReverseMap();
             CreateMap<Image, ImageDto>().ReverseMap();
-            CreateMap<User, UserDto>();
         }
     }
 }

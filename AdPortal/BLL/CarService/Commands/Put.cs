@@ -4,6 +4,7 @@ using BLL.Dto;
 using BLL.Infastructure.Exceptions;
 using BLL.Infastructure.UnitOfWork.Interface;
 using BLL.Infastructure.Validation;
+using Cqrs.Entities;
 using Domain.Models;
 using FluentValidation;
 using FluentValidation.Results;
@@ -58,9 +59,10 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                var MappedObj = uow.Mapper.Map<Vehicle>(request.obj);
-
-                await uow.CarRepository.Update(MappedObj);
+                var mappedObj = uow.Mapper.Map(request.obj, DbEntry);
+                
+                await uow.CarRepository.Update(mappedObj);
+                
                 uow.Commit();
                 return Unit.Value;
             }

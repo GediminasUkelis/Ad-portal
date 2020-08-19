@@ -51,6 +51,8 @@
     <Compile Remove="Migrations\20200814071610_CascadeToCarsAndBikesTables.Designer.cs" />
     <Compile Remove="Migrations\20200814072854_kaskadiorikaskadiori.cs" />
     <Compile Remove="Migrations\20200814072854_kaskadiorikaskadiori.Designer.cs" />
+    <Compile Remove="Migrations\20200819063825_Nullablefields.cs" />
+    <Compile Remove="Migrations\20200819063825_Nullablefields.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

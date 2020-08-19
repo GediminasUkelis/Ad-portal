@@ -22,6 +22,7 @@ namespace BLL.Dto
         public Enumerators.Defects Defects { get; set; }
         public float TireWearOut { get; set; }
         public short Power { get; set; }
+        #nullable enable
         public Guid? CarDetailsId { get; set; }
         public CarDetailsDto? CarDetails { get; set; }
         public Guid? BikeDetailsId { get; set; }

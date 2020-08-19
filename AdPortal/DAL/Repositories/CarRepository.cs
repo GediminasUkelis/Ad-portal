@@ -39,6 +39,7 @@ namespace DAL.Repositories
         public async Task Update(Vehicle obj)
         {
             context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
+
         }
     }
 }
