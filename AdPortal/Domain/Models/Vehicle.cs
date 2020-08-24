@@ -22,10 +22,8 @@ namespace Domain.Models
         public Enumerators.Defects Defects { get; set; }
         public float TireWearOut { get; set; }
         public short Power { get; set; }
-        #nullable enable
-        public Guid? CarDetailsId { get; set; }
+      
         public CarDetails? CarDetails { get; set; }
-        public Guid? BikeDetailsId { get; set; }
         public BikeDetails? BikeDetails { get; set; }
     }
 }

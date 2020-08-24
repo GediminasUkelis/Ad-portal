@@ -4,14 +4,16 @@ using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200824071327_ChangedCarDetailsDoorsField")]
+    partial class ChangedCarDetailsDoorsField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,13 +24,11 @@ namespace DAL.Migrations
             modelBuilder.Entity("Domain.Models.BikeDetails", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("BikeType")
                         .HasColumnType("int");
-
-                    b.Property<Guid>("VehicleId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -50,13 +50,7 @@ namespace DAL.Migrations
                     b.Property<bool>("SteeringWheelPos")
                         .HasColumnType("bit");
 
-                    b.Property<Guid>("VehicleId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("VehicleId")
-                        .IsUnique();
 
                     b.ToTable("CarDetails");
                 });
@@ -142,6 +136,12 @@ namespace DAL.Migrations
                 {
                     b.HasBaseType("Domain.Models.Product");
 
+                    b.Property<Guid?>("BikeDetailsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CarDetailsId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
@@ -187,27 +187,13 @@ namespace DAL.Migrations
                     b.Property<DateTime>("VehicleInspection")
                         .HasColumnType("datetime2");
 
+                    b.HasIndex("BikeDetailsId");
+
+                    b.HasIndex("CarDetailsId");
+
                     b.HasIndex("UserId");
 
                     b.HasDiscriminator().HasValue("Vehicle");
-                });
-
-            modelBuilder.Entity("Domain.Models.BikeDetails", b =>
-                {
-                    b.HasOne("Domain.Models.Vehicle", "Vehicle")
-                        .WithOne("BikeDetails")
-                        .HasForeignKey("Domain.Models.BikeDetails", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Domain.Models.CarDetails", b =>
-                {
-                    b.HasOne("Domain.Models.Vehicle", "Vehicle")
-                        .WithOne("CarDetails")
-                        .HasForeignKey("Domain.Models.CarDetails", "VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Models.Image", b =>
@@ -221,6 +207,14 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("Domain.Models.Vehicle", b =>
                 {
+                    b.HasOne("Domain.Models.BikeDetails", "BikeDetails")
+                        .WithMany()
+                        .HasForeignKey("BikeDetailsId");
+
+                    b.HasOne("Domain.Models.CarDetails", "CarDetails")
+                        .WithMany()
+                        .HasForeignKey("CarDetailsId");
+
                     b.HasOne("Domain.Models.User", "User")
                         .WithMany("Vehicles")
                         .HasForeignKey("UserId")

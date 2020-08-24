@@ -48,7 +48,7 @@ namespace BLL.ImageService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "guid has bad structure");
                 }
-                var User = await uow.UserRepository.GetById(id);
+                var User = await uow.User.FindSingleUserById(id);
 
                 var dbEntry = User.Vehicles.FirstOrDefault(c => c.Id == request.Id);
                 if (dbEntry == null)

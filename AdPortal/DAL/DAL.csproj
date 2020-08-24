@@ -53,6 +53,14 @@
     <Compile Remove="Migrations\20200814072854_kaskadiorikaskadiori.Designer.cs" />
     <Compile Remove="Migrations\20200819063825_Nullablefields.cs" />
     <Compile Remove="Migrations\20200819063825_Nullablefields.Designer.cs" />
+    <Compile Remove="Migrations\20200824071934_DetailsModelsRelationshi.cs" />
+    <Compile Remove="Migrations\20200824071934_DetailsModelsRelationshi.Designer.cs" />
+    <Compile Remove="Migrations\20200824073703_s.cs" />
+    <Compile Remove="Migrations\20200824073703_s.Designer.cs" />
+    <Compile Remove="Migrations\20200824074337_s.cs" />
+    <Compile Remove="Migrations\20200824074337_s.Designer.cs" />
+    <Compile Remove="Migrations\20200824074449_OneToOneRelationBetweenDetailsAndVehicle.cs" />
+    <Compile Remove="Migrations\20200824074449_OneToOneRelationBetweenDetailsAndVehicle.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

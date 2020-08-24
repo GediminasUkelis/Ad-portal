@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -17,13 +18,21 @@ namespace DAL.Repositories
             this.context = context;
         }
 
-        public async System.Threading.Tasks.Task<User> FindSingleUserAsync(string username)
+        public async Task<User> FindSingleUserAsync(string username)
         {
             return await context.Users
                 .Include(x=>x.Vehicles).ThenInclude(x=>x.CarDetails)
                 .Include(x=>x.Vehicles).ThenInclude(x=>x.Image)
                 .Include(x=>x.Vehicles).ThenInclude(x=>x.BikeDetails)
                 .SingleOrDefaultAsync(x=>x.Username==username);
+        }
+        public async Task<User> FindSingleUserById(Guid Id)
+        {
+            return await context.Users
+                .Include(x => x.Vehicles).ThenInclude(x => x.CarDetails)
+                .Include(x => x.Vehicles).ThenInclude(x => x.Image)
+                .Include(x => x.Vehicles).ThenInclude(x => x.BikeDetails)
+                .SingleOrDefaultAsync(x => x.Id == Id);
         }
 
         public async System.Threading.Tasks.Task<User> LoginAsync(LoginData data)

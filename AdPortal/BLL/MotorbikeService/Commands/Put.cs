@@ -5,6 +5,7 @@ using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -55,8 +56,9 @@ namespace BLL.MotorbikeService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-
+                
                 uow.Mapper.Map(request.obj, DbEntry);
+                DbEntry.CarDetails = null;
                 await uow.MotorbikeRepository.Update(DbEntry);
                 uow.Commit();
                 return Unit.Value;

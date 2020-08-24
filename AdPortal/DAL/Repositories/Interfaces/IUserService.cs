@@ -11,5 +11,6 @@ namespace DAL.Repositories.Interfaces
         Task RegisterAsync(User user);
         Task<User> LoginAsync(LoginData data);
         Task<User> FindSingleUserAsync(string username);
+        Task<User> FindSingleUserById(Guid Id);
     }
 }

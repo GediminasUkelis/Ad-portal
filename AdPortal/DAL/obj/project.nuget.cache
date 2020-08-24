@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8UEAU4dd1SJYiCRy7IEcvqb3p+PYd9SaCAi8yeQ1Z6iPgEd33Fu9z6q46XH8Z5FP9XwXdijXGJ3S4K3458XO1w==",
+  "dgSpecHash": "nJTdgywctcuom7WIZ/d9BbjpdDlVc+RcplAEBiFhVTSSEgYWqjRsQygCpuOdRAl6FrM77WavRcWt11/jTqs6hQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portport\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\YES\\Desktop\\ad-portal\\Ad-portal\\AdPortal\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YES\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\YES\\.nuget\\packages\\mediator.net\\1.0.65\\mediator.net.1.0.65.nupkg.sha512",

@@ -60,7 +60,7 @@ namespace BLL.CarService.Commands
                 {
                     validator.ValidateAndThrow(CarObj);
                 }
-                
+
                 var obj = uow.Mapper.Map<Vehicle>(CarObj);
                 var accessToken = uow.httpContextAccessor.HttpContext.User.Identity.Name;
                 Guid id;
@@ -96,6 +96,7 @@ namespace BLL.CarService.Commands
                         }
                     }
                 }
+                obj.BikeDetails = null;
                 await uow.CarRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

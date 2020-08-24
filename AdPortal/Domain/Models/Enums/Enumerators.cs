@@ -8,52 +8,50 @@ namespace Domain.Models.Enums
     {
         public enum Fuel
         {
-            Benzinas,
-            Dyzelinas,
-            Dujos
+            Diesel,
+            Gasoline,
+            Gas
         }
         public enum Defects
         {
-            skendes, 
-            deges, 
-            be
+            Drowned,
+            Broken,
+            Perfect
         }
        public enum Frame
         {
-           Universalas,
-           Sedanas,
-           Hecbekas
+           Sedan,
+           Universal,
+           Coupe
         }
         public enum Transmission
         {
-            Mechaninė,
-            Automatinė
+            Mechanic,
+            Automatic
         }
         public enum BikeType
         {
-            Krosinis,
             Enduro,
-            Kelioninis,
-            Cioperis,
-            Keturratis
+            Motocross,
+            SuperBike
         }
         public enum Category
         {
-            Automobilis,
-            Motociklas,
-            Traktorius
+          Car,
+          Motorcycle,
+          Tractor
         }
         public enum Condition
         {
-            Nuajas,
-            Naudotas,
-            Daužtas
+            New,
+            Used,
+            Broken
         }
         public enum Cooling
         {
-            Oru,
-            Vandeniu,
-            Tepalu
+            Air,
+            Water,
+            Oil
         }
     }
 }

@@ -21,11 +21,5 @@ namespace Domain.Models
         public Guid Id { get; set; }
         
     }
-    enum Fuel
-    {
-        Benzinas,
-        Dyzelis,
-        Dujos,
-
-    }
+   
 }

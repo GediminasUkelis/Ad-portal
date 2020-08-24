@@ -4,7 +4,7 @@ using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
@@ -21,10 +21,10 @@ namespace DAL.Repositories
             entities = context.Set<Vehicle>();
         }
         public async Task<List<Vehicle>> GetAll() => await context.Vehicles
-            .Include(i => i.Image).Include(m=>m.BikeDetails).ToListAsync();
+            .Include(i => i.Image).Include(m => m.BikeDetails).Where(x => x.BikeDetails != null).AsNoTracking().ToListAsync();
 
         public async Task<Vehicle> GetById(Guid id) => await context.Vehicles
-            .Include(i => i.Image).Include(m => m.BikeDetails).FirstOrDefaultAsync(c => c.Id == id);
+            .Include(i => i.Image).Include(m => m.BikeDetails).AsNoTracking().FirstOrDefaultAsync(c => c.Id == id && c.BikeDetails != null);
         public async Task Delete(Vehicle obj)
         {
             entities.Remove(await GetById(obj.Id));
@@ -37,7 +37,7 @@ namespace DAL.Repositories
 
         public async Task Update(Vehicle obj)
         {
-            context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
+            entities.Update(obj);
         }
     }
 }

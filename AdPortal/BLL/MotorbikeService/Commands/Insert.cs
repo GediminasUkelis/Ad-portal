@@ -89,6 +89,7 @@ namespace BLL.MotorbikeService.Commands
                         }
                     }
                 }
+                obj.CarDetails = null;
                 await uow.MotorbikeRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;

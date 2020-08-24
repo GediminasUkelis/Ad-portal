@@ -20,9 +20,14 @@ namespace BLL.Infastructure.AutoMapper
 
             CreateMap<VehicleDto, Vehicle>()
                 .ForPath(x => x.CarDetails.Id, opt => opt.Ignore())
-               
-                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+                .ForPath(x => x.CarDetails.Doors, opt => opt.MapFrom(x => x.CarDetails.Doors))
+                .ForPath(x => x.CarDetails.Seats, opt => opt.MapFrom(x => x.CarDetails.Seats))
+                .ForPath(x => x.CarDetails.SteeringWheelPos, opt => opt.MapFrom(x => x.CarDetails.SteeringWheelPos))
 
+                .ForPath(x => x.BikeDetails.Id, opt => opt.Ignore())
+                .ForPath(x => x.BikeDetails.BikeType, opt => opt.MapFrom(x => x.BikeDetails.BikeType))
+                .ForAllMembers(opt => opt.Condition((src, dest, srcMember) => srcMember != null));
+            CreateMap<User, UserDto>().ReverseMap();
             CreateMap<CarDetails, CarDetailsDto>().ReverseMap();
             CreateMap<BikeDetails, BikeDetailsDto>().ReverseMap();
             CreateMap<User, RegisterDto>().ReverseMap();

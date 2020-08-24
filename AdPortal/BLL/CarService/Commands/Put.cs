@@ -59,9 +59,9 @@ namespace BLL.CarService.Commands
                 {
                     throw new StatusCodeException(HttpStatusCode.Unauthorized, "Unauthorized access");
                 }
-                var mappedObj = uow.Mapper.Map(request.obj, DbEntry);
-                
-                await uow.CarRepository.Update(mappedObj);
+                uow.Mapper.Map(request.obj, DbEntry);
+                DbEntry.BikeDetails = null; 
+                await uow.CarRepository.Update(DbEntry);
                 
                 uow.Commit();
                 return Unit.Value;

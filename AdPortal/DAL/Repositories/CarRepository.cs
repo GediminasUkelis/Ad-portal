@@ -21,11 +21,11 @@ namespace DAL.Repositories
             entities = context.Set<Vehicle>();
         }
         public async Task<List<Vehicle>> GetAll() => await context.Vehicles
-            .Include(i => i.Image).Include(c=>c.CarDetails).ToListAsync();
+            .Include(i => i.Image).Include(c=>c.CarDetails).Where(x=>x.CarDetails!=null).ToListAsync();
 
         public async Task<Vehicle> GetById(Guid id) => await context.Vehicles
 
-            .Include(i => i.Image).Include(c => c.CarDetails).FirstOrDefaultAsync(c => c.Id == id);
+            .Include(i => i.Image).Include(c => c.CarDetails).FirstOrDefaultAsync(c => c.Id == id&&c.CarDetails!=null);
         public async Task Delete(Vehicle obj)
         {
             entities.Remove(await GetById(obj.Id));
@@ -38,7 +38,7 @@ namespace DAL.Repositories
 
         public async Task Update(Vehicle obj)
         {
-            context.Entry(await GetById(obj.Id)).CurrentValues.SetValues(obj);
+            context.Vehicles.Update(obj);
 
         }
     }
