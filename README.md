@@ -11,7 +11,7 @@
 In this project we chose **onion architecture** 
 Ad-Portal project uses Onion layered architecture.
 Base project structure:
-![alt text](https://lh3.googleusercontent.com/gYlCGmT4UBrilm5riWeIZGsCwI35yDumeaAIn-TEK4NGf1sSgilHVkqxjuoz2fIpFZkGBYuFXqiCWY5NY16aZHwYloxON4BJ85PM_2QL8lIT0kigHQ23I7ynRi94sBGVczQYJLlIZUtiuB55gO5Wu_OWbHOMTZYkgROQHAq05yUW7sVt-ry4X6nZQHCv5Sz7ZzGrFidyyzPcBqe3lskQQPnEy5121_SbJjc3gi2-L4O5Fno5IFRMErxVVdUINEMd4paScS6Up_gfSIKwO1Tg4n6xQ-OjGhEL1WbLWgHzu81yctcaJGsXp_S4HYIIL9QIa4eE8lPH6NecAkZEG7nbh0iXcRM9n6-Q5GU98cg9_jiFR9Ufz5pdHMUsiMZsKScsqWMFITAkkQ25blUWIBzDTDku7PFQJCbVRRbXyFx-lcK_SFMA1Le4w47JRihlOTI-NyqHb81FiOwLtzHRRHJhsA3bgj5k4-ftfTjRIl72Qat6h6rDIVkpH7g8j1Z_cKA5P8Tj_ci_dWIYmLhQ7xtAakafbcxIyHV63YoGROiOgCNjc2UOKMpzrSDn_MGB9m0oodYpbcuoTV1_7v3iRCgrkT77obmAuy-VdMJg_ZDhaKA3dTeFyiRX6yq-OrssfF_hfvy2bZfawOIJxLp5azR7S395GykLkpP6GExS55hb4qYRcsQ-i3KqWjNt11WnXw=w462-h454-no?authuser=0)
+![alt text](https://github.com/GediminasUkelis/Ad-portal/blob/master/AdPortal/API/Images/3caa5c54-c681-411e-9329-3b57b2863328/b932e6fa-f0ec-4c59-a36b-b70e11508ed7test2.png?raw=true)
 
  The primary proposition of this architecture is good coupling.
   What is coupling ? It is the level of dependency of one thing upon another. The higher the coupling, the lower the ability to change and evolve the system.
