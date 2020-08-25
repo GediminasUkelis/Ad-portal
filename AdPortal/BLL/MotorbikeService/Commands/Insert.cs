@@ -90,6 +90,7 @@ namespace BLL.MotorbikeService.Commands
                     }
                 }
                 obj.CarDetails = null;
+                obj.BikeDetails.VehicleId = obj.Id;
                 await uow.MotorbikeRepository.Insert(obj);
                 uow.Commit();
                 return Unit.Value;
