@@ -25,7 +25,13 @@ This layer contains all configuration, startup, controller files. In controllers
 CQRS is an architectural pattern, where the acronym stands for Command Query Responsibility Segregation. We can talk about CQRS when the data read operations are separated from the data write operations, and they happen on a different interface.
 
 
-![alt text](https://lh3.googleusercontent.com/JhLpjJAH2SDFpSfM7A3Tr3qwDkjmSGyyoSnMPGXSeXh0KPB69_kCxw3NJ0wRx0D_BESHwZ3Eq8jEXT0J1njifjr34vXSfJgWTU0cvSmEsbs2RgMRRXQWbHl2OYzh1kwYd6r052vr1uN57O5Ix3h42VA_pokm_FGCcPvap-hePqIz4Uv8h5lW5LH5NmGCsGnkd8NdscAvgUqKK8ql3VZuhz_Ksx62ppmaYF7Z8vPG4gZIB0zkX2F5BH_UdKgqN35tO86ucfydu0EpVpegJxGi2r1bGOU4vndu5GoO9WIT9IIvmp-V3d3kJNLLQLajVSY_8zGH_3U9-ydQjOiiLk9uI7TXFS0F138PTWYdVEbnFR2Ej-0ZYkwHudODdqKDqxZvW_ixNKn34NoM9hTr6AXMobRsdQ2FhDoGsJbfgUSL4T1kBVzs6yzaJ60qJD985UnZBaQwNDagJD0-ntqtTdEui1vQnafSY2H4LFNxRZxBwoeSF-i-6pBjt5qgEh1cjHmU8sO7qTZfrcTV60Hi64IDgmh6aJRdQ15oK-YKSBa_hTKw8nLmWY6ne-WP2637N7Kh14_USM_pO89Q1XgaxbRFzqkJ5C_pVL83wdJTtOFvN2NwgX8tvNiGnu9OdeZdBlPfCCPKjQ455vi4ggDC0cb28KJm_Rc6Ra7J3UvgZRoK06eH2QKweqMDdDde8JUDQQ=w584-h100-no?authuser=0)
+
+```csharp
+  public async Task<ActionResult<List<VehicleDto>>> ListAsync()
+    {
+        return await uow.Mediator.Send(new List.Query());
+    }
+```
 
 As you can see request body information is mapped to the List.Query class and it is passed to the appropriate handler by using Send command.
 
